@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/css/style.min.css">
     <title>Part-review presentation</title>
 </head>
+
 <body>
     <header class="header">
         <div class="container">
             <h1>Part-review</h1>
             <p>Сайт-агрегатор сравнения автомобильных запчастей</p>
+            <p>Презентация верстки страниц</p>
         </div>
     </header>
     <main class="main">
         <div class="container">
             <div class="pages-tab-block">
                 <ul class="tabs">
-                    <li class="tabs__item">
-                        <span>Decktop</span>
+                    <li class="tabs__item tabs__item--active">
+                        <span>Desktop</span>
                         <span>min-width: 768</span>
                     </li>
                     <li class="tabs__item">
@@ -27,9 +32,43 @@
                         <span>max-width: 768</span>
                     </li>
                 </ul>
-                <div class="content">
+                <ul class="page-menu">
+                    <li class="page-menu-item"><a href="">index</a></li>
+                    <li class="page-menu-item"><a href="">index</a></li>
+                    <li class="page-menu-item"><a href="">index</a></li>
+                </ul>
+                <div class="pages-tab-block__content">
                     <ul class="pages">
-                        <li class="page"></li>
+                        <li class="page">
+                            <div class="page__info">
+                                <div class="page__info-wrapper">
+                                    <h3 class="page__name">index.html</h3>
+                                    <p class="page__descr">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit officia soluta earum
+                                        dignissimos fugit aliquam necessitatibus sapiente explicabo ullam temporibus.
+                                    </p>
+                                </div>
+                                <a href="" target="_blank" class="btn btn--link"></a>
+                                <button class="btn btn--full-screen"></button>
+                            </div>
+                            
+                            <iframe src="./assets/pages-src/desktop/brands-all.html" frameborder="0"></iframe>
+                        </li>
+                        <li class="page">
+                            <div class="page__info">
+                                <div class="page__info-wrapper">
+                                    <h3 class="page__name">index.html</h3>
+                                    <p class="page__descr">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit officia soluta earum
+                                        dignissimos fugit aliquam necessitatibus sapiente explicabo ullam temporibus.
+                                    </p>
+                                </div>
+                                <a href="" target="_blank" class="btn btn--link"></a>
+                                <button class="btn btn--full-screen"></button>
+                            </div>
+                            
+                            <iframe src="./assets/pages-src/desktop/brands-all.html" frameborder="0"></iframe>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -38,4 +77,5 @@
 
     <script src="./assets/js/main.js"></script>
 </body>
+
 </html>

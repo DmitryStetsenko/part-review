@@ -1,0 +1,41 @@
+.tabs {
+    @include flex;
+    border-bottom: 1px solid silver;
+    &__item {
+        text-align: center;
+        padding: 10px 20px;
+        position: relative;
+        cursor: pointer;
+        color: $tabTextColor;
+        transition: color 0.3s;
+        border-radius: $borderRadius;
+        &:hover {
+            color: $tabTextColorHover;
+        }
+        span {
+            display: block;
+            &:first-child {
+                font-weight: bold;
+                font-size: 18px;
+                text-transform: uppercase;
+            }
+            &:last-child {}
+        }
+        &--active {
+            border: 1px solid silver;
+            border-bottom: none;
+            color: $tabTextColorHover;
+            &::before {
+                content: '';
+                position: absolute;
+                background: white;
+                bottom: -1px;
+                left: -1px;
+                width: 100%;
+                height: $borderRadius;
+                border-left: 1px solid silver;
+                border-right: 1px solid silver;
+            }
+        }
+    }
+}
