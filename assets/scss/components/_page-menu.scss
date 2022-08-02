@@ -1,0 +1,20 @@
+.page-menu {
+    @include flex;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    &__item {
+        a {
+            display: block;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 5px;
+            border: 1px solid silver;
+            color: grey;
+            transition: color .3s;
+            &:hover {
+                color: black;
+            }
+        }
+    }
+}

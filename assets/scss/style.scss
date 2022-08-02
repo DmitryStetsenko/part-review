@@ -2,6 +2,10 @@
 @import "normailze";
 @import "mixinis";
 
+:root {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: sans-serif;
 }
@@ -23,10 +27,11 @@ body {
 // tabs
 .pages-tab-block {
     &__content {
-        padding: 30px;
+        padding: 0 30px;
     }
 }
 
 @import "./components/btn";
 @import "./components/tabs";
+@import "./components/page-menu";
 @import "./components/pages";

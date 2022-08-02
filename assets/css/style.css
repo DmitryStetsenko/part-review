@@ -14,6 +14,10 @@ button {
   border: none;
 }
 
+:root {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: sans-serif;
 }
@@ -29,7 +33,7 @@ body {
 }
 
 .pages-tab-block__content {
-  padding: 30px;
+  padding: 0 30px;
 }
 
 .btn {
@@ -61,6 +65,7 @@ body {
   -o-transition: color 0.3s;
   transition: color 0.3s;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -141,6 +146,43 @@ body {
   height: 5px;
   border-left: 1px solid silver;
   border-right: 1px solid silver;
+}
+
+.page-menu {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.page-menu__item a {
+  display: block;
+  text-decoration: none;
+  padding: 10px 20px;
+  -webkit-border-radius: 5px;
+          border-radius: 5px;
+  margin: 5px;
+  border: 1px solid silver;
+  color: grey;
+  -webkit-transition: color .3s;
+  -o-transition: color .3s;
+  transition: color .3s;
+}
+
+.page-menu__item a:hover {
+  color: black;
 }
 
 .page {

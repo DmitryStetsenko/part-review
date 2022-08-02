@@ -10,6 +10,7 @@
     color: $btnTextColor;
     transition: color 0.3s;
     text-decoration: none;
+    cursor: pointer;
     &:hover {
         color: $btnTextColorHover;
     }
