@@ -1,0 +1,331 @@
+// disqusBlock -----------------------------------
+.disqusBlock {
+  $borderColor: $colorLightGray;
+  $colorTweet: #4991bf;
+  $colorFb: #002fa6;
+  $colorG: #f65676;
+  $colorD: #008dfc;
+  margin-bottom: $outerBlockMargin;
+  &__header {
+    @include flex(center, space-between);
+    border-bottom: 1px solid $borderColor;
+    font-size: 13px;
+    padding-bottom: $blockTitleMarginBottom;
+    .disqusReviewResults {
+      @include flex(center, flex-start);
+      border-radius: $mainBorderRadius;
+      font-size: 12px;
+      &__item {
+        $borderColor: $colorLightGray;
+        $textColor: $colorDarkGray;
+        @include flex(center, center);
+        border-top: 1px solid $borderColor;
+        border-bottom: 1px solid $borderColor;
+        border-left: 1px solid $borderColor;
+        color: $textColor;
+        height: 30px;
+        padding: 0 10px;
+        transition: background .3s;
+        &:first-child {
+          border-radius: 3px 0 0 3px;
+          &:hover {
+            border-left: 1px solid $colorYellow;
+          } // hover
+        } // first-child
+        &:last-child {
+          border-radius: 0 3px 3px 0;
+          border-right: 1px solid $borderColor;
+        }
+        &:hover {
+          border-color: transparent;
+          background: $colorYellow;
+          border-left: 1px solid white;
+          color: white;
+          cursor: pointer;
+        } // hover
+        span {
+          &:first-child {
+            margin-right: 5px;
+          } // fisrt-child
+        } // span
+        &-active {
+          border-color: transparent;
+          background: $colorYellow;
+          color: white;
+        } //
+      } // __item
+    } // disqusReviewResults
+    .disqusLogin {
+      @include flex(center, flex-start);
+      &:hover {
+        cursor:pointer;
+      } // hover
+      &__icon {
+        margin-right: 5px;
+        position: relative;
+        transform: translateY(2px);
+        width: 20px;
+        &::before {
+          content: attr(data-value);
+          color: $colorDarkGray;
+          font-size: 8px;
+          font-weight: bold;
+          position: absolute;
+          top: 5px;
+          left: 50%;
+          transform: translateX(-50%);
+        } // before
+      } // __icon
+      &__text {
+        @include flex(center, flex-start);
+        .innerText {
+          margin-right: 10px;
+        } // innerText
+      } // __text
+    } // disquseLogin
+  } // __header
+  &__content {
+    .disqus {
+      font-size: 13px;
+      &__header {
+        @include flex(center, flex-start);
+        flex-direction: column;
+        padding: 20px 0;
+        .userAction {
+          @include flex(center, flex-start);
+          margin-bottom: 15px;
+          &:last-child {
+            margin-bottom: 0;
+          } // last-child
+          &__item {
+            @include flex(center, flex-start);
+            margin-right: 20px;
+            &:last-child {
+              margin-right: 0;
+            } // last-child
+            span {
+              display: block;
+            } // span
+            .innerIcon {
+              margin-right: 5px;
+              width: 20px;
+              svg {
+                fill-rule: evenodd;
+              } // svg
+            } // innerIcon
+            &-recommended {
+              &::after {
+                border-radius: $mainBorderRadius;
+                background: $colorLightGray;
+                content: attr(data-value);
+                color: white;
+                margin-left: 5px;
+                padding: 3px 6px;
+              } // after
+              .innerIcon {
+                svg {
+                  stroke: #fe434b;
+                  fill: transparent;
+                } // svg
+              } // innerIcon
+            } // -recommended
+            &-tweet {
+              $iconColor: #4991bf;
+              .innerIcon {
+                svg {
+                  fill: $iconColor;
+                } // svg
+              } // innerIcon
+              .innerText {
+                color: $iconColor;
+              } // innerText
+            } // -tweet
+            &-fbook {
+              $iconColor: #002fa6;
+              .innerIcon {
+                svg {
+                  fill: $iconColor;
+                } // svg
+              } // innerIcon
+              .innerText {
+                color: $iconColor;
+              } // innerText
+            } // -fbook
+          } // __item
+          .filter {
+            @include flex(center, flex-start);
+            &__text {
+              font-size: 13px;
+              margin-right: 5px;
+              white-space: nowrap;
+            } // __text
+            &__icon {
+              span {
+                display: block;
+              } // span
+            } // __icon
+          } // filter
+        } // userAction
+      } // header
+      &__content {
+        .discussionBlock {
+          $photoSize: 45px;
+          @include flex(flex-start, flex-start);
+          margin-bottom: 25px;
+          &__avatar {
+            background: $colorLightGray;
+            border-radius: $mainBorderRadius;
+            height: $photoSize;
+            margin-right: 10px;
+            overflow: hidden;
+            position: relative;
+            width: $photoSize;
+            img {
+              object-fit: cover;
+              height: $photoSize;
+              width: $photoSize
+            } // img
+            &-johnDoe {
+              img {
+                bottom: 0;
+                left: 50%;
+                object-fit: initial;
+                position: absolute;
+                transform: translateX(-50%);
+                width: 90%;
+                height: auto;
+              } // img
+            } // -jonDoe
+          } // __avatar
+          &__typeText {
+            height: 90px;
+            width: 100%;
+            textarea {
+              height: 100%;
+            } // textarea
+          } // __typeText
+        } // discussionBlock
+        .loginBlock {
+          $loginIconSize: 30px;
+          @include flex(flex-start, flex-start);
+          flex-direction: column;
+          &__title {
+            @include flex(center, flex-start);
+            margin-bottom: 15px;
+            .innerText {
+              margin-right: 15px;
+            } // innerText
+          } // __title
+          &__social {
+            @include flex(center, flex-start);
+            .innerIcon {
+              display: block;
+              margin-right: 5px;
+              width: $loginIconSize;
+              &:last-child {
+                margin-right: 0;
+              } // last-child
+              svg {
+                fill-rule: evenodd;
+              } // svg
+              &-tweet {
+                svg {
+                  fill: $colorTweet;
+                } // svg
+              } // -tweet
+              &-fbook {
+                svg {
+                  fill: $colorFb;
+                } // svg
+              } // -fbook
+              &-g {
+                svg {
+                  fill: $colorG;
+                } // svg
+              } // -g
+              &-d {
+                svg {
+                  fill: $colorD;
+                  width: $loginIconSize + 2px;
+                } // svg
+              } // -d
+            } // innerIcon
+          } // __social
+          &__disqus {
+            @include flex(center, flex-start);
+            & > label {
+              margin-right: 15px;
+              white-space: nowrap;
+            } // label
+            & > input {
+              width: 100%;
+            } // input
+          } // __disqus
+        } // loginBlock
+        .separate {
+          $lineColor: $borderColor;
+          $textColor: $colorLightGray;
+          $fontSize: 15px;
+          background: $lineColor;
+          height: 1px;
+          margin: $outerBlockMargin 0 ;
+          position: relative;
+          width: 100%;
+          &::after {
+            background: white;
+            content: attr(data-text);
+            color: $textColor;
+            font-size: $fontSize;
+            padding: 0 15px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -70%);
+            white-space: nowrap;
+          } // after
+        } // separate
+      } // __conten
+      &__footer {
+        .footerItems {
+          @include flex(flex-start, flex-start);
+          flex-direction: column;
+          &__item {
+            margin-bottom: 15px;
+            a {
+              @include flex(center, flex-start);
+              color: $colorDarkGray;
+              text-decoration: none;
+            } // a
+            &:last-child {
+              margin-right: 0;
+            } // last-child
+            .innerIcon {
+              margin-right: 8px;
+              width: 15px;
+              svg {
+                fill: $borderColor;
+              } // svg
+            } // innerIcon
+            &-privacyPolicy {
+              margin-bottom: 30px;
+              .innerIcon {
+                width: 10px;
+              } // innerIcon
+            } // privacyPolice
+            &-disqusLogo {
+              align-self: center;
+              a {
+                color: $colorColName;
+                font-family: Arial, sans-serif;
+                font-size: 20px;
+                font-weight: 900;
+                text-transform: uppercase;
+              } // a
+            } // -disqusLogo
+          } // __item
+        } // footerItems
+      } // __footer
+    } // disqus
+  } // __content
+} // disqusBlock
+// ===============================================

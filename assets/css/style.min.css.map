@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,AAAA,CAAC,AAAC,CACE,MAAM,CAAE,CAAC,CACT,OAAO,CAAE,CAAC,CACV,UAAU,CAAE,UAAU,CACzB,AAED,AAAA,EAAE,AAAC,CACC,eAAe,CAAE,IAAI,CACxB,ADND,AAAA,IAAI,AAAC,CACD,WAAW,CAAE,UAAU,CAC1B,AAED,AAAA,UAAU,AAAC,CACP,SAAS,CAAE,MAAM,CACjB,MAAM,CAAE,MAAM,CACjB",
+    "sources": [
+        "../scss/style.scss",
+        "../scss/_normailze.scss"
+    ],
+    "names": [],
+    "file": "style.min.css"
+}

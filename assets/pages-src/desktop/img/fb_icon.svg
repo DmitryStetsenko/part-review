@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #002fa6;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="Forma_fb" data-name="Forma fb" class="cls-1" d="M740,2949a10,10,0,1,0,10,10A10.013,10.013,0,0,0,740,2949Zm2.487,10.35h-1.627v5.8h-2.41v-5.8H737.3v-2.05h1.146v-1.32a2.265,2.265,0,0,1,2.432-2.44l1.786,0.01v1.99h-1.3a0.493,0.493,0,0,0-.51.56v1.2H742.7Z" transform="translate(-730 -2949)"/>
+</svg>

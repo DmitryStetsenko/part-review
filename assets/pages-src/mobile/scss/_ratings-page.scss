@@ -1,0 +1,460 @@
+#ratingsPage {
+
+  // page header block -------------------------
+  .pageHeaderBlock {
+    margin-bottom: $outerBlockMargin;
+    &__content {
+      & > .blockTitle {
+        color: $colorDarkGray;
+        margin-bottom: $blockTitleMarginBottom;
+      } // h1Title
+      .headerBlockContent {
+        &__item {
+          @include flex(center, space-between);
+          border-bottom: 1px solid $colorBorderLightGray;
+          padding: 20px 10px;
+          position: relative;
+          &:last-child {
+            border-bottom: none;
+          } // last-child
+          .innerBlockTitle {
+            color: $colorColName;
+            font-size: 14px;
+            position: relative;
+            .innerText {
+            } // innerText
+            .additInfo {
+              $infoBlockSize: 14px;
+              $iconColor: $colorColName;
+              @include flex(center, center);
+
+              background: white;
+              border-radius: 50%;
+              border: 1px solid $iconColor;
+              color: $iconColor;
+              font-size: 10px;
+              position: absolute;
+              right: -15px;
+              top: -5px;
+              height: $infoBlockSize;
+              width: $infoBlockSize;
+              &:hover {
+                border-color: $colorYellow;
+                color: $colorYellow;
+                cursor: pointer;
+              } // hover
+            } // additInfo
+            &-description {
+              color: $colorDarkGray;
+              font-weight: bold;
+              margin-bottom: 10px;
+            } // -description
+            &-bestProperty {
+              $iconSize: 15px;
+              @include flex(center, center);
+              background: $colorGray;
+              margin-bottom: 0;
+              padding: 5px 0;
+              .innerIcon {
+                width: $iconSize;
+                margin-right: 8px;
+                svg {
+                  fill: $colorYellow;
+                } // svg
+              } // innerIcon
+              .innerTxt {
+                color: white;
+                font-size: 14px;
+              } // innerTxt
+            } // -bestProperty
+          } // blockTitle
+          .innerBlockContent {
+            @include flex(center, flex-start);
+            padding-left: 15px;
+            width: 115px;
+            &__data {
+              @include flex(center, flex-start);
+              color: $colorDarkGray;
+              font-size: 20px;
+              &::after {
+                content: attr(data-growth);
+                font-size: 16px;
+                margin-left: 5px;
+              } // after
+              &-manufacturer {
+                &::after {
+                  color: $colorLightGray;
+                } // after
+              } // -manufacturer
+              &-review {
+                &::after {
+                  color: $colorRatingGreen;
+                } // after
+              } // -review
+              &-vote {
+                &::after {
+                  color: $colorRatingGreen;
+                } // after
+              } // -vote
+              &-additional {
+                color: $colorLightGray;
+                font-size: 16px;
+                .innerSeparator {
+                  margin: 0 5px;
+                  &-plus {
+                    margin: 0 0 0 5px;
+                  } // -plus
+                } // innerSeparator
+              } // -additional
+            } // data
+            &__text {
+              color: $colorDarkGray;
+              font-size: 13px;
+              line-height: 17px;
+            } // text
+            &-description {
+              max-width: 100%;
+              padding-left: 0;
+              width: 100%;
+            } // -description
+          } // innerBlockContent
+          .showAdditInfo {
+            @include flex(center, flex-end);
+            color: white;
+            flex-direction: column-reverse;
+            position: absolute;
+            left: 0;
+            top: 5px;
+            transform: translateY(-100%);
+            width: 300px;
+            &::before {
+              @include drawTriangleBottom(10, 10, $colorGray);
+              content: '';
+              display: block;
+              transform: translateY(-1px);
+            } // before
+            &__innerText {
+              background: $colorGray;
+              border-radius: $mainBorderRadius;
+              font-size: 14px;
+              line-height: 1.2;
+              padding: 10px;
+            } // __innerText
+          } // showAdditInfo
+          &-description {
+            align-items: flex-start;
+            flex-direction: column;
+            padding-right: 0;
+            .innerBlockContent {
+              &__text {
+                max-height: 70px;
+                position: relative;
+                &::after {
+                  content: '';
+                  background: linear-gradient(to bottom,
+                          rgba(255,255,255,0.5) 30%,
+                          rgba(255,255,255,1) 100%);
+                  position: absolute;
+                  bottom: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 15px;
+                } // after
+              } // __text
+            } // innerBlockContent
+          } // -description
+        } // __item
+      } // headerBlockContent
+    } // __content
+  } // pageHeaderBlock
+  // ===========================================
+
+  // rating table block ------------------------
+  // styles in _custom.scss
+  // ===========================================
+
+  // bestSpareParts ----------------------------
+  .bestSpareParts {
+    margin-bottom: $outerBlockMargin;
+    &__title {
+      margin-bottom: $blockTitleMarginBottom;
+      text-align: center;
+    } // __title
+    &__content {
+      @include flex(stretch, flex-start);
+      flex-wrap: wrap;
+      .selectBrand {
+        @include widthPercent(50%);
+        border-radius: $mainBorderRadius;
+        background: $colorBgLightGray;
+        font-size: 18px;
+        padding: 20px 10px;
+        margin-bottom: 15px;
+        &__brandList {
+          @include customScroll();
+          overflow-y: scroll;
+          min-height: 370px;
+          height: 370px;
+        } // __brandList
+        &__item {
+          @include flex(center, space-between);
+          height: 40px;
+          .brandName {
+            margin-right: auto;
+            transition: color .3s;
+          } // brandName
+          .shevronIcon__icon {
+            transform: rotate(180deg) scale(0.7);
+            margin-right: 25px;
+          } // shevronIcon__icon
+          &:hover {
+            cursor: pointer;
+            .brandName {
+              color: $colorYellow;
+            } // brandName
+            .shevronIcon__icon {
+              span {
+                background: $colorYellow;
+              } // span
+            } // shevronIcon__icon
+          } // hover
+          &-active {
+            .brandName {
+              color: $colorYellow;
+            } // brandName
+            .shevronIcon__icon {
+              span {
+                background: $colorYellow;
+              } // span
+            } // shevronIcon__icon
+          } // -active
+        } // __item
+      } // selectBrand
+      .showResults {
+        @include widthPercent(50%);
+        font-size: 16px;
+        padding: 0 10px 20px 10px;
+        margin-bottom: 15px;
+        &__title {
+          @include flex(center, flex-start);
+          margin-bottom: $blockTitleMarginBottom;
+          height: 50px;
+        } // __title
+        .brandModelList {
+          @include flex(center, flex-start);
+          flex-wrap: wrap;
+          width: 100%;
+          &__item {
+            flex-basis: auto;
+            transition: color .3s;
+            height: 40px;
+            width: 50%;
+            span {
+              border-bottom: 1px solid $colorDarkGray;
+              position: relative;
+              &::before {
+                background: white;
+                bottom: -1px;
+                content: '';
+                position: absolute;
+                transition: transform .3s;
+                transform: scale(0,1);
+                height: 1px;
+                width: 100%;
+              } // before
+            } // span
+            &:hover {
+              cursor: pointer;
+              color: $colorYellow;
+              span {
+                &::before {
+                  transform: scale(1,1);
+                } // before
+              } // span
+            } // hover
+          } // __item
+        } // brandModelList
+      } // show
+      .rating {
+        width: 100%;
+        .sparePartsContent {
+          border-radius: $mainBorderRadius;
+          border: 1px solid $colorLightGray;
+          margin-bottom: 15px;
+          width: 100%;
+        } // sparePartsContent
+        .sparePartsContentTitle {
+          @include flex(center, center);
+          color: $colorDarkGray;
+          height: 50px;
+          overflow: hidden;
+          padding: 0 15px;
+          position: relative;
+          text-decoration: none;
+          white-space: nowrap;
+          &__img {
+            margin-right: 20px;
+            height: 34px;
+            img {
+              height: 100%;
+              width: auto;
+            } // img
+          } // img
+          &__text {
+            @include flex(center, center);
+            flex-direction: column;
+            transition: color .3s;
+            span {
+              position: relative;
+              &::after {
+                content: '';
+                background: $colorYellow;
+                display: block;
+                height: 1px;
+                position: absolute;
+                bottom: -1px;
+                left: 0;
+                transition: width .3s;
+                width: 0;
+              } // after
+            } // span
+          } // __text
+          &:after {
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.5) 20%, white 80%);
+            content: '';
+            display: block;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 40px;
+          } // after
+          &:hover {
+            cursor: pointer;
+            .sparePartsContentTitle__text {
+              color: $colorYellow;
+              span {
+                &::after {
+                  width: 100%;
+                } // after
+              } // span
+            } // sparePartsContentTitle__text
+          } // hover
+        } // sparePartsContentTitle
+        .sparePartsElements {
+          a {
+            text-decoration: none;
+          } // a
+        } // sparePartsElements
+        .sparePartsElement {
+          align-items: center;
+          border-top: 1px solid $colorLightGray;
+          color: $colorDarkGray;
+          display: flex;
+          height: 50px;
+          justify-content: space-between;
+          position: relative;
+          &__item {
+            align-items: center;
+            border-right: 1px solid $colorLightGray;
+            display: flex;
+            font-size: 16px;
+            justify-content: center;
+            height: 100%;
+            &:last-child {
+              border-right: none;
+            } // last-child
+            &-count {
+              $sparePartsElementCountWidth: 30px;
+              background: $colorCountBg;
+              color: $colorCountTxt;
+              font-weight: bold;
+              min-width: $sparePartsElementCountWidth;
+              width: $sparePartsElementCountWidth;
+            } // __count
+            &-brandImg {
+              background: $colorBgLightGray;
+              border-right: none;
+              justify-content: flex-start;
+              overflow: hidden;
+              padding-left: 7px;
+              width: 100%;
+              .imgWrap {
+                height: 17px;
+              } // imgWrap
+              img {
+                height: 100%;
+                width: auto;
+              } // img
+            } // __brandImg
+            &-brandText {
+              $sparePartsElementBrandTextWidth: 100px;
+
+              background: $colorBgLightGray;
+              justify-content: flex-start;
+              min-width: $sparePartsElementBrandTextWidth;
+              overflow: hidden;
+              padding-left: 7px;
+              width: $sparePartsElementBrandTextWidth;
+              white-space: nowrap;
+            } // __brandText
+            &-rating {
+              font-size: 13px;
+              font-weight: bold;
+              $sparePartsElementRatingWidth: 55px;
+              min-width: $sparePartsElementRatingWidth;
+              position: relative;
+              width: $sparePartsElementRatingWidth;
+              &>.svgWrap {
+                min-height: 36px;
+                min-width: 36px;
+                position: absolute;
+                height: 36px;
+                width: 36px;
+                @include absPosCenter();
+                .svgRatingCircle {
+                  height: auto;
+                  width: 100%;
+                  &>path {
+                    fill: transparent;
+                    stroke-width:3;
+                    stroke-linecap:round;
+                    stroke-linejoin:round;
+                    stroke-dasharray: 114px;
+                    transition: stroke-dashoffset 1s;
+                    &.static {
+                      stroke: $colorBgLightGray;
+                    } // dynamic
+                  } // path
+                } // svgRatingCircle
+              } // svgWrap
+              span {
+                align-items: center;
+                background: url(../img/rating_circle.svg) no-repeat center/36px 36px;
+                border-radius: 50%;
+                //border: 3px solid $colorYellow;
+                display: flex;
+                justify-content: center;
+                height: 40px;
+                width: 40px;
+              } // span
+            } // __rating
+          } // __item
+        } // sparePartsElement
+      } // rating
+    } // content;
+  } // bestSpareParts
+  // ===========================================
+
+  // magazine block ---------------------------
+  .magazineBlock {
+    & > .widgetsArea {
+      margin-bottom: $outerBlockMargin;
+    } // widgetsArea
+  } // magazineBlock
+  .magazine {
+    margin-bottom: 0;
+  } // magazine
+  // ==========================================
+
+} // ratingsPage

@@ -1,0 +1,456 @@
+#userPage {
+
+  .userInfoBlock {
+    margin-bottom: $outerBlockMargin;
+    .userManage {
+      $imgSize: 110px;
+      border-radius: $mainBorderRadius;
+      border: 1px solid $colorBorderLightGray;
+      padding: 20px;
+      &__detail {
+        @include flex(center, center);
+        flex-direction: column;
+        margin-bottom: 15px;
+      } // userManage__detail
+      &__photo {
+        border-radius: $mainBorderRadius;
+        background: $colorBgLightGray;
+        height: $imgSize;
+        margin-bottom: 15px;
+        overflow: hidden;
+        position: relative;
+        width: $imgSize;
+        img {
+          @include imgFit(contain, center);
+          position: absolute;
+          bottom: 0;
+          left:50%;
+          transform: translateX(-50%);
+        } // img
+      } // photo
+      &__info {
+        text-align: center;
+        .name {
+          margin-bottom: 5px;
+        } // name
+        .registerDate {
+          color: $colorCountTxt;
+          font-size: 13px;
+        } // registerDate
+      } // __info
+      &__userAction {
+        @include flex(center, center);
+        .serviceBtn {
+          @include flex(center, center);
+          border-radius: $mainBorderRadius;
+          color: $colorDarkGray;
+          height: 35px;
+          font-size: 15px;
+          margin-right: 15px;
+          padding: 5px 15px;
+          transition: transform .3s, box-shadow .3s;
+          &:hover {
+            cursor: pointer;
+            transform: translateY(-3px);
+          } // hover
+          &:last-child {
+            margin-right: 0;
+          } // last-child
+          .innerIcon {
+            svg {
+              fill-rule:evenodd;
+            } // svg
+          } // innerIcon
+          &-settings {
+            $iconWidth: 12px;
+            background: $colorBorderLightGray;
+            &:hover {
+              background: darken($colorBorderLightGray, 5%);
+              box-shadow: 0 3px 0 0 #959595;
+            } // hover
+            .innerIcon {
+              margin-right: 10px;
+              width: 12px;
+              svg {
+                fill: $colorCountTxt;
+              } // svg
+            } // innerIcon
+          } // -settings
+          &-exit {
+            $iconWidth: 13px;
+            background: #fea1a5;
+            &:hover {
+              background: darken(#fea1a5, 5%);
+              box-shadow: 0 3px 0 0 #ba7676;
+            } // hover
+            .innerIcon {
+              margin-right: 10px;
+              width: 12px;
+              svg {
+                fill: $colorCountTxt;
+              } // svg
+            } // innerIcon
+          } // -settings
+        } // serviceBtn
+      } // __userAction
+    } // userManage
+    .userInfoDetail {
+      &__header {
+      } // __header
+      &__userProgress {
+        background: $colorBgLightGray;
+        border-radius: $mainBorderRadius;
+        padding: 20px 15px;
+      } // __progress
+      .userProgressBlock {
+        &__title {
+          $iconWidth: 15px;
+          @include flex(center, flex-start);
+          margin-bottom: 10px;
+          .innerIcon {
+            margin-right: 10px;
+            min-width: $iconWidth;
+            width: $iconWidth;
+            svg {
+              fill: $colorYellow;
+            } // svg
+          } // innerIcon
+          .innerText {
+            font-size: 15px;
+          } // innerText
+        } // __title
+        &__growth {
+          border: 2px solid $colorYellow;
+          border-radius: $mainBorderRadius;
+          color: $colorYellow;
+          font-size: 13px;
+          margin-left: auto;
+          padding: 7px 6px 7px 3px;
+          text-decoration: none;
+        } // __growth
+        &__progress {
+          @include flex(center, space-between);
+          width: 100%;
+        } // __progress
+        &__item {
+          height: 35px;
+          margin-right: 10px;
+          text-decoration: none;
+          text-align: center;
+          width: 45px;
+          &:last-child {
+            margin-right: 0;
+          } // last-child
+          img {
+            @include imgFit(cover, center);
+            border-radius: $mainBorderRadius;
+            overflow: hidden;
+            margin-bottom: 5px;
+          } // img
+          .innerText {
+            color: $colorCountTxt;
+            font-size: 14px;
+          } // innerText
+        } // __item
+      } // userProgressBlock
+    } // userInfoDetail
+  } // userInfo
+
+  // info --------------------------------------------
+  .info {
+    margin-bottom: $outerBlockMargin;
+    .manageButton {
+      margin-bottom: $blockTitleMarginBottom;
+      &__item {
+        a {
+          @include flex(center, space-between);
+          border-radius: $mainBorderRadius;
+          border: 1px solid $colorBorderLightGray;
+          color: $colorDarkGray;
+          height: 35px;
+          margin-bottom: 5px;
+          padding: 0 20px;
+          text-decoration: none;
+          width: 100%;
+          white-space: nowrap;
+          &:hover {
+            cursor: pointer;
+            background: $colorYellow;
+            border-color: $colorYellow;
+            color: white;
+          } // hover
+          &::after {
+            @include shevronRight();
+            margin-left: 15px;
+          } // after
+          span {
+            margin-left: auto;
+          } // span
+        } // a
+        &:last-child {
+          margin-bottom: 0;
+        } // last-child
+        &-active {
+          a {
+            cursor: pointer;
+            background: $colorYellow;
+            border-color: $colorYellow;
+            color: white;
+          }
+        } // -active
+      } // __item
+    } // manageButton
+    &__manage {
+      margin-bottom: $outerBlockMargin;
+    } // __manage
+    .contacts {
+      border: 1px solid $colorBorderLightGray;
+      border-radius: $mainBorderRadius;
+      padding: 20px 15px;
+    } // contacts
+    .contactsSocial {
+      $blockWidth: 100%;
+      $gutter: 5px;
+      @include flex(flex-start, flex-start);
+      flex-wrap: wrap;
+      &__item {
+        margin-right: $gutter;
+        width: calc( (#{$blockWidth} - #{$gutter})  / 2 );
+        &:first-child {
+          margin-bottom: $gutter;
+        } // fisrt-child
+        &:nth-child(even) {
+          margin-right: 0;
+          margin-bottom: 0;
+        } // nth-child
+      } // __item
+    } // contactSocial
+    &__contentsBlock {
+      width: 100%;
+      .blockInfo {
+        &__item {
+          line-height: 22px;
+          margin-bottom: $blockTitleMarginBottom;
+          &:last-child {
+            margin-bottom: 0;
+          } // last-child
+        } // __item
+      } // blockInfo
+    } // __contentsBlock
+    .reviewsBlock {
+      margin-bottom: $outerBlockMargin;
+      .contentArea {
+        width: 100%;
+      } // contentArea
+    } // reviewsBlock
+    .review {
+      margin-bottom: $outerBlockMargin;
+      &-noMarginBottom {
+        margin-bottom: 0;
+      } // noMarginBottom
+    } // review
+    .userProgress {
+      margin-bottom: $outerBlockMargin;
+      &__item {
+        border: 1px solid $colorBorderLightGray;
+        border-radius: $mainBorderRadius;
+        margin-bottom: $blockTitleMarginBottom;
+        &:last-child {
+          margin-bottom: 0;
+        } // last-child
+        .progressName {
+          $rowHeight: 90px;
+          &__item {
+            @include flex(center, flex-start);
+            height: $rowHeight;
+            padding: 0 15px;
+            width: 100%;
+            &:nth-child(even) {
+              background: $colorBgLightGray;
+            } // nth-child
+            &:last-child {
+              .progressName__photo {
+                border: none;
+              } // progressName__photo
+              .progressName__info {
+                border: none;
+              } // progressName__info
+            } // last-child
+          } // __item
+          &__photo {
+            @include flex(center, center);
+            border-bottom: 1px solid $colorBorderLightGray;
+            height: 100%;
+            .innerIcon {
+              $iconSize: 45px;
+              border-radius: $mainBorderRadius;
+              margin-right: 20px;
+              overflow: hidden;
+              height: $iconSize;
+              min-width: $iconSize;
+              width: $iconSize;
+              img {
+                @include imgFit(cover, center);
+              } // img
+            } // innerIcon
+          } // photo
+          &__info {
+            @include flex(flex-start, center);
+            border-bottom: 1px solid $colorBorderLightGray;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            .infoItem {
+              &:last-child {
+                .innerText {
+                  color: $colorColName;
+                  display: block;
+                  font-size: 13px;
+                  text-align: left;
+                  width: 100%;
+                } // innerText
+              } // last-child
+              .innerText {
+                &__title {
+                  font-size: 15px;
+                  font-weight: bold;
+                  margin-bottom: 5px;
+                } // title
+                &__description {
+                  font-size: 13px;
+                  margin-bottom: 5px;
+                } // __description
+              } // innerText
+              .progressBar {
+                @include flex(center, center);
+                background: $colorCountBg;
+                color: white;
+                font-size: 12px;
+                height: 18px;
+                position: relative;
+                margin-left: auto;
+                width: 170px;
+                &::before {
+                  background: $colorRatingGreen;
+                  content: '';
+                  position: absolute;
+                  height: 100%;
+                  top: 0;
+                  left: 0;
+                  width: 70%;
+                  z-index: 1;
+                } // before
+                span {
+                  position: relative;
+                  z-index: 2;
+                } // span
+              } // progressBar
+            } // infoItem
+          } // info
+        } // progressName
+      } // __item
+    } // userProgress
+    .userSettingsBlock {
+      &__content {
+        border: 1px solid $colorBorderLightGray;
+        margin-bottom: $blockTitleMarginBottom;
+      } // __content
+      &__item {
+        border-bottom: 1px solid $colorBorderLightGray;
+        padding: 20px 15px;
+        &:last-child {
+          border: none;
+        } // last-child
+        .innerTitle {
+          font-size: 16px;
+          font-weight: bold;
+          margin-bottom: $blockTitleMarginBottom;
+        } // innerTitle
+        .innerContent {
+          &__input {
+            @include flex(center, flex-start);
+            margin-bottom: 20px;
+            &:last-child {
+              margin-bottom: 20px;
+            } // last-child
+            span {
+              width: 90px;
+            } // span
+            input {
+              width: 100%;
+            } // input
+            .mySelecter {
+              width: 100%;
+              span {
+                width: 100%;
+              } // span
+            } // mySelecter
+          } // __input
+          .socialBtnBlock {
+            $blockWidth: 100%;
+            $gutter: 5px;
+            @include flex(flex-start, flex-start);
+            flex-wrap: wrap;
+            width: $blockWidth;
+            &__item {
+              margin-right: $gutter;
+              width: calc( (#{$blockWidth} - #{$gutter}) / 2 );
+              &:nth-child(2n){
+                margin-right: 0;
+                margin-bottom: $gutter;
+              } // nth-child(3)
+              &:last-child {
+                margin-bottom: 0;
+              } // last-child
+            } // __item
+          } // contactsSocial
+        } // innerContent
+        &-car {
+          .innerContent {
+            &__input {
+              display: block;
+              margin-bottom: 0;
+              &:last-child {
+                margin-bottom: 0;
+              } // last-child
+              span {
+                display: block;
+                width: initial;
+                &:first-child {
+                  margin-bottom: 10px;
+                } // first-child
+              } // span
+              input {
+                width: 100%;
+              } // input
+              .mySelecter {
+                width: 100%;
+                span {
+                  width: 100%;
+                } // span
+              } // mySelecter
+            } // __input
+          } // innerContent
+        } // -car
+      } // __item
+    } // userSettingsBlock
+
+    // @MEDIA -------------------------
+    @media screen and ( max-width: 1170px ) {
+      .userProgress {
+        &__item {
+          .progressName {
+            &__info {
+              .infoItem {
+              } // infoItem
+            } // info
+          } // progressName
+        } // __item
+      } // userProgress
+    } // 1170
+    // ================================
+
+  } // info
+  // =================================================
+
+} // userPage

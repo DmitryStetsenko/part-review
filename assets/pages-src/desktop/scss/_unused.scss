@@ -1,0 +1,567 @@
+// disqusBlock -----------------------------------
+.disqusBlock {
+  $borderColor: $colorLightGray;
+  $colorTweet: #4991bf;
+  $colorFb: #002fa6;
+  $colorG: #f65676;
+  $colorD: #008dfc;
+  margin-bottom: $outerBlockMargin + 30px;
+  &__header {
+    @include flex(center, space-between);
+    border-bottom: 1px solid $borderColor;
+    padding-bottom: $blockTitleMarginBottom;
+    .disqusReviewResults {
+      @include flex(center, flex-start);
+      border-radius: $mainBorderRadius;
+      &__item {
+        $borderColor: $colorLightGray;
+        $textColor: $colorDarkGray;
+        @include flex(center, center);
+        border-top: 1px solid $borderColor;
+        border-bottom: 1px solid $borderColor;
+        border-left: 1px solid $borderColor;
+        color: $textColor;
+        height: 35px;
+        padding: 0 20px;
+        transition: background .3s;
+        &:first-child {
+          border-radius: 3px 0 0 3px;
+          &:hover {
+            border-left: 1px solid $colorYellow;
+          } // hover
+        } // first-child
+        &:last-child {
+          border-radius: 0 3px 3px 0;
+          border-right: 1px solid $borderColor;
+        }
+        &:hover {
+          border-color: transparent;
+          background: $colorYellow;
+          border-left: 1px solid white;
+          color: white;
+          cursor: pointer;
+        } // hover
+        span {
+          &:first-child {
+            margin-right: 5px;
+          } // fisrt-child
+        } // span
+        &-active {
+          border-color: transparent;
+          background: $colorYellow;
+          color: white;
+        } //
+      } // __item
+    } // disqusReviewResults
+    .disqusLogin {
+      @include flex(center, flex-start);
+      &:hover {
+        cursor:pointer;
+      } // hover
+      &__icon {
+        margin-right: 8px;
+        position: relative;
+        transform: translateY(2px);
+        width: 20px;
+        &::before {
+          content: attr(data-value);
+          color: $colorDarkGray;
+          font-size: 8px;
+          font-weight: bold;
+          position: absolute;
+          top: 5px;
+          left: 50%;
+          transform: translateX(-50%);
+        } // before
+      } // __icon
+      &__text {
+        @include flex(center, flex-start);
+        .innerText {
+          margin-right: 10px;
+        } // innerText
+      } // __text
+    } // disquseLogin
+  } // __header
+  &__content {
+    .disqus {
+      &__header {
+        @include flex(center, space-between);
+        padding: 20px 0;
+        .userAction {
+          @include flex(center, flex-start);
+          &__item {
+            @include flex(center, flex-start);
+            margin-right: 25px;
+            &:first-child {
+              margin-right: 70px;
+            } // first-child
+            &:last-child {
+              margin-right: 0;
+            } // last-child
+            span {
+              display: block;
+            } // span
+            .innerIcon {
+              margin-right: 5px;
+              width: 20px;
+              svg {
+                fill-rule: evenodd;
+              } // svg
+            } // innerIcon
+            &-recommended {
+              .innerIcon {
+                svg {
+                  stroke: #fe434b;
+                  fill: transparent;
+                } // svg
+              } // innerIcon
+            } // -recommended
+            &-tweet {
+              $iconColor: #4991bf;
+              .innerIcon {
+                svg {
+                  fill: $iconColor;
+                } // svg
+              } // innerIcon
+              .innerText {
+                color: $iconColor;
+              } // innerText
+            } // -tweet
+            &-fbook {
+              $iconColor: #002fa6;
+              .innerIcon {
+                svg {
+                  fill: $iconColor;
+                } // svg
+              } // innerIcon
+              .innerText {
+                color: $iconColor;
+              } // innerText
+            } // -fbook
+          } // __item
+        } // userAction
+        .filter {
+          @include flex(center, flex-start);
+          &__text {
+            margin-right: 10px;
+          } // __text
+          &__icon {
+
+          } // __icon
+        } // filter
+      } // header
+      &__content {
+        .discussionBlock {
+          $photoSize: 45px;
+          @include flex(flex-start, flex-start);
+          margin-bottom: 25px;
+          &__avatar {
+            background: $colorLightGray;
+            border-radius: $mainBorderRadius;
+            height: $photoSize;
+            margin-right: 20px;
+            overflow: hidden;
+            position: relative;
+            width: $photoSize;
+            img {
+              object-fit: cover;
+              height: $photoSize;
+              width: $photoSize
+            } // img
+            &-johnDoe {
+              img {
+                bottom: 0;
+                left: 50%;
+                object-fit: initial;
+                position: absolute;
+                transform: translateX(-50%);
+                width: 90%;
+                height: auto;
+              } // img
+            } // -jonDoe
+          } // __avatar
+          &__typeText {
+            height: 90px;
+            width: 100%;
+            textarea {
+              height: 100%;
+            } // textarea
+          } // __typeText
+        } // discussionBlock
+        .loginBlock {
+          $loginIconSize: 35px;
+          @include flex(center, flex-start);
+          &__title {
+            margin-right: 15px;
+          } // __title
+          &__social {
+            @include flex(center, flex-start);
+            margin-right: auto;
+            .innerIcon {
+              display: block;
+              margin-right: 10px;
+              width: $loginIconSize;
+              &:last-child {
+                margin-right: 0;
+              } // last-child
+              svg {
+                fill-rule: evenodd;
+              } // svg
+              &-tweet {
+                svg {
+                  fill: $colorTweet;
+                } // svg
+              } // -tweet
+              &-fbook {
+                svg {
+                  fill: $colorFb;
+                } // svg
+              } // -fbook
+              &-g {
+                svg {
+                  fill: $colorG;
+                } // svg
+              } // -g
+              &-d {
+                svg {
+                  fill: $colorD;
+                  width: $loginIconSize + 2px;
+                } // svg
+              } // -d
+            } // innerIcon
+          } // __social
+          &__disqus {
+            @include flex(center, flex-start);
+            & > label {
+              margin-right: 15px;
+              white-space: nowrap;
+            } // label
+            & > input {
+              width: 460px;
+            } // input
+          } // __disqus
+        } // loginBlock
+        .separate {
+          $lineColor: $borderColor;
+          $textColor: $colorLightGray;
+          $fontSize: 15px;
+          background: $lineColor;
+          height: 1px;
+          margin: $outerBlockMargin 0 ;
+          position: relative;
+          width: 100%;
+          &::after {
+            background: white;
+            content: attr(data-text);
+            color: $textColor;
+            font-size: $fontSize;
+            padding: 0 15px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -70%);
+          } // after
+        } // separate
+      } // __conten
+      &__footer {
+        .footerItems {
+          @include flex(center, flex-start);
+          &__item {
+            margin-right: 25px;
+            a {
+              @include flex(center, flex-start);
+              color: $colorDarkGray;
+              text-decoration: none;
+            } // a
+            &:last-child {
+              margin-right: 0;
+              margin-left: auto;
+            } // last-child
+            .innerIcon {
+              margin-right: 8px;
+              width: 15px;
+              svg {
+                fill: $borderColor;
+              } // svg
+            } // innerIcon
+            .innerText {
+              white-space: nowrap;
+            } // innerText
+            &-privacyPolicy {
+              .innerIcon {
+                width: 10px;
+              } // innerIcon
+            } // privacyPolice
+            &-disqusLogo {
+              a {
+                color: $colorColName;
+                font-family: Arial, sans-serif;
+                font-size: 20px;
+                font-weight: 900;
+                text-transform: uppercase;
+              } // a
+            } // -disqusLogo
+          } // __item
+        } // footerItems
+      } // __footer
+    } // disqus
+  } // __content
+
+  // @MEDIA --------------------------------------
+  @media screen and ( max-width: 900px ) {
+    &__content {
+      .disqus {
+        &__content {
+          .loginBlock {
+            &__disqus {
+              & > input {
+                width: 200px;
+              } // input
+            } // __disqus
+          } // loginBlock
+        } // __conten
+        &__footer {
+          .footerItems {
+            @include flex(center, center);
+            flex-wrap: wrap;
+            &__item {
+              margin-right: 15px;
+              &:last-child {
+                margin-left: 0;
+              } // last-child
+              &-privacyPolicy {
+                margin-right: 0;
+              } // privacyPolice
+              &-disqusLogo {
+                margin-top: 20px;
+              } // -disqusLogo
+            } // __item
+          } // footerItems
+        } // __footer
+      } // disqus
+    } // __content
+  } // 1000
+  // =============================================
+
+} // disqusBlock
+// ===============================================
+
+// side bar widgets ------------------------------
+.widget {
+  // common properties
+  $widgetBorderColor: $colorBorderLightGray;
+  $widgetBackground: white;
+  $widgetHeight: 475px;
+  // header properties
+  $iconSize: 20px;
+  $iconColor: $colorDarkGray;
+  $titleColor: $colorDarkGray;
+
+  background: $widgetBackground;
+  border-radius: 3px;
+  border: 1px solid $widgetBorderColor;
+  min-height: $widgetHeight;
+  height: initial;
+  padding: 30px;
+  width: 100%;
+  &__header {
+    @include flex(center, flex-start);
+    margin-bottom: 30px;
+    .headerIcon {
+      margin-right: 10px;
+      height: initial;
+      width: $iconSize;
+      svg {
+        width: 100%;
+        height: auto;
+        path {
+          fill: $iconColor;
+          fill-rule: evenodd;
+          stroke: $iconColor;
+        } // path
+      } // svg
+      &-noFill {
+        svg {
+          path {
+            fill: transparent;
+            fill-rule: evenodd;
+            stroke: $iconColor;
+          } // path
+        } // svg
+      } // -noFill
+      &-noStroke {
+        svg {
+          path {
+            fill: $iconColor;
+            fill-rule: evenodd;
+            stroke: none;
+          } // path
+        } // svg
+      } // -noStroke
+    } // headerIcon
+    .headerTitle {
+      max-width: 270px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      &:after {
+        background: linear-gradient(to right,
+                rgba(255, 255, 255, 0) 0,
+                white 100%);
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 40px;
+      } // after
+      &__text {
+        color: $titleColor;
+        font-weight: normal;
+        transition: transform 1s;
+        white-space: nowrap;
+      } // __text
+    } // headerTitle
+  } // __header
+  .widgetContent {
+    .ratingList {
+      &__items {
+        margin-top: -30px;
+      } // __items
+      &__item {
+        $rowHeight: 90px;
+        $brandWidth: 50px;
+        $brandHeight: 20px;
+        border-bottom: 1px solid $widgetBorderColor;
+        &:last-child {
+          border-bottom: none;
+        } // last-child
+        a {
+          @include flex(center, space-between);
+          color: $colorDarkGray;
+          height: $rowHeight;
+          font-size: 14px;
+          position: relative;
+          text-decoration: none;
+          &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            background-size: 30px 30px;
+            background-image: linear-gradient(45deg, rgba(gray, 0.1) 25%,
+                    transparent 25%, transparent 50%,
+                    rgba(gray, 0.1) 50%, rgba(gray, 0.1) 75%,
+                    transparent 75%, transparent );
+            animation: barberpole .7s linear infinite;
+          } // before
+          &:hover {
+            &::before {
+              opacity: 1;
+            } // before
+            .infoBlock {
+              &__title {
+                span {
+                  color: $colorYellow;
+                  &::before {
+                    width: 100%;
+                  } // before
+                } // span
+              } // __title
+              &__feedBack {
+                .feedBack {
+                  svg {
+                    fill: $colorRatingGreen;
+                  } // svg
+                  &::after {
+                    content: attr(data-value);
+                    color: $colorDarkGray;
+                    font-size: 12px;
+                    margin-right: 15px;
+                  } // after
+                } // feedBack
+              } // __feedBack
+            } // infoBlock
+          } // hover
+          .count {
+            color: $colorCountTxt;
+            font-size: 16px;
+            font-weight: bold;
+            padding-right: 15px;
+          } // count
+          .brandLogo {
+            height: $brandHeight;
+            min-width: $brandWidth;
+            width: $brandWidth;
+          } // brandLogo
+          .infoBlock {
+            padding: 0 15px;
+            &__title {
+              @include flex(flex-start, flex-start);
+              flex-direction: column;
+              margin-bottom: 15px;
+              span {
+                position: relative;
+                transition: color .3s;
+                &::before {
+                  @include makeUnderline($colorYellow, -1px);
+                } // before
+                &:last-child {
+                  margin-top: 5px;
+                } // last-child
+              } // span
+            } // __title
+            &__feedBack {
+              @include flex(center, flex-start);
+              .feedBack {
+                &:last-child {
+                  &::after {
+                    margin-right: 0;
+                  } // after
+                } // last-child
+                svg {
+                  transition: fill .3s;
+                  fill: $colorCountTxt;
+                } // svg
+                &::after {
+                  content: attr(data-value);
+                  color: $colorDarkGray;
+                  font-size: 12px;
+                  margin-right: 15px;
+                } // after
+                &-users {
+                  svg {
+                    width: 12px;
+                  } // svg
+                } // -users
+                &-voted {
+                  svg {
+                    width: 8px;
+                  } // svg
+                } // -voted
+              } // feedBack
+            } // __feedBack
+          } // infoBlock
+        } // a
+      } // __item
+    } // ratingList
+  } // widgetContent
+  &-rating {
+    .widget__header {
+      &:hover {
+        .headerTitle {
+          &__text {
+            transform: translateX(-15%);
+          } // __text
+        } // headerTitle
+      } // hover
+    } // __header
+  } // -rating
+} // widget
+// ===============================================

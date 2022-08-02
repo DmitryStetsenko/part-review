@@ -1,0 +1,432 @@
+#sparePartsPage {
+
+  // pageHeaderBlock ---------------------------
+  .pageHeaderBlock {
+    @include flex(flex-start, flex-start);
+    flex-direction: column;
+    margin-bottom: $outerBlockMargin;
+    & .blockTitle {
+      color: $colorDarkGray;
+    } // blockTitle
+    &__thumbnail {
+      @include flex(center, flex-start);
+      margin-bottom: $blockTitleMarginBottom;
+      .innerImage {
+        $imgSize: 70px;
+        @include flex(center, center);
+        border-radius: $mainBorderRadius;
+        border: 1px solid $colorBorderLightGray;
+        height: $imgSize;
+        min-width: $imgSize;
+        margin-right: 15px;
+        padding: 10px;
+        width: $imgSize;
+      } // innerImage
+    } // __thumbnail
+    &__content {
+      width: 100%;
+      .headerBlockContent {
+        @include flex(flex-start, flex-start);
+        flex-direction: column;
+        &__item {
+          @include flex(center, space-between);
+          border-bottom: 1px solid $colorBorderLightGray;
+          flex-shrink: 1;
+          max-height: 87px;
+          position: relative;
+          padding: 15px 0;
+          width: 100%;
+          &:last-child {
+            border-bottom: none;
+          } // last-child
+          .innerBlockTitle {
+            color: $colorColName;
+            font-size: 14px;
+            position: relative;
+            text-align: center;
+            .innerText {
+              position: relative;
+              &-link {
+                color: $colorColName;
+                text-decoration: none;
+                &::before {
+                  @include makeUnderline($colorLightGray, -1px);
+                  width: 100%;
+                } // before
+              } // link
+            } // innerText
+            .additInfo {
+              $infoBlockSize: 14px;
+              $iconColor: $colorColName;
+              @include flex(center, center);
+
+              background: white;
+              border-radius: 50%;
+              border: 1px solid $iconColor;
+              color: $iconColor;
+              font-size: 10px;
+              position: absolute;
+              right: -15px;
+              top: -5px;
+              height: $infoBlockSize;
+              width: $infoBlockSize;
+              &:hover {
+                border-color: $colorYellow;
+                color: $colorYellow;
+                cursor: pointer;
+              } // hover
+            } // additInfo
+            &-description {
+              color: $colorDarkGray;
+              font-weight: bold;
+              margin-bottom: 10px;
+            } // -description
+            &-bestProperty {
+              $iconSize: 15px;
+              @include flex(center, center);
+              background: $colorGray;
+              border-radius: 3px 3px 0 0;
+              margin-bottom: 0;
+              padding: 5px 0;
+              width: 100%;
+              .innerIcon {
+                width: $iconSize;
+                margin-right: 8px;
+                svg {
+                  fill: $colorYellow;
+                } // svg
+              } // innerIcon
+              .innerTxt {
+                color: white;
+                font-size: 14px;
+              } // innerTxt
+            } // -bestProperty
+          } // blockTitle
+          .innerBlockContent {
+            @include flex(center, flex-start);
+            @include widthPercent(50%);
+            padding-left: 15px;
+            &__data {
+              @include flex(center, flex-start);
+              color: $colorDarkGray;
+              font-size: 20px;
+              &::after {
+                content: attr(data-growth);
+                font-size: 16px;
+                margin-left: 5px;
+              } // after
+              &-manufacturer {
+                &::after {
+                  color: $colorLightGray;
+                } // after
+              } // -manufacturer
+              &-review {
+                &::after {
+                  color: $colorRatingGreen;
+                } // after
+              } // -review
+              &-vote {
+                &::after {
+                  color: $colorRatingGreen;
+                } // after
+              } // -vote
+              &-additional {
+                color: $colorLightGray;
+                font-size: 16px;
+                .innerSeparator {
+                  margin: 0 5px;
+                  &-plus {
+                    margin: 0 0 0 5px;
+                  } // -plus
+                } // innerSeparator
+              } // -additional
+            } // data
+            &__text {
+              color: $colorDarkGray;
+              font-size: 13px;
+              line-height: 17px;
+            } // text
+            &-description {
+              max-width: 475px;
+            } // -description
+            &-bestProperty {
+              background: $colorBgLightGray;
+              flex-direction: column;
+              padding-left: 0;
+              width: 100%;
+              a {
+                border-bottom: 1px solid $colorBorderLightGray;
+                display: block;
+                padding: 11px 0;
+                position: relative;
+                text-decoration: none;
+                width: 100%;
+                &:last-child {
+                  border-bottom: none;
+                } // last-child
+              } // a
+              .propItem {
+                $propItemWidth: auto;
+                $propItemTitlePadding: 0 15px;
+                @include flex(center, flex-start);
+                color: $colorDarkGray;
+                width: $propItemWidth;
+                &__title {
+                  @include widthPercent(50%);
+                  font-size: 13px;
+                  padding: $propItemTitlePadding;
+                } // title
+                &__rating {
+                  @include flex(center, flex-start);
+                  @include widthPercent(50%);
+                  .brandName {
+                    font-size: 16px;
+                    margin-right: 10px;
+                    max-width: 80px;
+                    overflow: hidden;
+                    position: relative;
+                    white-space: nowrap;
+                    width: 85px;
+                    &::after {
+                      @include gradientBorderColor($colorBgLightGray, 20px, 100%);
+                    } // after
+                  } // brandName
+                  .brandRating {
+                    @include flex(center, center);
+                    &__value {
+                      font-size: 20px;
+                      margin-right: 5px;
+                    } // __value
+                    &__starIcon {
+                      transition: transform .3s;
+                      width: 12px;
+                      svg {
+                        &.topRating {
+                          fill: $colorRatingGreen;
+                        } // topRating
+                        &.middleRating {
+                          fill: $colorRatingYellow;
+                        } // middleRating
+                        &.lowRating {
+                          fill: $colorRatingRed;
+                        } // lowRating
+                      } // svg
+                    } // __starIcon
+                  } // brandRating
+                } // __rating
+              } // propItem
+            } // -bestProperty
+          } // innerBlockContent
+          .showAdditInfo {
+            @include flex(center, flex-end);
+            color: white;
+            flex-direction: column-reverse;
+            position: absolute;
+            left: 0;
+            top: 5px;
+            transform: translateY(-100%);
+            width: 300px;
+            &::before {
+              @include drawTriangleBottom(10, 10, $colorGray);
+              content: '';
+              display: block;
+              transform: translateY(-1px);
+            } // before
+            &__innerText {
+              background: $colorGray;
+              border-radius: $mainBorderRadius;
+              font-size: 14px;
+              line-height: 1.2;
+              padding: 10px;
+            } // __innerText
+          } // showAdditInfo
+          &-noBorder {
+            border-bottom: none;
+          } // -noBorder
+          &-bestProperty {
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 3px 3px 0 0 ;
+            flex-shrink: 1;
+            max-height: initial;
+            padding: 0;
+          } // -bestProperty
+        } // __item
+      } // headerBlockContent
+    } // __content
+  } // pageHeaderBlock
+  // ===========================================
+
+  // manufacturerBlock -------------------------
+  .manufacturer {
+    margin-bottom: $outerBlockMargin;
+    .blockHeader {
+      @include flex(center, space-between);
+      flex-direction: column;
+      .blockTitle {
+        @include flex(center, flex-start);
+        margin-bottom: 15px;
+        span {
+          display: block;
+          margin-right: 10px;
+          &:last-child {
+            margin-right: 0;
+          } // last-child
+        } // span
+        &__text {
+          color: inherit;
+          font-size: inherit;
+        } // __text
+      } // __titleBlock
+      &__filterBtn {
+        @include flex(center, flex-start);
+      } // __filterBtn
+    } // blockHwader
+    &__content {
+      background: $colorBgLightGray;
+      border-radius: $mainBorderRadius;
+      padding: 15px;
+      width: 100%;
+    } // __content
+    .manufacturerList {
+      width: 100%;
+      &__items {
+        @include flex(center, center);
+        flex-direction: column;
+        width: 100%;
+      } // __items
+      &__item {
+        $borderColor: $colorYellow;
+        $contentWidth: 100%;
+        $gutterBlock: 15px;
+        $itemWidth: 100%;
+        display: block;
+        margin-bottom: $gutterBlock;
+        position: relative;
+        text-decoration: none;
+        transition: transform .3s;
+        white-space: nowrap;
+        width: $itemWidth;
+        &:last-child {
+          margin-bottom: 0;
+        } // last-child
+        .brandData {
+          background: white;
+          border-radius: $mainBorderRadius;
+          color: $colorDarkGray;
+          overflow: hidden;
+          padding: 25px 20px;
+          position: relative;
+          width: 100%;
+          &::before {
+            @include gradientBorderColor(white, 20px, 0);
+            z-index: 1;
+          } // before
+          &::after {
+            @include gradientBorderColor(white, 40px, 100%);
+            height: 30%;
+            right: 20px;
+            z-index: 1;
+          } // after
+          &__title {
+            display: inline-block;
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: $blockTitleMarginBottom;
+            max-width: 100%;
+            position: relative;
+            transition: color .3s;
+            white-space: nowrap;
+            &::before {
+              @include makeUnderline($colorYellow, -1px);
+            } // before
+          } // __title
+          &__content {
+            @include flex(center, space-between);
+            .brandLogo {
+              padding-right: 10px;
+              min-width: 75px;
+              width: 80px;
+            } // brandLogo
+            .brandInfo {
+              @include flex(stretch, space-between);
+              .rating {
+                padding: 0 5px;
+                &__title {
+                  color: $colorColName;
+                  font-size: 13px;
+                  margin-bottom: 15px;
+                } // __title
+                .ratingCircle {
+                } // ratingCircle
+                &__averageInfo {
+                  @include flex(center, center);
+                  flex-direction: column;
+                  .assessment {
+                    @include flex(center, center);
+                    margin-bottom: 10px;
+                    &__value {
+                      font-size: 18px;
+                      font-weight: bold;
+                      margin-right: 5px;
+                    } // __value
+                  } // assessment
+                  .amountReview {
+                    @include flex(flex-end, center);
+                    font-size: 14px;
+                    &__value {
+                      font-weight: bold;
+                      margin-right: 5px;
+                    } // __value
+                  } // amoutnReview
+                } // __averageInfo
+              } // rating
+            } // brandInfo
+          } // __content
+        } // brandData
+        &-hidden {
+          display: none;
+        } // hidden
+      } // __item
+    } // manufacturerList
+    .mainBtn {
+      &-showAllNoFullWidth {
+        margin-top: 20px;
+      } // -showAll
+    } // mainBtn
+
+  } // manufacturerBlock
+  // ===========================================
+
+  // comparisonBlock ---------------------------
+  // styles form main
+  // ===========================================
+
+  // reviewsBlock ------------------------------
+  .reviewsBlock {
+    @include flex(flex-start, space-between);
+    margin-bottom: $outerBlockMargin;
+    .contentArea {
+      width: 100%;
+      &__reviews {
+        margin-bottom: 30px;
+        &:last-child {
+          margin-bottom: 0;
+        } // last-child
+        .review {
+          margin-bottom: $outerBlockMargin;
+          &:last-child {
+            margin-bottom: 0;
+          } // last-child
+        } // review
+      } // reviews
+      &__pagination {
+        margin-bottom: $outerBlockMargin;
+      } // pagination
+      &__addReview {
+      } // __addReview
+    } // contentArea
+  } // reviewBlock;
+  // ===========================================
+
+} // sparePartsPage

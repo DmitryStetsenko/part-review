@@ -1,0 +1,219 @@
+@mixin fontAwesome($code) {
+  content: $code;
+  font-family: "Font Awesome 5 Free";
+  font-weight: bold;
+}
+
+@mixin textStroke($strokeColor) {
+  text-shadow: 1px 1px 0 $strokeColor, -1px -1px 0 $strokeColor;
+}
+@mixin banTxtSelect () {
+  // Для эксплорера
+  -ms-user-select: none;
+  // Для мозилы
+  -moz-user-select: none;
+  // Для Сафари и Хрома
+  -webkit-user-select: none;
+} // banTxtSelect
+@mixin textAlignCenter ($align, $lineHeight) {
+  text-align: $align;
+  line-height: $lineHeight;
+} // textAlignCenter
+
+// draw triangle
+@mixin drawTriangleTop($pWidth, $pHeight, $tColor) {
+  width: 0;
+  height: 0;
+  $tWidth: $pHeight + px;
+  $tHeight: $pWidth / 2 + px;
+  border-left: $tHeight solid transparent;
+  border-right: $tHeight solid transparent;
+  border-bottom: $tWidth solid $tColor;
+}
+
+@mixin drawTriangleBottom($pWidth, $pHeight, $tColor) {
+  width: 0;
+  height: 0;
+  $tWidth: $pHeight + px;
+  $tHeight: $pWidth / 2 + px;
+  border-left: $tHeight solid transparent;
+  border-right: $tHeight solid transparent;
+  border-top: $tWidth solid $tColor;
+}
+
+// display flex
+@mixin flex ($align, $justify) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+@mixin widthPercent ($percent){
+  flex-basis: auto;
+  width: $percent;
+} // widthPercent
+
+// showSpriteBg
+@mixin showSpriteBg($pos, $width, $height){
+  background-position: $pos;
+  height: $height;
+  width: $width;
+}
+
+// background property for inline style
+@mixin bgProp ($repeat, $pos, $size) {
+  background-repeat: $repeat;
+  background-position: $pos;
+  background-size: $size;
+}
+
+// position absolute center layout
+@mixin absPosCenter() {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin placeholder ($fontFamily, $fontSize, $fontWeight, $fontStyle, $fontColor) {
+  &::-webkit-input-placeholder {
+    color: $fontColor;
+    font: $fontWeight $fontStyle $fontSize $fontFamily;
+  }
+  &:-moz-placeholder {
+    color: $fontColor;
+    font: $fontWeight $fontStyle $fontSize $fontFamily;
+  }
+}
+
+@mixin posFullScreen ($position, $zIndex) {
+  position: $position;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $zIndex;
+}
+
+@mixin fullScreenOverlayPosition($bgColor, $opacity, $position, $zIndex) {
+  background: $bgColor;
+  opacity: $opacity;
+  position: $position;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $zIndex;
+}
+
+//@mixin backgroundOptions($bgRepeat, $bgPos, $bgSize) {
+//  background-repeat: $bgRepeat;
+//  background-position: $bgPos;
+//  background-size: $bgSize;
+//}
+
+// gradientBorder
+@mixin gradientBorder() {
+  background: linear-gradient(to right,
+          rgba(255, 255, 255, 0) 0,
+          white 70%);
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40px;
+} // gradientBorder
+@mixin gradientBorderColor($color, $width, $persent) {
+  background: linear-gradient(to right,
+          rgba(255,255,255, 0) 0,
+          $color $persent);
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: $width;
+} // gradientBorder
+
+@mixin customScroll() {
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    border-radius: 3px;
+    background: $colorBorderLightGray;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: $colorYellow;
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
+@mixin makeUnderline ($color, $bottomPos) {
+  background: $color;
+  bottom: $bottomPos;
+  content: '';
+  display: block;
+  height: 1px;
+  left: 0;
+  position: absolute;
+  transition: width .3s;
+  width: 0;
+}
+@mixin makeUnderlineHeight ($color, $height, $bottomPos) {
+  background: $color;
+  bottom: $bottomPos;
+  content: '';
+  display: block;
+  height: $height;
+  left: 0;
+  position: absolute;
+  transition: width .3s;
+  width: 0;
+}
+
+@mixin flip($direction) {
+  @if $direction == horiz {
+    transform: scale(-1, 1);
+  } @else {
+    transform: scale(1, -1);
+  }
+}
+
+@mixin imgFit($sizeMode, $position) {
+  height: 100%;
+  width: 100%;
+  object-fit: $sizeMode;
+  object-position: $position;
+}
+
+@mixin shevronRight() {
+  content: '>';
+  font-family: "Segoe Script", sans-serif;
+  font-size: 14px;
+  transform: rotate(10deg);
+}
+
+@mixin highlight() {
+  background: rgba(255, 255, 255, 0.26);
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transform: skewX(-20deg);
+  transition: left .5s;
+  top: 0;
+  left: -40px;
+  width: 30px;
+} // highlight

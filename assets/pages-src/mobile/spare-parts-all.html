@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Part review</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body id="allSparePartsPage">
+    <header class="siteHeaderSection">
+        <div class="wrapper">
+            <div class="siteHeader">
+                <div class="siteHeader__line">
+                    <nav class="menuBlock">
+                        <button class="iconBtn iconBtn-toggleMenu">
+                                        <span class="cssIcon cssIcon-toggleMenu">
+                                            <span class="cssIcon__part cssIcon__part-line"></span>
+                                            <span class="cssIcon__part cssIcon__part-line"></span>
+                                            <span class="cssIcon__part cssIcon__part-line"></span>
+                                        </span>
+                            <!-- /.cssIcon-toggleMenu -->
+                        </button>
+                        <!-- /.iconBtn iconBtn-toggleMenu -->
+                        <div class="topMenu" style="display: none;">
+                            <ul class="headerMenu">
+                                <li class="headerMenu__item headerMenu__item-title">
+                                    <div class="h4Title"><a href="#" target="_blank">О запчастях</a></div>
+                                    <div class="shevronIcon shevronIcon-headerMenu">
+                                        <div class="shevronIcon__icon">
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                        <!-- /.shevronIcon__icon -->
+                                    </div>
+                                </li>
+                                <li class="headerMenu__hiddenBlock">
+                                    <ul class="headerMenu__hiddenElements displayNone">
+                                        <li class="headerMenu__item"><a href="#" target="_blank">Аккумулятор</a></li>
+                                        <li class="headerMenu__item"><a href="#" target="_blank">Шины</a></li>
+                                        <li class="headerMenu__item"><a href="#" target="_blank">Лампы</a></li>
+                                        <li class="headerMenu__item"><a href="#" target="_blank">Амортизаторы</a></li>
+                                        <li class="headerMenu__item"><a href="#" target="_blank">Термостат</a></li>
+                                        <li class="headerMenu__item"><a href="#" target="_blank">Антифриз</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="headerMenu">
+                                <li class="headerMenu__item headerMenu__item-title">
+                                    <div class="h4Title"><a href="#" target="_blank">О производителях</a></div>
+                                    <div class="shevronIcon shevronIcon-headerMenu">
+                                        <div class="shevronIcon__icon">
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                        <!-- /.shevronIcon__icon -->
+                                    </div>
+                                </li>
+                                <li class="headerMenu__hiddenBlock">
+                                    <ul class="headerMenu__hiddenElements displayNone">
+                                        <li class="headerMenu__item"><a href="#" target="_blank">Bosch</a></li>
+                                        <li class="headerMenu__item"><a href="#" target="_blank">TRW</a></li>
+                                        <li class="headerMenu__item"><a href="#" target="_blank">LYNXauto</a></li>
+                                        <li class="headerMenu__item"><a href="#" target="_blank">Stellox</a></li>
+                                        <li class="headerMenu__item"><a href="#" target="_blank">Febest</a></li>
+                                        <li class="headerMenu__item"><a href="#" target="_blank">Masuma</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="headerMenu">
+                                <li class="headerMenu__item headerMenu__item-title">
+                                    <div class="h4Title"><a href="#" target="_blank">Рейтинг запчастей</a></div>
+                                    <div class="shevronIcon shevronIcon-headerMenu">
+                                        <div class="shevronIcon__icon">
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                        <!-- /.shevronIcon__icon -->
+                                    </div>
+                                </li>
+                                <li class="headerMenu__hiddenBlock">
+                                    <ul class="headerMenu__hiddenElements displayNone">
+                                        <li class="headerMenu__item"><a href="#" target="_blank">Лучшие аккумуляторы</a></li>
+                                        <li class="headerMenu__item"><a href="#" target="_blank">Лучшие шины</a></li>
+                                        <li class="headerMenu__item"><a href="#" target="_blank">Лучшие лампы</a></li>
+                                        <li class="headerMenu__item"><a href="#" target="_blank">Лучшие амортизаторы</a></li>
+                                        <li class="headerMenu__item"><a href="#" target="_blank">Лучшие моторные масла</a></li>
+                                        <li class="headerMenu__item"><a href="#" target="_blank">Лучшие тормозные колодки</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="headerMenu">
+                                <li class="headerMenu__item headerMenu__item-title">
+                                    <div class="h4Title"><a href="#" target="_blank">Сравнения</a></div>
+                                    <div class="shevronIcon shevronIcon-headerMenu">
+                                        <div class="shevronIcon__icon">
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                        <!-- /.shevronIcon__icon -->
+                                    </div>
+                                </li>
+                                <li class="headerMenu__hiddenBlock">
+                                    <ul class="headerMenu__hiddenElements displayNone">
+                                        <li class="headerMenu__item"><a href="#" target="_blank">NGK или Denso</a></li>
+                                        <li class="headerMenu__item"><a href="#" target="_blank">Каяба или Токико</a></li>
+                                        <li class="headerMenu__item"><a href="#" target="_blank">Кама или Кордиант</a></li>
+                                        <li class="headerMenu__item"><a href="#" target="_blank">NGK или Bosch</a></li>
+                                        <li class="headerMenu__item"><a href="#" target="_blank">Мишлен или Континенталь</a></li>
+                                        <li class="headerMenu__item"><a href="#" target="_blank">NGK или Champion</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.topMenu -->
+                    </nav>
+                    <!-- /.menuBlock -->
+                    <div class="siteHeader__logo">
+                        <a href="#">
+                            <img src="img/logo.png" alt="PartReview logo image">
+                        </a>
+                    </div>
+                    <!-- /.siteHeader__logo -->
+                    <div class="searchBlock">
+                        <form action="#" class="searchBlock__form">
+                            <button class="iconBtn iconBtn-search">
+                                            <span class="cssIcon cssIcon-search">
+                                                <span class="cssIcon__part cssIcon__part-circle"></span>
+                                                <span class="cssIcon__part cssIcon__part-knob"></span>
+                                            </span>
+                                <!-- /.cssIcon-search -->
+                            </button>
+                            <!-- /.iconBtn-search -->
+                            <input type="text" placeholder="Поиск" id="headerFormSearch">
+                        </form>
+                        <!-- /.searchBlock__form -->
+                    </div>
+                    <!-- /.searchBlock -->
+                </div>
+                <!-- /.siteHeader__line -->
+                <div class="siteHeader__line">
+                    <button class="mainBtn mainBtn-addReview">Добавить отзыв</button>
+                    <!-- /.mainBtn-addReview -->
+                    <div class="headerUserAction">
+                        <div class="headerUserAction__element headerUserAction__element-enter">
+                            <span>Вход</span>
+                        </div>
+                        <!-- /.headerUserAction__element -->
+                        <div class="headerUserAction__separate"></div>
+                        <!-- /.headerUserAction__separate -->
+                        <div class="headerUserAction__element headerUserAction__element-registered">
+                            <span>Регистрация</span>
+                        </div>
+                        <!-- /.headerUserAction__element -->
+                    </div>
+                    <!-- /.headerUserAction -->
+                </div>
+                <!-- /.siteHeader__line -->
+            </div>
+            <!-- /.siteHeader -->
+        </div>
+        <!-- /.wrapper -->
+    </header>
+    <!-- /.siteHeaderSection -->
+    <section class="breadCrumbsSection">
+        <div class="wrapper">
+            <div class="breadCrumbs">
+                <a href="#" target="_blank" class="breadCrumbs__item">Отзывы о запчастях</a>
+                <!-- /.breadCrumbs__item -->
+                <a href="#" target="_blank" class="breadCrumbs__item">NiBK</a>
+                <!-- /.breadCrumbs__item -->
+                <a href="#" target="_blank" class="breadCrumbs__item">Томозные колодки</a>
+                <!-- /.breadCrumbs__item -->
+                <a class="breadCrumbs__item">Томозные колодки NiBK</a>
+                <!-- /.breadCrumbs__item -->
+            </div>
+            <!-- /.breadCrumbs -->
+        </div>
+        <!-- /.wrapper -->
+    </section>
+    <!-- /.breadCrumbsSection -->
+    <main class="mainContent">
+        <div class="wrapper">
+            <section class="searchBlock">
+                <label class="label label-searchBlock">
+                    <span class="searchBlock__title">Поиск по запчастям:</span>
+                    <span class="searchBlock__input">
+                        <input type="text"
+                               class="input input-searchBlock"
+                               id="ratingsAllSearchBlock"
+                               placeholder="Ведите название производителя"
+                        >
+                        <button class="mainBtn mainBtn-search">
+                            <span class="cssIcon cssIcon-search">
+                                <span class="cssIcon__part cssIcon__part-circle"></span>
+                                <span class="cssIcon__part cssIcon__part-knob"></span>
+                            </span>
+                        <span class="innerText"></span>
+                            <!-- /.innerText -->
+                    </button>
+                        <!-- mainBtn-search -->
+                     </span>
+                    <!-- /.searchBlock__input -->
+                </label>
+                <div class="sparePartsFilter">
+                    <button class="filterBtn filterBtn-popular filterBtn-active">Популярное</button>
+                    <!-- /filterBtn-popular -->
+                    <button class="filterBtn filterBtn-forTO">Для ТО</button>
+                    <!-- /filterBtn-forTO -->
+                    <button class="filterBtn filterBtn-seasonal">Сезонное</button>
+                    <!-- /filterBtn-seasonal -->
+                </div>
+                <!-- /.sparePartsFilter -->
+            </section>
+            <!-- /.searchBlock -->
+            <section class="ratingsBlock">
+                <div class="ratingsBlock__contentScrollBox">
+                    <div class="ratingsBlock__mainContent">
+                        <div class="ratingsBlock__content">
+                            <div class="showRatingBlock">
+                                <ul class="ratingList">
+                                    <li class="ratingList__item">
+                                        <a href="#"  class="itemSell itemSell-name">
+                                            <span class="itemSell__title">Название</span>
+                                            <!-- /.itemSell__title -->
+                                            <span class="itemSell__text">Свечи зажигания NGK</span>
+                                            <!-- /.itemSell__text -->
+                                        </a>
+                                        <!-- /.itemSell-name -->
+                                        <div class="itemSell itemSell-review">
+                                            <span class="itemSell__title">Отзывы</span>
+                                            <!-- /.itemSell__title -->
+                                            <span class="itemSell__mainValue itemSell__mainValue-review"
+                                                                                  data-growth="+5">254</span>
+                                            <!--/.itemSell__mainValue-review-->
+                                        </div>
+                                        <!-- /.itemSell-review -->
+                                        <div class="itemSell itemSell-manufacturer">
+                                            <span class="itemSell__title">Производитель</span>
+                                            <!-- /.itemSell__title -->
+                                            <span class="itemSell__mainValue itemSell__mainValue-manufacturer"
+                                                                                  data-growth="/ 64">14</span>
+                                            <!--/.itemSell__mainValue-manufacturer-->
+                                        </div>
+                                        <!-- /.itemSell-manufacturer -->
+                                        <div class="itemSell itemSell-rating">
+                                            <a href="#"  class="mainBtn mainBtn-darkStyle">
+                                                <span class="innerIcon">
+                                                    <svg viewBox="0 0 22 18">
+                                                        <path id="Forma_1" class="cls-1" d="M1220.03 944.986c.01-.6-.01-.985-.01-.985h-12.04s-.02.381-.01.985h-3.97v.644c0 .148.03 3.618 2.2 5.519a4.966 4.966 0 0 0 3.37 1.192c.2 0 .41-.013.62-.03a5.816 5.816 0 0 0 2.62 2.094v2.831h-2.89v1.772h-.96v.992h10.07v-.994h-.95v-1.772h-2.89v-2.831a5.816 5.816 0 0 0 2.62-2.094c.21.017.42.03.62.03a4.966 4.966 0 0 0 3.37-1.192c2.17-1.9 2.2-5.371 2.2-5.519v-.644h-3.97zm-12.96 5.2a6.2 6.2 0 0 1-1.71-3.913h2.68a13.1 13.1 0 0 0 1 4.066c.12.245.24.477.36.7a3.662 3.662 0 0 1-2.33-.851zm13.86 0a3.657 3.657 0 0 1-2.33.856l.36-.7a13.1 13.1 0 0 0 1-4.066h2.68a6.2 6.2 0 0 1-1.71 3.912z" transform="translate(-1203 -943)"/>
+                                                    </svg>
+                                                </span>
+                                                <span class="innerText">Рейтинг</span>
+                                            </a>
+                                            <!-- /.mainbtn mainBtn-darkStyle -->
+                                        </div>
+                                        <!-- /.itemSell-rating -->
+                                        <div class="itemSell itemSell-addReview">
+                                            <a href="#"  class="mainBtn mainBtn-darkStyle">
+                                                                            <span class="innerIcon">
+                                                                                <svg viewBox="0 0 23 23">
+                                                                                  <path id="Forma_1_копия_3"
+                                                                                        data-name="Forma 1 копия 3"
+                                                                                        class="cls-1"
+                                                                                        d="M406.158,1883h18.684a2.16,2.16,0,0,1,2.156,2.16v12.93a2.16,2.16,0,0,1-2.156,2.16h-2.874V1906l-9.342-5.75h-6.468a2.16,2.16,0,0,1-2.156-2.16v-12.93A2.16,2.16,0,0,1,406.158,1883Zm0.719,14.37h6.467l5.749,3.6,0.719-3.6h4.312v-11.49H406.877v11.49Z"
+                                                                                        transform="translate(-404 -1883)"/>
+                                                                                </svg>
+                                                                            </span>
+                                                <span class="innerText">Добавить свой отзыв</span>
+                                            </a>
+                                            <!-- /.mainbtn mainBtn-darkStyle -->
+                                        </div>
+                                        <!-- /.itemSell-addReview -->
+                                    </li>
+                                    <!--/.ratingList__item-->
+                                    <li class="ratingList__item">
+                                        <a href="#"  class="itemSell itemSell-name">
+                                            <span class="itemSell__title">Название</span>
+                                            <!-- /.itemSell__title -->
+                                            <span class="itemSell__text">Свечи зажигания NGK</span>
+                                            <!-- /.itemSell__text -->
+                                        </a>
+                                        <!-- /.itemSell-name -->
+                                        <div class="itemSell itemSell-review">
+                                            <span class="itemSell__title">Отзывы</span>
+                                            <!-- /.itemSell__title -->
+                                            <span class="itemSell__mainValue itemSell__mainValue-review"
+                                                  data-growth="+5">254</span>
+                                            <!--/.itemSell__mainValue-review-->
+                                        </div>
+                                        <!-- /.itemSell-review -->
+                                        <div class="itemSell itemSell-manufacturer">
+                                            <span class="itemSell__title">Производитель</span>
+                                            <!-- /.itemSell__title -->
+                                            <span class="itemSell__mainValue itemSell__mainValue-manufacturer"
+                                                  data-growth="/ 64">14</span>
+                                            <!--/.itemSell__mainValue-manufacturer-->
+                                        </div>
+                                        <!-- /.itemSell-manufacturer -->
+                                        <div class="itemSell itemSell-rating">
+                                            <a href="#"  class="mainBtn mainBtn-darkStyle">
+                                                <span class="innerIcon">
+                                                    <svg viewBox="0 0 22 18">
+                                                        <path id="Forma_1" class="cls-1" d="M1220.03 944.986c.01-.6-.01-.985-.01-.985h-12.04s-.02.381-.01.985h-3.97v.644c0 .148.03 3.618 2.2 5.519a4.966 4.966 0 0 0 3.37 1.192c.2 0 .41-.013.62-.03a5.816 5.816 0 0 0 2.62 2.094v2.831h-2.89v1.772h-.96v.992h10.07v-.994h-.95v-1.772h-2.89v-2.831a5.816 5.816 0 0 0 2.62-2.094c.21.017.42.03.62.03a4.966 4.966 0 0 0 3.37-1.192c2.17-1.9 2.2-5.371 2.2-5.519v-.644h-3.97zm-12.96 5.2a6.2 6.2 0 0 1-1.71-3.913h2.68a13.1 13.1 0 0 0 1 4.066c.12.245.24.477.36.7a3.662 3.662 0 0 1-2.33-.851zm13.86 0a3.657 3.657 0 0 1-2.33.856l.36-.7a13.1 13.1 0 0 0 1-4.066h2.68a6.2 6.2 0 0 1-1.71 3.912z" transform="translate(-1203 -943)"/>
+                                                    </svg>
+                                                </span>
+                                                <span class="innerText">Рейтинг</span>
+                                            </a>
+                                            <!-- /.mainbtn mainBtn-darkStyle -->
+                                        </div>
+                                        <!-- /.itemSell-rating -->
+                                        <div class="itemSell itemSell-addReview">
+                                            <a href="#"  class="mainBtn mainBtn-darkStyle">
+                                                                            <span class="innerIcon">
+                                                                                <svg viewBox="0 0 23 23">
+                                                                                  <path id="Forma_1_копия_3"
+                                                                                        data-name="Forma 1 копия 3"
+                                                                                        class="cls-1"
+                                                                                        d="M406.158,1883h18.684a2.16,2.16,0,0,1,2.156,2.16v12.93a2.16,2.16,0,0,1-2.156,2.16h-2.874V1906l-9.342-5.75h-6.468a2.16,2.16,0,0,1-2.156-2.16v-12.93A2.16,2.16,0,0,1,406.158,1883Zm0.719,14.37h6.467l5.749,3.6,0.719-3.6h4.312v-11.49H406.877v11.49Z"
+                                                                                        transform="translate(-404 -1883)"/>
+                                                                                </svg>
+                                                                            </span>
+                                                <span class="innerText">Добавить свой отзыв</span>
+                                            </a>
+                                            <!-- /.mainbtn mainBtn-darkStyle -->
+                                        </div>
+                                        <!-- /.itemSell-addReview -->
+                                    </li>
+                                    <!--/.ratingList__item-->
+                                    <li class="ratingList__item">
+                                        <a href="#"  class="itemSell itemSell-name">
+                                            <span class="itemSell__title">Название</span>
+                                            <!-- /.itemSell__title -->
+                                            <span class="itemSell__text">Свечи зажигания NGK</span>
+                                            <!-- /.itemSell__text -->
+                                        </a>
+                                        <!-- /.itemSell-name -->
+                                        <div class="itemSell itemSell-review">
+                                            <span class="itemSell__title">Отзывы</span>
+                                            <!-- /.itemSell__title -->
+                                            <span class="itemSell__mainValue itemSell__mainValue-review"
+                                                  data-growth="+5">254</span>
+                                            <!--/.itemSell__mainValue-review-->
+                                        </div>
+                                        <!-- /.itemSell-review -->
+                                        <div class="itemSell itemSell-manufacturer">
+                                            <span class="itemSell__title">Производитель</span>
+                                            <!-- /.itemSell__title -->
+                                            <span class="itemSell__mainValue itemSell__mainValue-manufacturer"
+                                                  data-growth="/ 64">14</span>
+                                            <!--/.itemSell__mainValue-manufacturer-->
+                                        </div>
+                                        <!-- /.itemSell-manufacturer -->
+                                        <div class="itemSell itemSell-rating">
+                                            <a href="#"  class="mainBtn mainBtn-darkStyle">
+                                                <span class="innerIcon">
+                                                    <svg viewBox="0 0 22 18">
+                                                        <path id="Forma_1" class="cls-1" d="M1220.03 944.986c.01-.6-.01-.985-.01-.985h-12.04s-.02.381-.01.985h-3.97v.644c0 .148.03 3.618 2.2 5.519a4.966 4.966 0 0 0 3.37 1.192c.2 0 .41-.013.62-.03a5.816 5.816 0 0 0 2.62 2.094v2.831h-2.89v1.772h-.96v.992h10.07v-.994h-.95v-1.772h-2.89v-2.831a5.816 5.816 0 0 0 2.62-2.094c.21.017.42.03.62.03a4.966 4.966 0 0 0 3.37-1.192c2.17-1.9 2.2-5.371 2.2-5.519v-.644h-3.97zm-12.96 5.2a6.2 6.2 0 0 1-1.71-3.913h2.68a13.1 13.1 0 0 0 1 4.066c.12.245.24.477.36.7a3.662 3.662 0 0 1-2.33-.851zm13.86 0a3.657 3.657 0 0 1-2.33.856l.36-.7a13.1 13.1 0 0 0 1-4.066h2.68a6.2 6.2 0 0 1-1.71 3.912z" transform="translate(-1203 -943)"/>
+                                                    </svg>
+                                                </span>
+                                                <span class="innerText">Рейтинг</span>
+                                            </a>
+                                            <!-- /.mainbtn mainBtn-darkStyle -->
+                                        </div>
+                                        <!-- /.itemSell-rating -->
+                                        <div class="itemSell itemSell-addReview">
+                                            <a href="#"  class="mainBtn mainBtn-darkStyle">
+                                                                            <span class="innerIcon">
+                                                                                <svg viewBox="0 0 23 23">
+                                                                                  <path id="Forma_1_копия_3"
+                                                                                        data-name="Forma 1 копия 3"
+                                                                                        class="cls-1"
+                                                                                        d="M406.158,1883h18.684a2.16,2.16,0,0,1,2.156,2.16v12.93a2.16,2.16,0,0,1-2.156,2.16h-2.874V1906l-9.342-5.75h-6.468a2.16,2.16,0,0,1-2.156-2.16v-12.93A2.16,2.16,0,0,1,406.158,1883Zm0.719,14.37h6.467l5.749,3.6,0.719-3.6h4.312v-11.49H406.877v11.49Z"
+                                                                                        transform="translate(-404 -1883)"/>
+                                                                                </svg>
+                                                                            </span>
+                                                <span class="innerText">Добавить свой отзыв</span>
+                                            </a>
+                                            <!-- /.mainbtn mainBtn-darkStyle -->
+                                        </div>
+                                        <!-- /.itemSell-addReview -->
+                                    </li>
+                                    <!--/.ratingList__item-->
+                                </ul>
+                                <!--/.ratingList-->
+                            </div>
+                            <!-- /.showRatingBlock -->
+                        </div>
+                        <!-- /.ratingsBlock__content -->
+                    </div>
+                    <!-- /.ratingBlock__mainContent -->
+                </div>
+                <!-- /.ratingBlock__contentScrollBox -->
+                <div class="showMoreBlock">
+                    <button class="uploadMoreBtn">
+                                <span class="uploadMoreBtn__icon">
+                                    <svg viewBox="0 0 26.5 29.25">
+                                        <path d="M910.568 957.776l-3.91 3.91a.578.578 0 0 1-.818 0l-.056-.058v-2.878a9.1 9.1 0 0 0-3.628 17.117 1.541 1.541 0 1 1-1.447 2.722 12.185 12.185 0 0 1 5.075-22.93v-2.552l.056-.057a.58.58 0 0 1 .818 0l3.91 3.909a.577.577 0 0 1 0 .817zm-2.227 24.173l-3.909-3.908a.578.578 0 0 1 0-.818l3.909-3.908a.578.578 0 0 1 .819 0l.055.057v2.877a9.1 9.1 0 0 0 3.627-17.116 1.542 1.542 0 1 1 1.45-2.722 12.186 12.186 0 0 1-5.077 22.929v2.551l-.056.058a.581.581 0 0 1-.818 0z" transform="translate(-894.25 -952.875)"/>
+                                    </svg>
+                                </span>
+                        <span class="uploadMoreBtn__text">Показать еще</span>
+                    </button>
+                </div>
+                <!-- /.showMore -->
+                <div class="paginationBlock">
+                    <span class="paginationBlock__item paginationBlock__item-current">1</span>
+                    <!-- /.paginationBlock__item -->
+                    <span class="paginationBlock__item">2</span>
+                    <!-- /.paginationBlock__item -->
+                    <span class="paginationBlock__item">3</span>
+                    <!-- /.paginationBlock__item -->
+                    <span class="paginationBlock__item paginationBlock__item-gap">...</span>
+                    <!-- /.paginationBlock__item -->
+                    <span class="paginationBlock__item">30</span>
+                    <!-- /.paginationBlock__item -->
+                </div>
+                <!-- /.paginationBlock -->
+                <!-- load this all rating this block is not visible -->
+                <div class="allRatingList displayNone"></div>
+                <!-- /.allRatingList -->
+            </section>
+            <!-- /.ratings -->
+        </div>
+        <!-- /.wrapper -->
+    </main>
+    <!-- /.mainContent -->
+    <footer class="siteFooter">
+        <div class="siteFooter__menuBlock">
+            <section class="footerTop">
+                <button class="siteVersionBtn siteVersionBtn-mobile">
+                    <a href="#">
+                            <span class="btnIcon">
+                                <svg viewBox="0 0 511.999 511.999" >
+                                    <path d="M481.091,27.937H30.909C13.866,27.937,0,41.803,0,58.846v310.819c0,17.043,13.866,30.909,30.909,30.909h154.26v22.49
+                                        c0,20.617-16.774,37.391-37.391,37.391h-33.997c-6.518,0-11.803,5.284-11.803,11.803c0,6.519,5.285,11.803,11.803,11.803h284.436
+                                        c6.518,0,11.803-5.284,11.803-11.803c0-6.519-5.285-11.803-11.803-11.803h-33.998c-20.617,0-37.391-16.774-37.391-37.391v-22.489
+                                        h154.26c17.043,0,30.91-13.866,30.91-30.909V58.846C512,41.803,498.134,27.937,481.091,27.937z M195.92,460.457
+                                        c8.046-10.336,12.857-23.308,12.857-37.391v-22.49h94.447v22.49c0,14.083,4.811,27.056,12.857,37.391H195.92z M488.394,369.666
+                                        c0,4.027-3.276,7.304-7.304,7.304H30.909c-4.027,0-7.304-3.276-7.304-7.304v-62.033h464.789V369.666z M488.394,284.026H23.606
+                                        V58.846c0-4.027,3.276-7.304,7.304-7.304h450.18c4.027,0,7.305,3.276,7.305,7.304V284.026z"/>
+                                    <circle cx="256.003" cy="342.305" r="12.738"/>
+                                    <path d="M276.238,109.254c-4.61-4.609-12.081-4.609-16.693,0l-83.414,83.414c-4.609,4.609-4.609,12.083,0,16.693
+                                        c2.306,2.305,5.325,3.457,8.347,3.457c3.022,0,6.041-1.152,8.346-3.457l83.414-83.414
+                                        C280.847,121.338,280.847,113.864,276.238,109.254z"/>
+                                    <path d="M325.678,157.593c-4.608-4.609-12.079-4.609-16.692-0.001l-33.23,33.228c-4.609,4.61-4.609,12.084,0,16.693
+                                        c2.305,2.305,5.325,3.457,8.346,3.457c3.02,0,6.041-1.152,8.346-3.457l33.23-33.228
+                                        C330.287,169.676,330.287,162.202,325.678,157.593z"/>
+                                </svg>
+                            </span>
+                        <span class="innerText">Desktop версия</span>
+                    </a>
+                </button>
+                <!-- /.siteVersionBtn siteVersionBtn-mobile -->
+                <ul class="footerTopItems">
+                    <li class="footerTopItems__item"><a href="#" target="_blank">Справка</a></li>
+                    <li class="footerTopItems__item"><a href="#" target="_blank">О нас</a></li>
+                    <li class="footerTopItems__item"><a href="#" target="_blank">Как работает рейтинг</a></li>
+                    <li class="footerTopItems__item"><a href="#" target="_blank">Реклама</a></li>
+                </ul>
+                <!-- /.footerTopItems -->
+            </section>
+            <!-- /.section footerTop -->
+            <div class="wrapper wrapper-footerMenuBlock">
+                <div class="footerHeader">
+                    <div class="footerHeader__title">Отзывы:</div>
+                    <!-- /.footerHeader__title -->
+                </div>
+                <!-- /.footerHeader -->
+                <nav class="footerMenuBlock">
+                    <ul class="footerMenu">
+                        <li class="footerMenu__item footerMenu__item-title">
+                            <div class="h4Title"><a href="#" target="_blank">О запчастях</a></div>
+                            <div class="shevronIcon shevronIcon-footerMenu">
+                                <div class="shevronIcon__icon">
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <!-- /.shevronIcon__icon -->
+                            </div>
+                        </li>
+                        <li class="footerMenu__hiddenBlock">
+                            <ul class="footerMenu__hiddenElements displayNone">
+                                <li class="footerMenu__item"><a href="#" target="_blank">Аккумулятор</a></li>
+                                <li class="footerMenu__item"><a href="#" target="_blank">Шины</a></li>
+                                <li class="footerMenu__item"><a href="#" target="_blank">Лампы</a></li>
+                                <li class="footerMenu__item"><a href="#" target="_blank">Амортизаторы</a></li>
+                                <li class="footerMenu__item"><a href="#" target="_blank">Термостат</a></li>
+                                <li class="footerMenu__item"><a href="#" target="_blank">Антифриз</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="footerMenu">
+                        <li class="footerMenu__item footerMenu__item-title">
+                            <div class="h4Title"><a href="#" target="_blank">О производителях</a></div>
+                            <div class="shevronIcon shevronIcon-footerMenu">
+                                <div class="shevronIcon__icon">
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <!-- /.shevronIcon__icon -->
+                            </div>
+                        </li>
+                        <li class="footerMenu__hiddenBlock">
+                            <ul class="footerMenu__hiddenElements displayNone">
+                                <li class="footerMenu__item"><a href="#" target="_blank">Bosch</a></li>
+                                <li class="footerMenu__item"><a href="#" target="_blank">TRW</a></li>
+                                <li class="footerMenu__item"><a href="#" target="_blank">LYNXauto</a></li>
+                                <li class="footerMenu__item"><a href="#" target="_blank">Stellox</a></li>
+                                <li class="footerMenu__item"><a href="#" target="_blank">Febest</a></li>
+                                <li class="footerMenu__item"><a href="#" target="_blank">Masuma</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="footerMenu">
+                        <li class="footerMenu__item footerMenu__item-title">
+                            <div class="h4Title"><a href="#" target="_blank">Рейтинг запчастей</a></div>
+                            <div class="shevronIcon shevronIcon-footerMenu">
+                                <div class="shevronIcon__icon">
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <!-- /.shevronIcon__icon -->
+                            </div>
+                        </li>
+                        <li class="footerMenu__hiddenBlock">
+                            <ul class="footerMenu__hiddenElements displayNone">
+                                <li class="footerMenu__item"><a href="#" target="_blank">Лучшие аккумуляторы</a></li>
+                                <li class="footerMenu__item"><a href="#" target="_blank">Лучшие шины</a></li>
+                                <li class="footerMenu__item"><a href="#" target="_blank">Лучшие лампы</a></li>
+                                <li class="footerMenu__item"><a href="#" target="_blank">Лучшие амортизаторы</a></li>
+                                <li class="footerMenu__item"><a href="#" target="_blank">Лучшие моторные масла</a></li>
+                                <li class="footerMenu__item"><a href="#" target="_blank">Лучшие тормозные колодки</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="footerMenu">
+                        <li class="footerMenu__item footerMenu__item-title">
+                            <div class="h4Title"><a href="#" target="_blank">Сравнения</a></div>
+                            <div class="shevronIcon shevronIcon-footerMenu">
+                                <div class="shevronIcon__icon">
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <!-- /.shevronIcon__icon -->
+                            </div>
+                        </li>
+                        <li class="footerMenu__hiddenBlock">
+                            <ul class="footerMenu__hiddenElements displayNone">
+                                <li class="footerMenu__item"><a href="#" target="_blank">NGK или Denso</a></li>
+                                <li class="footerMenu__item"><a href="#" target="_blank">Каяба или Токико</a></li>
+                                <li class="footerMenu__item"><a href="#" target="_blank">Кама или Кордиант</a></li>
+                                <li class="footerMenu__item"><a href="#" target="_blank">NGK или Bosch</a></li>
+                                <li class="footerMenu__item"><a href="#" target="_blank">Мишлен или Континенталь</a></li>
+                                <li class="footerMenu__item"><a href="#" target="_blank">NGK или Champion</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.footerMenu -->
+                <button class="mainBtn mainBtn-addReview mainBtn-addReviewFooter">Добавить отзыв</button>
+                <!-- /.mainBtn-addReview -->
+            </div>
+            <!-- /.wrapper-footerMenuBlock -->
+        </div>
+        <!-- /.siteFooter__menuBlock -->
+        <div class="siteFooter__copyrightBlock">
+            <div class="wrapper">
+                <p>© 2017 - 2018. Отзывы о запчастях PartReview.ru. По всем вопросам пишите partreview@gmail.com</p>
+            </div>
+            <!-- /.wrapper -->
+        </div>
+        <!-- /.siteFooter__copyrightBlock -->
+    </footer>
+    <!-- /.siteFooter -->
+
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/flexcroll.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+

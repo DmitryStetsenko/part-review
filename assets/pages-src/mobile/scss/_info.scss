@@ -1,0 +1,65 @@
+#infoPage {
+
+  // info --------------------------------------------
+  .blockHeader {
+    justify-content: center;
+  } // blockHeader
+  .info {
+    margin-bottom: $outerBlockMargin;
+    .manageButton {
+      &__item {
+        a {
+          @include flex(center, space-between);
+          border-radius: $mainBorderRadius;
+          border: 1px solid $colorBorderLightGray;
+          color: $colorDarkGray;
+          height: 35px;
+          margin-bottom: 5px;
+          padding: 0 20px;
+          text-decoration: none;
+          width: 100%;
+          white-space: nowrap;
+          &:hover {
+            cursor: pointer;
+            background: $colorYellow;
+            border-color: $colorYellow;
+            color: white;
+          } // hover
+          &::after {
+            @include shevronRight();
+            margin-left: 30px;
+          } // after
+        } // a
+        &:last-child {
+          margin-bottom: 0;
+        } // last-child
+        &-active {
+          a {
+            cursor: pointer;
+            background: $colorYellow;
+            border-color: $colorYellow;
+            color: white;
+          }
+        } // -active
+      } // __item
+    } // manageButton
+    &__manage {
+      margin-bottom: $blockTitleMarginBottom;
+      width: 100%;
+    } // __manage
+    &__contentsBlock {
+      width: 100%;
+      .blockInfo {
+        &__item {
+          line-height: 22px;
+          margin-bottom: $blockTitleMarginBottom;
+          &:last-child {
+            margin-bottom: 0;
+          } // last-child
+        } // __item
+      } // blockInfo
+    } // __contentsBlock
+  } // info
+  // =================================================
+
+} // infoPage

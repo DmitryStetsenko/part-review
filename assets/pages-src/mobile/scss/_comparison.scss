@@ -1,0 +1,521 @@
+#comparisonPage {
+
+  // pageHeaderBlock ---------------------------
+  // styles in _custom.scss
+  // ===========================================
+
+  // mainComparisonBlock -----------------------
+  .mainComparisonBlock {
+    $itemWidth: 100%;
+    margin-bottom: $outerBlockMargin;
+    &__header {
+      margin-bottom: $blockTitleMarginBottom;
+      .comparisonPair {
+        $imgWidth: 75px;
+        $imgHeight: 25px;
+        @include flex(center, space-between);
+        &__item {
+          @include widthPercent(50%);
+          border-radius: $mainBorderRadius;
+          border: 1px solid $colorInputBorder;
+          padding: 10px;
+          position: relative;
+          transition: border .2s, box-shadow .2s;
+          &:hover {
+            border-color: $colorYellow;
+            box-shadow: inset 0 0 0 1px $colorYellow;
+          } // hover
+          .innerImg {
+            display: block;
+            margin: 0 auto;
+            height: $imgHeight;
+            width: $imgWidth;
+            img {
+              @include imgFit(contain, center);
+            } // img
+          } // innerImg
+          &-separator {
+            @include flex(center, center);
+            border: none;
+            padding: 0;
+            width: 90px;
+            min-width: 90px;
+            &:hover {
+              border-color: $colorInputBorder;
+              box-shadow: unset;
+            } // hover
+          } // separator
+        } // __item
+        &__separator {
+          $itemSize: 45px;
+          $fontSize: 18px;
+          @include textAlignCenter(center, $itemSize - 2px);
+          border-radius: 50%;
+          background: $colorYellow;
+          color: white;
+          font-size: $fontSize;
+          font-weight: bold;
+          height: $itemSize;
+          min-width: $itemSize;
+          width: $itemSize;
+        } // __separator
+      } // comparisonPair
+    } // __header
+    &__main {
+      $rowHeight: 90px;
+      $headerWidth: 90px;
+      @include flex(flex-start, space-between);
+      margin-bottom: $blockTitleMarginBottom;
+      .brandRatingInfo {
+        @include widthPercent(50%);
+        &__item {
+          border-radius: $mainBorderRadius 0 0 $mainBorderRadius;
+          height: $rowHeight;
+          padding-right: 15px;
+          position: relative;
+          width: 100%;
+          &:nth-child(odd) {
+            background: $colorBgLightGray;
+          } // nth-child(odd)
+          &:last-child {
+            padding-right: 0;
+            border-bottom: 1px solid $colorGray;
+            height: $rowHeight + 15px;
+          } // last-child
+          &:first-child {
+            padding-right: 0;
+          } // last-child
+          .ratingCount {
+            @include flex(center, center);
+            flex-direction: column-reverse;
+            height: 100%;
+            &__text {
+              color: $colorDarkGray;
+              font-size: 12px;
+              position: relative;
+              margin-top: 10px;
+              text-decoration: none;
+            } // text
+            .ratingCircleDynamic {
+              $circleSize: 36px;
+              font-size: 13px;
+              font-weight: bold;
+              height: $circleSize;
+              min-width: $circleSize;
+              position: relative;
+              text-align: center;
+              width: $circleSize;
+              &>.svgWrap {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                @include absPosCenter();
+                .svgRatingCircle {
+                  height: auto;
+                  width: 100%;
+                  &>path {
+                    fill: transparent;
+                    stroke-width:3;
+                    stroke-linecap:round;
+                    stroke-linejoin:round;
+                    stroke-dasharray: 114px;
+                    transition: stroke-dashoffset 1s;
+                    &.static {
+                      stroke: #cdcdcd;
+                    } // dynamic
+                  } // path
+                } // svgRatingCircle
+              } // svgWrap
+              & > span {
+                line-height: $circleSize;
+              } // span
+            } // ratingCircleDynamic
+          } // ratingCount
+          .votingBlock {
+            height: 100%;
+          } // votingBlock
+          .diagramInfoBlock {
+            @include flex(center, flex-end);
+            height: 100%;
+            .reviewDiagramBlock {
+              // styles in _custom.scss
+            } // reviewDiagramBlock
+            &__finalValue {
+              font-size: 18px;
+              margin-left: 10px;
+            } // __finalValue
+          } // diagramInfoBlock
+          .ownerSelection {
+            @include flex(center, space-between);
+            flex-direction: column;
+            height: 100%;
+            padding-top: 5px;
+            &__title {
+              color: $colorDarkGray;
+              font-size: 10px;
+              margin-bottom: 10px;
+            } // title
+            &__list {
+              @include flex(center, flex-start);
+              flex-direction: column;
+              padding: 0 20px;
+              position: relative;
+              width: 100%;
+            } // __list
+            &__item {
+              margin-bottom: 5px;
+              a {
+                color: $colorCountTxt;
+                font-size: 11px;
+                text-decoration: none;
+                transition: color .3s;
+              } // a
+              span {
+                display: block;
+              } // span
+              .innerText {
+                text-align: center;
+                //max-height: 26px;
+              } // innerText
+              &-growth {
+                display: inline-block;
+                padding: 0;
+                position: absolute;
+                top: 50%;
+                right: 5px;
+                margin: 0;
+                transform: translateY(-50%);
+                .innerText {
+                  color: $colorYellow;
+                  font-size: 13px;
+                } // innerText
+              } // -growth
+            } // __item
+          } // ownerSelection
+          &-diagramRating {
+            padding-left: 15px;
+          } // -diagramRating
+        } // __item
+        &-reverse {
+          .brandRatingInfo__item {
+            padding-right: 0;
+            padding-left: 10px;
+            &:last-child {
+              padding-left: 0;
+            } // last-child
+            .ratingCount {
+              flex-direction: column-reverse;
+              &__text {
+                margin-bottom: 10px;
+              } // text
+            } // ratingCount
+            .votingBlock {
+              .userVoting {
+                &-comparisonPage {
+                  flex-direction: column-reverse;
+                  .voteValue {
+                    margin-left: 0;
+                    margin-right: 20px;
+                    order: 1;
+                  } // voteValue
+                  .voteRatio {
+                    flex-direction: row-reverse;
+                    &__review {
+                      &-positive {
+                        margin-right: 0;
+                        margin-left: 5px;
+                      } // positive
+                      &-negative {
+                        border-color: $colorRatingRed;
+                        .voteRatioIcon {
+                          svg {
+                            fill: $colorRatingRed;
+                            transform: rotate(180deg);
+                          } // svg
+                        } // voteRatioIcon
+                        &:hover {
+                          background: $colorRatingRed;
+                          border-color: $colorRatingRed;
+                          box-shadow: 0 2px 0 darken($colorRatingRed, 10);
+                          color: white;
+                          transform: translateY(-2px);
+                          .voteRatioIcon {
+                            svg {
+                              fill: white;
+                            } // svg
+                          } // voteRatioIcon
+                        } // hover
+                      } // positive
+                    } // __review
+                  } // voteRatio
+                } // -comparisonPage
+              } // userVoting
+            } // votingBlock
+            .diagramInfoBlock {
+              justify-content: flex-start;
+              .reviewDiagramBlock {
+                // styles in _custom.scss
+                align-items: flex-start;
+                &-comparisonPage {
+                  margin-left: initial;
+                } // -comparisonPage
+              } // reviewDiagramBlock
+              &__finalValue {
+                margin-left: 0;
+                margin-right: 15px;
+                order: -1;
+              } // __finalValue
+            } // diagramInfoBlock
+            .userAssessment {
+              flex-direction: column;
+              &__item {
+                .ratingsBlock {
+                  align-items: flex-start;
+                  flex-direction: column;
+                  &__item {
+                    margin-right: 0;
+                    &-stars {
+                      .starsIconBlock {
+                        flex-direction: row-reverse;
+                        &__value {
+                          margin-left: 0;
+                          margin-right: 5px;
+                        } // __value
+                      } // starsIconBlock
+                    } // -stars
+                  } // ____item
+                } // ratingsBlock
+                &-average {
+                  .ratingsBlock {
+                    $titleFontSize: 18px;
+                    $titleColor: $colorDarkGray;
+                    $ratingFontSize: 18px;
+                    $ratingColor: $colorDarkGray;
+                    $starsIconSize: 17px;
+
+                    align-items: flex-start;
+                    justify-content: center;
+                    flex-direction: column-reverse;
+                    &__item{
+                      &-title {
+                        color: $titleColor;
+                        font-size: $titleFontSize;
+                        margin-bottom: 5px;
+                        &::after {
+                          content: attr(data-value);
+                          margin-left: 6px;
+                        } // after
+                      } // -title
+                      &-stars {
+                        margin-right: 0;
+                        margin-left: 0;
+                        .starsIconBlock {
+                          &__icon {
+                            height: $starsIconSize;
+                            width: $starsIconSize;
+                          } // __icon
+                        } // starsIconBlock
+                      } // stars
+                      &-rating {
+                        color: $titleColor;
+                        font-size: $titleFontSize;
+                      } // -rating
+                    } // __item
+                  } // ratingBlock
+                } // -average
+              } // __ratings
+              &-comparisonPage {
+                align-items: flex-start;
+                justify-content: center;
+              } // -comparisonPage
+            } // userAssessment
+            .ownAssessment {
+              top: 50%;
+              left: initial;
+              right: 15px;
+            } // ownAssessment
+            .ownerSelection {
+              &__list {
+                flex-direction: column;
+              } // __list
+              &__item {
+                &:last-child {
+                  margin-right: 0;
+                } // last-child
+              } // __item
+            } // ownerSelection
+            &-diagramRating {
+              padding-right: 15px;
+            } // -diagramRating
+          } // brandRatingInfo__item
+        } // -reverse
+      } // brandRatingInfo
+      .brandRatingCompareParams {
+        $iconWidth: 40px;
+        $iconHeight: 31px;
+        color: white;
+        font-size: 15px;
+        &__item {
+          @include flex(center, center);
+          background: $colorDarkGray;
+          border: 1px solid transparent;
+          flex-direction: column;
+          height: $rowHeight;
+          min-width: $headerWidth;
+          transition: border-color .3s, box-shadow .3s;
+          width: $headerWidth;
+          &:hover {
+            cursor: default;
+            box-shadow: inset 0 0 0 1px $colorYellow;
+            border-color: $colorYellow;
+          } // hover
+          &:nth-child(even) {
+            background: $colorGray;
+            border-top: 1px solid $colorBgLightGray;
+            border-bottom: 1px solid $colorBgLightGray;
+            &:hover {
+              border-color: $colorYellow;
+            } // hover
+          } // nth-child(odd)
+          &:last-child {
+            border-bottom: 1px solid $colorGray;
+            height: $rowHeight + 15px;
+          } // last-child
+          .innerIcon {
+            background-image: url(../img/comparison_sprite.png);
+            margin-bottom: 12px;
+            height: $iconHeight;
+            width: $iconWidth;
+          } // innerIcon
+          .innerText {
+
+          } // innerText
+          &-rating {
+            .innerIcon {
+              background-position: 0, 0;
+            } // innerIcon
+          } // rating
+          &-vote {
+            .innerIcon {
+              background-position: -40px, 0;
+            } // innerIcon
+          } // vote
+          &-review {
+            .innerIcon {
+              background-position: -80px, 0;
+            } // innerIcon
+          } // review
+          &-averageRating {
+            .innerIcon {
+              background-position: -120px, 0;
+            } // innerIcon
+          } // averageRating
+          &-properties {
+            .innerIcon {
+              background-position: -160px, 0;
+            } // innerIcon
+          } // properties
+          &-car {
+            .innerIcon {
+              background-position: -200px, 0;
+            } // innerIcon
+          } // car
+        } // __item
+      } // brandRatingCompareParams
+    } // __main
+    &__footer {
+      @include flex(center, flex-start);
+      flex-direction: column;
+      height: 90px;
+      .addCodeBtn {
+        @include flex(center, center);
+        border-radius: $mainBorderRadius;
+        border: 2px solid $colorYellow;
+        margin-bottom: $blockTitleMarginBottom;
+        padding: 0 20px;
+        span {
+          font-family: "Segoe Print", sans-serif;
+          font-weight: bold;
+          font-size: 18px;
+          margin-right: 5px;
+        } // span
+      } // footerItem
+      .socialIcons {
+        $iconSize: 30px;
+        @include flex(center, flex-start);
+        &__item {
+          background: $colorYellow;
+          border-radius: 50%;
+          height: $iconSize;
+          margin-right: 8px;
+          min-width: $iconSize;
+          width: $iconSize;
+          &:hover {
+            a {
+              svg {
+                fill: $colorDarkGray;
+                transform: rotateY(360deg);
+              } // svg
+            } // a
+          } // hover
+          a {
+            @include flex(center, center);
+            height: 100%;
+            width: 100%;
+            svg {
+              $iconSize: 60%;
+              @include imgFit(contain, center);
+              fill: white;
+              transition: fill .3s, transform .5s;
+              width: $iconSize;
+              height: $iconSize;
+            } // svg
+          } // a
+          &-vk {
+            a {
+              svg {
+                $iconSize: 70%;
+                width: $iconSize;
+                height: $iconSize;
+              } // svg
+            } // a
+          } // -vk
+          &-title {
+            background: white;
+            border-radius: unset;
+            height: initial;
+            margin-right: 15px;
+            width: initial;
+          } // -title
+        } // __item
+      } // socialIcons
+    } // __footer
+  } // mainComparisonBlock
+  // ===========================================
+
+  // comparisonBlock ---------------------------
+  // styles form main
+  // ===========================================
+
+  // reviewsBlock ------------------------------
+  .reviewsBlock {
+    .contentArea {
+      .blockHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        .blockTitle {
+          margin-bottom: $blockTitleMarginBottom;
+        } // blockTitle
+        &__filterBtn {
+          width: 100%;
+          .filterBtn {
+            @include widthPercent(33%);
+          } // filterBtn
+        } // __filterBtn
+      } // blockHeader
+    } // contentArea
+  } // reviewBlock;
+  // ===========================================
+
+} // comparisonPage

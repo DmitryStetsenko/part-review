@@ -1,0 +1,193 @@
+#carBrand {
+
+  // pageHeaderBlock ---------------------------
+  // in _custom.scss
+  // ===========================================
+
+  // widgets area ------------------------------
+  // @MEDIA -----------------------
+  @media screen and ( max-width: 1170px ) {
+    .widgetsArea {
+      @include flex(flex-start, flex-start);
+      margin-bottom: $outerBlockMargin;
+      min-width: 100%;
+      width: 100%;
+    } // widgerArea
+    .widget {
+      width: 50%;
+      margin-right: $gutterX2;
+      &:last-child {
+        margin-right: 0;
+      } // last-child
+    } // widget
+  }
+  // ==============================
+  // ===========================================
+
+  // reviewsBlock ------------------------------
+  .reviewsBlock {
+    @include flex(flex-start, space-between);
+    margin-bottom: $outerBlockMargin;
+    .contentArea {
+      &__reviews {
+        margin-bottom: 30px;
+        &:last-child {
+          margin-bottom: 0;
+        } // last-child
+        .review {
+          margin-bottom: 30px;
+          &:last-child {
+            margin-bottom: 0;
+          } // last-child
+        } // review
+      } // reviews
+      &__pagination {
+        margin-bottom: 30px;
+      } // pagination
+      &__addReview {
+      } // __addReview
+    } // contentArea
+    .widgetsArea {
+      .widget {
+        margin-bottom: 30px;
+        &:last-child {
+          margin-bottom: 0;
+        } // last-child
+      } // widget
+    } // widgetsArea
+
+    // @MEDIA ---------------------------
+    @media screen and ( max-width: 1170px ) {
+      flex-direction: column;
+      .contentArea {
+        margin-bottom: 30px;
+        width: 100%;
+      } // contentArea
+      .widgetsArea {
+        @include flex(flex-start, center);
+        width: 100%;
+        .widget {
+          width: 100%;
+        } // widget
+      } // widgetArea
+    } // 1170
+    // ==================================
+
+  } // reviewBlock;
+  // ===========================================
+
+  // popularModels -----------------------------
+  .popularModelsBlock {
+    margin-bottom: $outerBlockMargin;
+    .popularModels {
+      $blockWidth: 100%;
+      $itemsInRow: 4;
+      $itemWidth: calc((#{$blockWidth} - (#{$gutterX2} * (#{$itemsInRow} - 1) )) / #{$itemsInRow});
+      $itemPadding: 10px;
+      background: $colorBgLightGray;
+      padding: 30px;
+      &__items {
+        @include flex(stretch, flex-start);
+        flex-wrap: wrap;
+      } // __items
+      &__item {
+        margin-right: $gutterX2;
+        margin-bottom: 40px;
+        width: $itemWidth;
+        &:nth-child(#{$itemsInRow}n){
+          margin-right: 0;
+        } // nth-child
+        &:nth-child(n+#{$itemsInRow}){
+          margin-bottom: 0;
+        } // nth-child
+        .innerTitle {
+          border-bottom: 1px solid $colorDarkGray;
+          color: $colorDarkGray;
+          display: inline-block;
+          font-weight: bold;
+          font-size: 20px;
+          margin-bottom: $itemPadding;
+          position: relative;
+          text-transform: uppercase;
+          text-decoration: none;
+          transition: color .3s;
+          &:hover {
+            color: $colorYellow;
+            &::before {
+              width: 100%;
+            } // before
+          } // hover
+          &::before {
+            @include makeUnderlineHeight($colorYellow, 1px, -1px);
+          } // before
+        } // innerTitle
+        .innerContent {
+          overflow: hidden;
+          max-height: 104px;
+          transition: max-height .5s;
+          &__list {
+
+          } // __list
+          &__item {
+            a {
+              color: $colorDarkGray;
+              display: inline-block;
+              font-size: 15px;
+              padding: $itemPadding 0;
+              text-decoration: none;
+              transition: color .2s;
+              white-space: nowrap;
+              &:hover {
+                color: $colorYellow;
+              } // hover
+              &::after {
+                content: '>';
+                display: inline-block;
+                font-family: "Segoe Print", Arial, sans-serif;
+                margin-left: 10px;
+                transform: rotate(2deg);
+              } // after
+            } // a
+            &-hide {
+              display: none;
+            } // -hide
+          } // __item
+        } // innerContent
+        .showMoreBtn {
+          margin-top: $itemPadding;
+        } // showMoreBtn
+      } // __item
+    } // popularModels
+
+    // @MEDIA --------------------
+    @media screen and ( max-width: 1000px ) {
+      .popularModels {
+        $blockWidth: 100%;
+        $itemsInRow: 3;
+        $itemWidth: calc((#{$blockWidth} - (#{$gutterX2} * (#{$itemsInRow} - 1) )) / #{$itemsInRow});
+        $itemPadding: 10px;
+        &__item {
+          width: $itemWidth;
+          margin-right: $gutterX2;
+          margin-bottom: 40px;
+          &:nth-child(#{$itemsInRow + 1}n){
+            margin-right: $gutterX2;
+          } // nth-child
+          &:nth-child(#{$itemsInRow}n){
+            margin-right: 0;
+          } // nth-child
+          &:nth-child(#{$itemsInRow} + n){
+            margin-bottom: 0;
+          } // nth-child
+          &-responseHide {
+            display: none;
+          } // responseHide
+        } // __item
+      } // popularModels
+    } // 1000
+    // ===========================
+
+  } // popularModelsBlock
+  // -------------------------------------------
+
+} // carBrand

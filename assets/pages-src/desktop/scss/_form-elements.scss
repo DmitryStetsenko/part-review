@@ -1,0 +1,232 @@
+// form elements -------------------------------
+
+.label {
+  $labelColor: $colorDarkGray;
+  $labelFontSize: 15px;
+  $labelFontWeight: bold;
+  $labelMarginBottom: 15px;
+
+  color: $labelColor;
+  display: block;
+  font-size: $labelFontSize;
+  font-weight: $labelFontWeight;
+  margin-bottom: $labelMarginBottom;
+}
+
+.select {
+  $selectBorderRadius: $mainBorderRadius;
+  $selectBorder: 1px solid $colorInputBorder;
+  $selectHeight: 30px;
+  $selectWidth: 100%;
+  // header
+  $headerColor: $colorDarkGray;
+  $headerFontSize: 13px;
+  $headerHeight: 30px;
+  $headerPadding: 10px;
+  // items
+  $itemColor: $colorDarkGray;
+  $itemFontize: 13px;
+  $itemHeight: 30px;
+  $itemPadding: 10px;
+
+  border-radius: $selectBorderRadius;
+  border: $selectBorder;
+  height: $selectHeight;
+  overflow: hidden;
+  position: relative;
+  width: $selectWidth;
+  &__header {
+    @include flex(center, space-between);
+    height: $headerHeight;
+    padding: $headerPadding;
+    .innerText {
+      color: $headerColor;
+      font-size: $headerFontSize;
+    } // innerText
+    .blockIcon {
+
+    } // blockIcon
+  } // __header
+  &__items {
+
+  } // __items
+  &__item {
+    color: $itemColor;
+    height: $itemHeight;
+    font-size: $itemFontize;
+    padding: 10px;
+  } // item
+  &-unActive {
+    $selectBorder: 1px solid $colorBorderLightGray;
+    // header
+    $headerColor: $colorColName;
+
+    border: $selectBorder;
+    .select__header {
+      .innerText {
+        color: $headerColor;
+      } // innerText
+    } // __header
+    .select__item {
+      color: $itemColor;
+    } // item
+  } // unActive
+} // select
+
+.userFilter {
+  $filterBorderRadius: $mainBorderRadius;
+  $filterBorder: 1px solid $colorBorderLightGray;
+  $filterHeight: 30px;
+  $filterWidth: 100%;
+  // header
+  $headerColor: $colorColName;
+  $headerFontSize: 13px;
+  $headerHeight: 30px;
+  $headerPadding: 10px;
+  // content
+  $contentPadding: 10px;
+  // items
+  $itemColor: $colorDarkGray;
+  $itemFontSize: 13px;
+  $itemHeight: 30px;
+  $itemPadding: 10px;
+
+  border-radius: $filterBorderRadius;
+  border: $filterBorder;
+  //height: $filterHeight;
+  overflow: hidden;
+  position: relative;
+  width: $filterWidth;
+  &__header {
+    @include flex(center, space-between);
+    height: $headerHeight;
+    padding: $headerPadding;
+    .innerText {
+      color: $headerColor;
+      font-size: $headerFontSize;
+    } // innerText
+    .blockIcon {
+
+    } // blockIcon
+  } // __header
+  &__content {
+    display: none;
+    padding: $contentPadding;
+    .inputFilter {
+      display: block;
+      margin-bottom: 15px;
+    } // inputFilter
+    .filterOptions {
+      @include customScroll();
+      max-height: 180px;
+      overflow-Y: scroll;
+      width: 100%;
+      &__item {
+        padding: $itemPadding 0;
+        font-size: $itemFontSize;
+        &:hover {
+          cursor: default;
+          background: $colorBgLightGray;
+        } // hover
+        &-selected {
+          background: $colorBgLightGray;
+        } // -selected
+      } // __item
+    } // filterOptions
+  } // content;
+  &-selected {
+    $filterBorder: 1px solid $colorInputBorder;
+    // header
+    $headerColor: $colorDarkGray;
+
+    border: $filterBorder;
+    .userFilter__header {
+      .innerText {
+        color: $headerColor;
+      } // innerText
+    } // __header
+    .filter__item {
+      color: $itemColor;
+    } // item
+  } // unActive
+} // userFilter
+
+.input, .textArea {
+  $inputBorderRadius: $mainBorderRadius;
+  $inputBorder: 1px solid $colorInputBorder;
+  $inputColor: $colorDarkGray;
+  $inputHeight: 30px;
+  $inputFontSize: 13px;
+  $inputPadding: 10px;
+  $inputWidth: 100%;
+  // placeholder
+  $phFontFamily: arial;
+  $phFontSize: 13px;
+  $phFontWeight: 400;
+  $phFontStyle: normal;
+  $phFontColor: $colorDarkGray;
+
+  @include placeholder ($phFontFamily, $phFontSize, $phFontWeight, $phFontStyle, $phFontColor);
+  background: inherit;
+  border-radius: $inputBorderRadius;
+  border: $inputBorder;
+  box-sizing: border-box;
+  color: $inputColor;
+  display: block;
+  height: $inputHeight;
+  font-size: $inputFontSize;
+  outline: none;
+  padding: $inputPadding;
+  width: $inputWidth;
+} // input
+
+.textArea {
+  height: 125px;
+  font-family: Arial;
+  resize: none;
+  width: 100%;
+  &-addComment {
+    $inputBorder: 1px solid $colorBorderLightGray;
+    border: $inputBorder;
+  } // -addComment
+} // textArea
+
+.checkBox {
+  $checkBoxColor: $colorYellow;
+  $checkBoxTextColor: $colorDarkGray;
+  $checkBoxSize: 15px;
+  $checkBoxBorderColor: $colorBorderLightGray;
+
+  @include flex(center, flex-start);
+  color: $checkBoxTextColor;
+  font-size: 13px;
+  input[type=checkbox] {
+    display: none;
+    &:checked + span.checkBox__input {
+      &::before {
+        opacity: 1;
+      } // after
+    } // checked + .checkBox
+  } // __input
+  &__input {
+    @include flex(center, center);
+    border-radius: $mainBorderRadius;
+    border: 1px solid $checkBoxBorderColor;
+    bottom: 1px;
+    height: $checkBoxSize;
+    position: relative;
+    width: $checkBoxSize;
+    &::before {
+      content: '\2714';
+      color: $checkBoxColor;
+      opacity: 0;
+      position: absolute;
+      transition: opacity .3s;
+    } // before
+  } // __input
+  &__label {
+    margin-left: 5px;
+  } // label
+} // checkBox
+
+// ==============================================

@@ -1,0 +1,350 @@
+#ratingsPage {
+
+  // page header block -------------------------
+  // styles in _custom.scss
+  // ===========================================
+
+  // bestSpareParts ----------------------------
+  .bestSpareParts {
+    margin-bottom: $outerBlockMargin;
+    &__title {
+      margin-bottom: $blockTitleMarginBottom;
+    } // __title
+    &__content {
+      @include flex(stretch, flex-start);
+      .selectBrand {
+        border-radius: $mainBorderRadius;
+        background: $colorBgLightGray;
+        font-size: 18px;
+        margin-right: $gutterX2;
+        padding: 20px 30px;
+        width: $col3Width;
+        &__brandList {
+          @include customScroll();
+          overflow-y: scroll;
+          min-height: 370px;
+          height: 370px;
+        } // __brandList
+        &__item {
+          @include flex(center, space-between);
+          height: 40px;
+          .brandLogo {
+            @include bgProp(no-repeat, center, contain);
+            height: 20px;
+            margin-right: 20px;
+            width: 30px;
+          } // brandLogo
+          .brandName {
+            margin-right: auto;
+            transition: color .3s;
+          } // brandName
+          .shevronIcon__icon {
+            transform: rotate(180deg) scale(0.7);
+            margin-right: 25px;
+          } // shevronIcon__icon
+          &:hover {
+            cursor: pointer;
+            .brandName {
+              color: $colorYellow;
+            } // brandName
+            .shevronIcon__icon {
+              span {
+                background: $colorYellow;
+              } // span
+            } // shevronIcon__icon
+          } // hover
+          &-active {
+            .brandName {
+              color: $colorYellow;
+            } // brandName
+            .shevronIcon__icon {
+              span {
+                background: $colorYellow;
+              } // span
+            } // shevronIcon__icon
+          } // -active
+        } // __item
+      } // selectBrand
+      .showResults {
+        margin-right: $gutterX2;
+        font-size: 16px;
+        padding: 0 30px 30px 30px;
+        width: $col3Width;
+        &__title {
+          @include flex(center, flex-start);
+          margin-bottom: $blockTitleMarginBottom;
+          height: 50px;
+        } // __title
+        .brandModelList {
+          @include flex(center, flex-start);
+          flex-wrap: wrap;
+          width: 100%;
+          &__item {
+            flex-basis: auto;
+            transition: color .3s;
+            height: 40px;
+            width: 50%;
+            span {
+              border-bottom: 1px solid $colorDarkGray;
+              position: relative;
+              &::before {
+                background: white;
+                bottom: -1px;
+                content: '';
+                position: absolute;
+                transition: transform .3s;
+                transform: scale(0,1);
+                height: 1px;
+                width: 100%;
+              } // before
+            } // span
+            &:hover {
+              cursor: pointer;
+              color: $colorYellow;
+              span {
+                &::before {
+                  transform: scale(1,1);
+                } // before
+              } // span
+            } // hover
+          } // __item
+        } // brandModelList
+      } // show
+      .rating {
+        .sparePartsContent {
+          border-radius: $mainBorderRadius;
+          border: 1px solid $colorLightGray;
+          margin-bottom: 15px;
+          width: 100%;
+        } // sparePartsContent
+        .sparePartsContentTitle {
+          align-items: center;
+          color: $colorDarkGray;
+          display: flex;
+          justify-content: flex-start;
+          height: 50px;
+          overflow: hidden;
+          padding: 0 15px;
+          position: relative;
+          text-decoration: none;
+          white-space: nowrap;
+          &__img {
+            margin-right: 20px;
+            height: 34px;
+            img {
+              height: 100%;
+              width: auto;
+            } // img
+          } // img
+          &__text {
+            @include flex(center, flex-start);
+            position: relative;
+            transition: color .3s;
+            &::after {
+              content: '';
+              background: $colorYellow;
+              display: block;
+              height: 1px;
+              position: absolute;
+              bottom: -1px;
+              left: 0;
+              transition: width .3s;
+              width: 0;
+            } // after
+            span {
+              margin-right: 5px;
+              position: relative;
+              &:last-child {
+                margin-right: 0;
+              } // last-child
+            } // span
+          } // __text
+          &:after {
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.5) 20%, white 80%);
+            content: '';
+            display: block;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 40px;
+          } // after
+          &:hover {
+            cursor: pointer;
+            .sparePartsContentTitle__text {
+              color: $colorYellow;
+              &::after {
+                width: 100%;
+              } // after
+            } // sparePartsContentTitle__text
+          } // hover
+        } // sparePartsContentTitle
+        .sparePartsElements {
+          a {
+            text-decoration: none;
+          } // a
+        } // sparePartsElements
+        .sparePartsElement {
+          align-items: center;
+          border-top: 1px solid $colorLightGray;
+          color: $colorDarkGray;
+          display: flex;
+          height: 50px;
+          justify-content: space-between;
+          position: relative;
+          &::after {
+            border-radius: 3px;
+            border: 1px solid transparent;
+            content: '';
+            display: block;
+            height: 100%;
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            width: 100%;
+            z-index:1;
+          } // after
+          &:hover {
+            cursor: pointer;
+            &::after {
+              border-color: $colorRatingYellow;
+            } // after
+          } // hover
+          &__item {
+            align-items: center;
+            border-right: 1px solid $colorLightGray;
+            display: flex;
+            font-size: 16px;
+            justify-content: center;
+            height: 100%;
+            &:last-child {
+              border-right: none;
+            } // last-child
+            &-count {
+              $sparePartsElementCountWidth: 30px;
+              background: $colorCountBg;
+              color: $colorCountTxt;
+              font-weight: bold;
+              min-width: $sparePartsElementCountWidth;
+              width: $sparePartsElementCountWidth;
+            } // __count
+            &-brandImg {
+              background: $colorBgLightGray;
+              border-right: none;
+              justify-content: flex-start;
+              overflow: hidden;
+              padding-left: 7px;
+              width: 100%;
+              .imgWrap {
+                height: 17px;
+              } // imgWrap
+              img {
+                height: 100%;
+                width: auto;
+              } // img
+            } // __brandImg
+            &-brandText {
+              $sparePartsElementBrandTextWidth: 120px;
+
+              background: $colorBgLightGray;
+              justify-content: flex-start;
+              min-width: $sparePartsElementBrandTextWidth;
+              overflow: hidden;
+              padding-left: 7px;
+              width: $sparePartsElementBrandTextWidth;
+              white-space: nowrap;
+            } // __brandText
+            &-rating {
+              font-size: 13px;
+              font-weight: bold;
+              $sparePartsElementRatingWidth: 67px;
+              min-width: $sparePartsElementRatingWidth;
+              position: relative;
+              width: $sparePartsElementRatingWidth;
+              &>.svgWrap {
+                min-height: 36px;
+                min-width: 36px;
+                position: absolute;
+                height: 36px;
+                width: 36px;
+                @include absPosCenter();
+                .svgRatingCircle {
+                  height: auto;
+                  width: 100%;
+                  &>path {
+                    fill: transparent;
+                    stroke-width:3;
+                    stroke-linecap:round;
+                    stroke-linejoin:round;
+                    stroke-dasharray: 114px;
+                    transition: stroke-dashoffset 1s;
+                    &.static {
+                      stroke: $colorBgLightGray;
+                    } // dynamic
+                  } // path
+                } // svgRatingCircle
+              } // svgWrap
+              span {
+                align-items: center;
+                background: url(../img/rating_circle.svg) no-repeat center/36px 36px;
+                border-radius: 50%;
+                //border: 3px solid $colorYellow;
+                display: flex;
+                justify-content: center;
+                height: 40px;
+                width: 40px;
+              } // span
+            } // __rating
+          } // __item
+        } // sparePartsElement
+      }
+    } // content;
+  } // bestSpareParts
+  // ===========================================
+
+  // magazine block ----------------------------
+  .magazineBlock {
+    .magazine {
+      &-ratingsPage {
+        .articleTab {
+          //width: $col3Width;
+          width: 230px;
+        } // articleTab
+      } // ratingPage
+    } // magazine
+
+    // @MEDIA ----------------------------------
+    @media screen and ( max-width: 940px ) {
+      flex-direction: column;
+      .magazine {
+        width: 100%;
+        &-ratingsPage {
+          .articleTabs {
+            width: 100%;
+            a {
+              margin-right: 15px;
+              width: calc(( 100% - #{30px} ) / 3);
+              &:nth-child(3n) {
+                margin-right: 0;
+              };
+              .articleTab {
+                margin-right: 0;
+                width: 100%;
+              } // articleTab
+            } // a
+          } // a
+        } // ratingPage
+      } // magazine
+      .widgetsArea {
+        order: -1;
+        width: 100%;
+        margin-bottom: $blockTitleMarginBottom;
+      } // widgetsArea
+    } // 940px
+    // =========================================
+
+  } // magazineBlock
+  // ===========================================
+
+} // ratingsPage
+

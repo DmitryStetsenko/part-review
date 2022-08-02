@@ -1,0 +1,54 @@
+$pathForFonts: 'assets/fonts/';
+$fontFamily: 'proxima-nova';
+
+$fontWeight: '-bold';
+@font-face {    /* -------- Bold ------------*/
+  font-family: $fontFamily;
+  src: url($pathForFonts + $fontFamily + $fontWeight + ".eot");
+  src: url($pathForFonts + $fontFamily + $fontWeight + ".eot?iefix") format("embedded-opentype"),
+  url($pathForFonts + $fontFamily + $fontWeight + ".woff") format("woff"),
+  url($pathForFonts + $fontFamily + $fontWeight + ".woff2") format("woff2"),
+  url($pathForFonts + $fontFamily + $fontWeight + ".svg") format("svg"),
+  url($pathForFonts + $fontFamily + $fontWeight + ".ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+$fontWeight: '-regular';
+@font-face {    /* -------- Regular ------------*/
+  font-family: $fontFamily;
+  src: url($pathForFonts + $fontFamily + $fontWeight + ".eot");
+  src: url($pathForFonts + $fontFamily + $fontWeight + ".eot?iefix") format("embedded-opentype"),
+  url($pathForFonts + $fontFamily + $fontWeight + ".woff") format("woff"),
+  url($pathForFonts + $fontFamily + $fontWeight + ".woff2") format("woff2"),
+  url($pathForFonts + $fontFamily + $fontWeight + ".svg") format("svg"),
+  url($pathForFonts + $fontFamily + $fontWeight + ".ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+$fontWeight: '-light';
+@font-face {    /* -------- Light ------------*/
+  font-family: $fontFamily;
+  src: url($pathForFonts + $fontFamily + $fontWeight + ".eot");
+  src: url($pathForFonts + $fontFamily + $fontWeight + ".eot?iefix") format("embedded-opentype"),
+  url($pathForFonts + $fontFamily + $fontWeight + ".woff") format("woff"),
+  url($pathForFonts + $fontFamily + $fontWeight + ".woff2") format("woff2"),
+  url($pathForFonts + $fontFamily + $fontWeight + ".svg") format("svg"),
+  url($pathForFonts + $fontFamily + $fontWeight + ".ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+$fontWeight: '-thin';
+@font-face {    /* -------- Thin ------------*/
+  font-family: $fontFamily;
+  src: url($pathForFonts + $fontFamily + $fontWeight + ".eot");
+  src: url($pathForFonts + $fontFamily + $fontWeight + ".eot?iefix") format("embedded-opentype"),
+  url($pathForFonts + $fontFamily + $fontWeight + ".woff") format("woff"),
+  url($pathForFonts + $fontFamily + $fontWeight + ".woff2") format("woff2"),
+  url($pathForFonts + $fontFamily + $fontWeight + ".svg") format("svg"),
+  url($pathForFonts + $fontFamily + $fontWeight + ".ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}

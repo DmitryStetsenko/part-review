@@ -1,0 +1,761 @@
+#allBrandsPage {
+
+// search block ---------------------------
+&.mainContent {
+  .searchBlock {
+    @include flex(flex-end, space-between);
+    margin-bottom: $blockTitleMarginBottom;
+    .label {
+      &-searchBlock {
+        margin-bottom: 0;
+      } // serachBlock
+    } // label
+    &__title {
+      display: block;
+      margin-bottom: 15px;
+    } // title
+    &__input {
+      @include flex(center, flex-start);
+      & > input {
+        margin-right: 20px;
+        width: 400px;
+      } // input
+    } // __input
+    .sparePartsFilter {
+      @include flex(center, flex-start);
+      margin-left: auto;
+      .filterBtn {
+        height: 30px;
+      } // filterBtn
+    } // sparePartsFilter
+
+    // @MEDIA -----------------------
+    @media screen and ( max-width: 1000px ) {
+      &__input {
+        & > input {
+          margin-right: 10px;
+        } // input
+        .mainBtn {
+          &-search {
+            margin-right: 10px;
+            padding: 0 8px;
+            .innerText {
+              display: none;
+            } // innerText
+            .cssIcon {
+              margin-right: 3px;
+            } // cssIcon
+          } // -search
+        } // mainBtn
+      } // __input
+      .sparePartsFilter {
+        .filterBtn {
+          padding: 0 15px;
+        } // filterBtn
+      } // sparePartsFilter
+    } // 1000
+    // ==============================
+
+  } // searchBlock
+} // mainContent
+// ========================================
+
+// ratings block --------------------------
+.ratingsBlock {
+  $sellWidth: 120px;
+  $sellPadding: 20px;
+  $sellNameWidth: 250px;
+  $sellReviewWidth: $sellWidth;
+  $sellManufacturerWidth: $sellWidth;
+  $sellVoteWidth: $sellWidth;
+  $allRatingsHeaderRowHeight: 65px;
+  $allRatingsRowHeight: 65px;
+  $sellBtnWidth: 50%;
+  $sellCountrySiteWidth: 200px;
+  $sellAverageRatingWidth: 200px;
+  // icons
+  $iconWidth: 60px;
+  $iconHeight: 45px;
+  margin-bottom: $outerBlockMargin;
+  &__contentScrollBox {
+    margin-bottom: 40px;
+  } // ratingBlock__contentScrollBox
+  &__mainContent {
+    width: 1140px;
+  } // __mainContent
+  .header {
+    @include flex(center, flex-start);
+    &__colTitle {
+      @include flex(center, center);
+
+      color: $colorColName;
+      height: $allRatingsHeaderRowHeight;
+      font-size: 13px;
+      flex-basis: auto;
+      padding: 0 $sellPadding;
+      min-width: $sellWidth;
+      width: $sellWidth;
+      &-name {
+        min-width: $sellNameWidth + 10px;
+        width: $sellNameWidth + 10px;
+      } // -name
+      &-review {
+        min-width: $sellReviewWidth;
+        width: $sellReviewWidth;
+      } // -review
+      &-manufacturer {
+        min-width: $sellManufacturerWidth;
+        width: $sellManufacturerWidth;
+      } // -manufacturer
+      &-rating {
+        width: $sellBtnWidth;
+      } // rating
+      &-addReview {
+        width: $sellBtnWidth;
+      } // page
+      &-countrySite {
+        min-width: $sellCountrySiteWidth;
+        width: $sellCountrySiteWidth;
+      } // countrySite
+      &-averageRating {
+        min-width: $sellAverageRatingWidth;
+        width: $sellAverageRatingWidth;
+      } // countrySite
+    } // __colTitle
+  } // header
+  &__content {
+    .showRatingBlock {
+
+    } // showRatingBlock
+    .ratingList {
+      li {
+        border: 1px solid transparent;
+        height: $allRatingsRowHeight;
+        padding: 10px 0;
+        transition: border-color .3s;
+        &:nth-child(odd) {
+          background: $colorBgLightGray;
+          .itemSell {
+            &__text {
+              &::after {
+                @include gradientBorderColor($colorBgLightGray, 30px, 100%);
+              } // after
+            } // __text
+          } // itemSell
+        } // nth-child(odd)
+        &:hover {
+          cursor: pointer;
+          border-color: $colorYellow;
+        } // hover
+      } // li
+      &__item {
+        @include flex(center, flex-start);
+        color: $colorDarkGray;
+        height: 100%;
+        text-decoration: none;
+        .itemSell {
+          @include flex(center, center);
+          border-right: 1px solid $colorLightGray;
+          flex-basis: auto;
+          height: 100%;
+          padding: 0 $sellPadding;
+          min-width: $sellWidth;
+          width: $sellWidth;
+          &:last-child {
+            border-right: none;
+          } // last-child
+          &__icon {
+            border-radius: $mainBorderRadius;
+            overflow: hidden;
+            margin-right: 15px;
+            width: 60px;
+            img {
+              width: 60px;
+              object-fit: cover;
+              object-position: center;
+            } // img
+          } // __icon
+          &__text {
+            font-size: 16px;
+            position: relative;
+            transition: color .3s;
+            width: 230px;
+            overflow: hidden;
+            &::before {
+              @include makeUnderline($colorYellow, -1px);
+            } // before
+          } // __text
+          &__mainValue {
+            color: $colorDarkGray;
+            font-size: 20px;
+            &::after {
+              content: attr(data-growth);
+              font-size: 16px;
+              margin-left: 5px;
+            } // after
+            &-review {
+              &::after {
+                color: $colorRatingGreen;
+              } // after
+            } // -review
+            &-manufacturer {
+              &::after {
+                color: $colorLightGray;
+              } // after
+            } // -manufacturer
+            &-vote {
+              &::after {
+                color: $colorRatingGreen;
+              } // after
+            } // -vote
+          } // __mainValue
+          &-name {
+            color: $colorDarkGray;
+            justify-content: flex-start;
+            text-decoration: none;
+            padding: 0;
+            min-width: $sellNameWidth;
+            width: $sellNameWidth;
+            &:hover {
+              .itemSell {
+                &__text {
+                  color: $colorYellow;
+                  &::before {
+                    width: 100%;
+                  } // before
+                } // __text
+              } // itemSell
+            } // hover
+          } // &-name
+          &-review {
+            min-width: $sellWidth;
+            width: $sellReviewWidth;
+          } // -review
+          &-manufacturer {
+            min-width: $sellWidth;
+            width: $sellManufacturerWidth;
+          } // -manufacturer
+          &-rating {
+            flex-basis: auto;
+            padding: 0 $sellPadding;
+            min-width: initial;
+            width: $sellBtnWidth;
+            a {
+              font-size: 14px;
+              min-width: $sellBtnWidth;
+              text-decoration: none;
+              width: 100%;
+              white-space: nowrap;
+            } // a
+          } // -rating
+          &-addReview {
+            flex-basis: auto;
+            padding: 0 $sellPadding;
+            min-width: initial;
+            width: $sellBtnWidth;
+            a {
+              font-size: 14px;
+              min-width: $sellBtnWidth;
+              text-decoration: none;
+              width: 100%;
+              white-space: nowrap;
+            } // a
+          } // -addReview
+          &-countrySite {
+            text-decoration: none;
+            color: $colorLinkAside;
+            font-size: 14px;
+            min-width: $sellCountrySiteWidth;
+            transition: color .3s;
+            width: $sellCountrySiteWidth;
+            &:hover {
+              color: $colorYellow;
+              .innerText {
+                &::before {
+                  width: 100%;
+                } // before
+              } // innerText
+            } // hover
+            .imgFlag {
+              margin-right: 15px;
+            } // imgFlag
+            .innerText {
+              display: inline-block;
+              max-width: 100px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              padding: 3px 0;
+              position: relative;
+              &::before {
+                @include makeUnderlineHeight($colorYellow, 1px, 1px);
+              } // before
+            } // innerText
+          } // -countrySite
+          &-averageRating {
+            min-width: $sellAverageRatingWidth;
+            width: $sellAverageRatingWidth;
+            .ratingsBlock {
+              margin: 0;
+              @include flex(center, center);
+              &__item {
+                font-size: 20px;
+                margin-right: 10px;
+                &:last-child {
+                  margin-right: 0;
+                } // last-child
+                .starsIconBlock {
+                  @include flex(center, flex-start);
+                  .starsIcon {
+                    margin-right: 3px;
+                    &:last-child {
+                      margin-right: 0;
+                    } // last-child
+                  } // starsIcon
+                } // starsIconBlock
+              } // item
+            } // ratingsBlock
+          } // countrySite
+        } // itemSell
+      } // __item
+    } // ratingList
+  } // __content
+  &-brandsAll {
+    .ratingsBlock__mainContent {
+      width: initial;
+    } // ratingsBlock__mainContent
+    .ratingsBlock__content {
+      .ratingList {
+        &__item {
+          .itemSell {
+            &__icon {
+              border-radius: $mainBorderRadius;
+              background: white;
+              border: 1px solid $colorBgLightGray;
+              height: 100%;
+              overflow: hidden;
+              padding: 10px;
+              margin-right: 15px;
+              min-width: 60px;
+              width: 60px;
+              img {
+                object-fit: contain;
+                object-position: center center;
+                height: 100%;
+                width: 100%;
+              } // img
+            } // __icon
+          } // itemSell
+        } // __item
+      } // ratingList
+    } // ratingsBlock__content
+  } // -brandsAll
+
+  // @MEDIA -----------------------------------
+  @media screen and ( max-width: 1140px ) {
+    $sellWidth: 10vw;
+    $sellPadding: 20px;
+    $sellNameWidth: 18vw;
+    $sellReviewWidth: $sellWidth;
+    $sellManufacturerWidth: $sellWidth;
+    $sellVoteWidth: $sellWidth;
+    $allRatingsHeaderRowHeight: 65px;
+    $allRatingsRowHeight: 65px;
+    $sellBtnWidth: 50%;
+    $sellCountrySiteWidth: 15vw;
+    $sellAverageRatingWidth: 15vw;
+    // icons
+    $iconWidth: 60px;
+    $iconHeight: 45px;
+    .header {
+      &__colTitle {
+        color: $colorColName;
+        height: $allRatingsHeaderRowHeight;
+        padding: 0 $sellPadding;
+        min-width: $sellWidth;
+        width: $sellWidth;
+        &-name {
+          min-width: $sellNameWidth;
+          width: $sellNameWidth;
+        } // -name
+        &-review {
+          min-width: $sellReviewWidth;
+          width: $sellReviewWidth;
+        } // -review
+        &-manufacturer {
+          min-width: $sellManufacturerWidth;
+          width: $sellManufacturerWidth;
+        } // -manufacturer
+        &-rating {
+          width: $sellBtnWidth;
+        } // rating
+        &-addReview {
+          width: $sellBtnWidth;
+        } // page
+        &-countrySite {
+          min-width: $sellCountrySiteWidth;
+          width: $sellCountrySiteWidth;
+        } // countrySite
+        &-averageRating {
+          min-width: $sellAverageRatingWidth;
+          width: $sellAverageRatingWidth;
+        } // countrySite
+      } // __colTitle
+    } // header
+    &__content {
+      .showRatingBlock {
+
+      } // showRatingBlock
+      .ratingList {
+        &__item {
+          .itemSell {
+            @include flex(center, center);
+            padding: 0 $sellPadding;
+            min-width: $sellWidth;
+            width: $sellWidth;
+            &-name {
+              min-width: $sellNameWidth;
+              width: $sellNameWidth;
+              &:hover {
+                .itemSell {
+                  &__text {
+                    color: $colorYellow;
+                    &::before {
+                      width: 100%;
+                    } // before
+                  } // __text
+                } // itemSell
+              } // hover
+            } // &-name
+            &-review {
+              min-width: $sellWidth;
+              width: $sellReviewWidth;
+            } // -review
+            &-manufacturer {
+              min-width: $sellWidth;
+              width: $sellManufacturerWidth;
+            } // -manufacturer
+            &-rating {
+              padding: 0 $sellPadding;
+              width: $sellBtnWidth;
+              a {
+                min-width: $sellBtnWidth;
+              } // a
+            } // -rating
+            &-addReview {
+              padding: 0 $sellPadding;
+              width: $sellBtnWidth;
+              a {
+                min-width: $sellBtnWidth;
+              } // a
+            } // -addReview
+            &-countrySite {
+              color: $colorLinkAside;
+              font-size: 12px;
+              min-width: $sellCountrySiteWidth;
+              width: $sellCountrySiteWidth;
+              .imgFlag {
+                margin-right: 5px;
+              } // imgFlag
+            } // -countrySite
+            &-averageRating {
+              min-width: $sellAverageRatingWidth;
+              width: $sellAverageRatingWidth;
+              .ratingsBlock {
+                margin: 0;
+                @include flex(center, center);
+                flex-direction: column;
+                &__item {
+                  margin-right: 0;
+                  &:last-child {
+                    margin-bottom: 5px;
+                    order: -1;
+                  } // last-child
+                  .starsIconBlock {
+                    @include flex(center, flex-start);
+                    .starsIcon {
+                      margin-right: 3px;
+                      &:last-child {
+                        margin-right: 0;
+                      } // last-child
+                    } // starsIcon
+                  } // starsIconBlock
+                } // item
+              } // ratingsBlock
+            } // countrySite
+          } // itemSell
+        } // __item
+      } // ratingList
+    } // __content
+  } // 1140
+  @media screen and ( max-width: 900px ) {
+    $sellWidth: 10vw;
+    $sellPadding: 10px;
+    $sellNameWidth: 18vw;
+    $sellReviewWidth: $sellWidth;
+    $sellManufacturerWidth: $sellWidth;
+    $sellVoteWidth: $sellWidth;
+    $allRatingsHeaderRowHeight: 65px;
+    $allRatingsRowHeight: 65px;
+    $sellBtnWidth: 50%;
+    $sellCountrySiteWidth: 15vw;
+    $sellAverageRatingWidth: 15vw;
+    .header {
+      &__colTitle {
+        color: $colorColName;
+        height: $allRatingsHeaderRowHeight;
+        padding: 0 $sellPadding;
+        min-width: $sellWidth;
+        width: $sellWidth;
+        &-name {
+          min-width: $sellNameWidth;
+          width: $sellNameWidth;
+        } // -name
+        &-review {
+          min-width: $sellReviewWidth;
+          width: $sellReviewWidth;
+        } // -review
+        &-manufacturer {
+          min-width: $sellManufacturerWidth;
+          width: $sellManufacturerWidth;
+        } // -manufacturer
+        &-rating {
+          width: $sellBtnWidth;
+        } // rating
+        &-addReview {
+          width: $sellBtnWidth;
+        } // page
+        &-countrySite {
+          min-width: $sellCountrySiteWidth;
+          width: $sellCountrySiteWidth;
+        } // countrySite
+        &-averageRating {
+          min-width: $sellAverageRatingWidth;
+          width: $sellAverageRatingWidth;
+        } // countrySite
+      } // __colTitle
+    } // header
+    &__content {
+      .showRatingBlock {
+
+      } // showRatingBlock
+      .ratingList {
+        &__item {
+          .itemSell {
+            @include flex(center, center);
+            padding: 0 $sellPadding;
+            min-width: $sellWidth;
+            width: $sellWidth;
+            &-name {
+              min-width: $sellNameWidth;
+              width: $sellNameWidth;
+              &:hover {
+                .itemSell {
+                  &__text {
+                    color: $colorYellow;
+                    &::before {
+                      width: 100%;
+                    } // before
+                  } // __text
+                } // itemSell
+              } // hover
+            } // &-name
+            &-review {
+              min-width: $sellWidth;
+              width: $sellReviewWidth;
+            } // -review
+            &-manufacturer {
+              min-width: $sellWidth;
+              width: $sellManufacturerWidth;
+            } // -manufacturer
+            &-rating {
+              padding: 0 $sellPadding;
+              width: $sellBtnWidth;
+              a {
+                min-width: $sellBtnWidth;
+              } // a
+            } // -rating
+            &-addReview {
+              padding: 0 $sellPadding;
+              width: $sellBtnWidth;
+              a {
+                min-width: $sellBtnWidth;
+              } // a
+            } // -addReview
+            &-countrySite {
+              color: $colorLinkAside;
+              font-size: 12px;
+              min-width: $sellCountrySiteWidth;
+              width: $sellCountrySiteWidth;
+              .imgFlag {
+                margin-right: 5px;
+              } // imgFlag
+            } // -countrySite
+            &-averageRating {
+              min-width: $sellAverageRatingWidth;
+              width: $sellAverageRatingWidth;
+              .ratingsBlock {
+                margin: 0;
+                @include flex(center, center);
+                flex-direction: column;
+                &__item {
+                  margin-right: 0;
+                  &:last-child {
+                    margin-bottom: 5px;
+                    order: -1;
+                  } // last-child
+                  .starsIconBlock {
+                    @include flex(center, flex-start);
+                    .starsIcon {
+                      margin-right: 3px;
+                      &:last-child {
+                        margin-right: 0;
+                      } // last-child
+                    } // starsIcon
+                  } // starsIconBlock
+                } // item
+              } // ratingsBlock
+            } // countrySite
+          } // itemSell
+        } // __item
+      } // ratingList
+    } // __content
+  } // 900
+  @media screen and ( max-width: 768px ) {
+    $sellWidth: 75px;
+    $sellPadding: 10px;
+    $sellNameWidth: 140px;
+    $sellReviewWidth: $sellWidth;
+    $sellManufacturerWidth: $sellWidth;
+    $sellVoteWidth: $sellWidth;
+    $allRatingsHeaderRowHeight: 65px;
+    $allRatingsRowHeight: 65px;
+    $sellBtnWidth: 50%;
+    $sellCountrySiteWidth: 115px;
+    $sellAverageRatingWidth: 120px;
+    .header {
+      &__colTitle {
+        color: $colorColName;
+        height: $allRatingsHeaderRowHeight;
+        padding: 0 $sellPadding;
+        min-width: $sellWidth;
+        width: $sellWidth;
+        &-name {
+          min-width: $sellNameWidth;
+          width: $sellNameWidth;
+        } // -name
+        &-review {
+          min-width: $sellReviewWidth;
+          width: $sellReviewWidth;
+        } // -review
+        &-manufacturer {
+          min-width: $sellManufacturerWidth;
+          width: $sellManufacturerWidth;
+        } // -manufacturer
+        &-rating {
+          width: $sellBtnWidth;
+        } // rating
+        &-addReview {
+          width: $sellBtnWidth;
+        } // page
+        &-countrySite {
+          min-width: $sellCountrySiteWidth;
+          width: $sellCountrySiteWidth;
+        } // countrySite
+        &-averageRating {
+          min-width: $sellAverageRatingWidth;
+          width: $sellAverageRatingWidth;
+        } // countrySite
+      } // __colTitle
+    } // header
+    &__content {
+      .showRatingBlock {
+
+      } // showRatingBlock
+      .ratingList {
+        &__item {
+          .itemSell {
+            @include flex(center, center);
+            padding: 0 $sellPadding;
+            min-width: $sellWidth;
+            width: $sellWidth;
+            &-name {
+              min-width: $sellNameWidth;
+              width: $sellNameWidth;
+              &:hover {
+                .itemSell {
+                  &__text {
+                    color: $colorYellow;
+                    &::before {
+                      width: 100%;
+                    } // before
+                  } // __text
+                } // itemSell
+              } // hover
+            } // &-name
+            &-review {
+              min-width: $sellWidth;
+              width: $sellReviewWidth;
+            } // -review
+            &-manufacturer {
+              min-width: $sellWidth;
+              width: $sellManufacturerWidth;
+            } // -manufacturer
+            &-rating {
+              padding: 0 $sellPadding;
+              width: $sellBtnWidth;
+              a {
+                min-width: $sellBtnWidth;
+              } // a
+            } // -rating
+            &-addReview {
+              padding: 0 $sellPadding;
+              width: $sellBtnWidth;
+              a {
+                min-width: $sellBtnWidth;
+              } // a
+            } // -addReview
+            &-countrySite {
+              color: $colorLinkAside;
+              font-size: 12px;
+              min-width: $sellCountrySiteWidth;
+              width: $sellCountrySiteWidth;
+              .imgFlag {
+                margin-right: 5px;
+              } // imgFlag
+            } // -countrySite
+            &-averageRating {
+              min-width: $sellAverageRatingWidth;
+              width: $sellAverageRatingWidth;
+              .ratingsBlock {
+                margin: 0;
+                @include flex(center, center);
+                flex-direction: column;
+                &__item {
+                  &:last-child {
+                    margin-bottom: 5px;
+                    order: -1;
+                  } // last-child
+                  .starsIconBlock {
+                    @include flex(center, flex-start);
+                    .starsIcon {
+                      margin-right: 3px;
+                      &:last-child {
+                        margin-right: 0;
+                      } // last-child
+                    } // starsIcon
+                  } // starsIconBlock
+                } // item
+              } // ratingsBlock
+            } // countrySite
+          } // itemSell
+        } // __item
+      } // ratingList
+    } // __content
+  } // 768
+  // ==========================================
+
+} // ratingsBlock
+// ========================================
+
+
+} // allBrandsPage

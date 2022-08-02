@@ -1,0 +1,98 @@
+#carBrand {
+
+  // page header block -------------------------
+  // styles in _custom.scss
+  // ===========================================
+
+  // reviewsBlock ------------------------------
+  // styles form main
+  // ===========================================
+
+  // popularModels -----------------------------
+  .popularModelsBlock {
+    margin-bottom: $outerBlockMargin;
+    .popularModels {
+      $gutter: 15px;
+      $blockWidth: 100%;
+      $itemsInRow: 2;
+      $itemWidth: calc((#{$blockWidth} - (#{$gutter} * (#{$itemsInRow} - 1) )) / #{$itemsInRow});
+      $itemPadding: 10px;
+      border-radius: $mainBorderRadius;
+      background: $colorBgLightGray;
+      padding: 15px;
+      &__items {
+        @include flex(stretch, flex-start);
+        flex-wrap: wrap;
+      } // __items
+      &__item {
+        margin-right: $gutter;
+        margin-bottom: 40px;
+        width: $itemWidth;
+        &:nth-child(#{$itemsInRow}n){
+          margin-right: 0;
+        } // nth-child
+        &:nth-last-child(1), &:nth-last-child(2){
+          margin-bottom: 0;
+        } // nth-child
+        .innerTitle {
+          border-bottom: 1px solid $colorDarkGray;
+          color: $colorDarkGray;
+          display: inline-block;
+          font-weight: bold;
+          font-size: 18px;
+          margin-bottom: $itemPadding;
+          position: relative;
+          text-transform: uppercase;
+          text-decoration: none;
+          transition: color .3s;
+          &:hover {
+            color: $colorYellow;
+            &::before {
+              width: 100%;
+            } // before
+          } // hover
+          &::before {
+            @include makeUnderlineHeight($colorYellow, 1px, -1px);
+          } // before
+        } // innerTitle
+        .innerContent {
+          overflow: hidden;
+          max-height: 104px;
+          transition: max-height .5s;
+          &__list {
+
+          } // __list
+          &__item {
+            a {
+              color: $colorDarkGray;
+              display: inline-block;
+              font-size: 14px;
+              padding: $itemPadding 0;
+              text-decoration: none;
+              transition: color .2s;
+              white-space: nowrap;
+              &:hover {
+                color: $colorYellow;
+              } // hover
+              &::after {
+                content: '>';
+                display: inline-block;
+                font-family: "Segoe Print", Arial, sans-serif;
+                margin-left: 5px;
+                transform: rotate(2deg);
+              } // after
+            } // a
+            &-hide {
+              display: none;
+            } // -hide
+          } // __item
+        } // innerContent
+        .showMoreBtn {
+          margin-top: $itemPadding;
+        } // showMoreBtn
+      } // __item
+    } // popularModels
+  } // popularModelsBlock
+  // -------------------------------------------
+
+} // carBrand

@@ -1,0 +1,106 @@
+#comparisonAll {
+  // pageHeaderBlock ---------------------------
+  // in _custom.scss
+  // ===========================================
+
+  // widget ------------------------------------
+  .widget {
+    padding: 15px;
+  } // widget
+  .label {
+    font-size: 13px;
+  } // label
+  // ===========================================
+
+  // comparisonBlock ---------------------------
+  .comparisonBlock {
+    .blockHeader {
+      justify-content: center;
+    } // blockHeader
+    margin-bottom: 30px;
+    &__content {
+      padding: 0;
+      background: white;
+      width: 100%;
+    } // __content
+  } // comparisonBlock
+  .comparisonBlockItems {
+    $blockWidth: 100%;
+    @include flex(stretch, flex-start);
+    border-radius: 3px;
+    background: $colorBgLightGray;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    padding: 7.5px;
+    width: $blockWidth;
+    .comparisonBlockItem {
+      $itemGutter: 7.5px;
+      $itemWidth: calc( #{$blockWidth} / 2 - #{$itemGutter} * 2 );
+      color: $colorDarkGray;
+      max-width: $itemWidth;
+      min-width: $itemWidth;
+      margin: $itemGutter;
+      padding: 0;
+      text-decoration: none;
+      &__brands {
+        background: white;
+        border-radius: 3px;
+        margin-bottom: 10px;
+        overflow: hidden;
+        position: relative;
+        perspective: 1000px;
+        .brandsBlock {
+          $offsetElement: 7px;
+          align-items: center;
+          display: flex;
+          justify-content: center;
+          height: 40px;
+          &__img {
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            height: 20px;
+            width: 75px;
+          } // __img
+          &-top {
+            //border-bottom: 1px solid $colorLightGray;
+            position: relative;
+            & > div {
+              margin-bottom: $offsetElement;
+            } // div
+          } // -top
+          &-bottom {
+            & > div {
+              margin-top: $offsetElement;
+            } // div
+          } // -bottom
+        } // blockTop
+        .blockSeparator {
+          $separCircelSize: 22px;
+          align-items: center;
+          display: flex;
+          justify-content: center;
+          background: $colorYellow;
+          border-radius: 50%;
+          color: white;
+          font-size: 9px;
+          font-weight: bold;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: rotateX(0) translate(-50% , -50%);
+          transition: unset;
+          transform-origin: top;
+          height: $separCircelSize;
+          width: $separCircelSize;
+        } // blockSeparator
+      } // __brands
+      &__description {
+        font-size: 13px;
+        line-height: 16px;
+        transition: color .3s;
+      } // __description
+    } // comparisonBlockItem
+  } // comparisonBlockItems
+  // ===========================================
+} // comparisonAll

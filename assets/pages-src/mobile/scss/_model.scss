@@ -1,0 +1,99 @@
+#model {
+
+  // page header block -------------------------
+  // styles in _custom.scss
+  // ===========================================
+
+  // rating table block ------------------------
+  // styles in _custom.scss
+  // ===========================================
+
+  // reviewsBlock ------------------------------
+  // styles form main
+  // ===========================================
+
+  // otherSparePartsBlock ----------------------
+  .otherSparePartsBlock {
+    @include flex(flex-start, flex-start);
+    margin-bottom: $outerBlockMargin;
+    &__contentArea {
+      overflow: hidden;
+      width: 100%;
+    } // &__contentArea
+    .otherSpareParts {
+      $maxHeight: 315px;
+      $blockWidth: 100%;
+      $colNumber: 1;
+      $gutter: 20px;
+      $itemWidth: calc((#{$blockWidth} - #{$gutter} * (#{$colNumber} - 1)) / #{$colNumber});
+      // item param
+      $itemPadding: 5px 0;
+      $iconSize: 30px;
+      background: $colorBgLightGray;
+      border-radius: $mainBorderRadius;
+      padding: 30px 30px 20px 30px;
+      width: $blockWidth;
+      .listWrap {
+        height: $maxHeight;
+        margin-bottom: $blockTitleMarginBottom;
+        overflow: hidden;
+        transition: height .3s;
+      } // listWrap
+      &__items {
+        @include flex(flex-start, flex-start);
+        flex-wrap: wrap;
+      } // __items
+      &__item {
+        margin-right: $gutter;
+        overflow: hidden;
+        position: relative;
+        width: $itemWidth;
+        &:nth-child(#{$colNumber}n) {
+          margin-right: 0;
+        } // nth-child()
+        &::after {
+          @include gradientBorderColor($colorBgLightGray, 20px, 100%);
+        } // after
+        a {
+          color: $colorDarkGray;
+          display: inline-block;
+          font-size: 16px;
+          padding: $itemPadding;
+          text-decoration: none;
+          white-space: nowrap;
+          width: 100%;
+          figure {
+            @include flex(center, flex-start);
+          } // figure
+          span {
+            display: inline-block;
+          } // span
+        } // a
+        .innerIcon {
+          margin-right: 10px;
+          height: $iconSize;
+          width: $iconSize;
+          min-width: $iconSize;
+          img {
+            @include imgFit(contain, center);
+          } // img
+        } // innerIcon
+        .innerText {
+          position: relative;
+          transition: color .3s;
+          &::before {
+            @include makeUnderlineHeight($colorYellow, 1px, -3px);
+          } // before
+        } // innerText
+        &-bold {
+          a {
+            font-weight: bold;
+          } // a
+        } // -bold
+      } // item
+    } // otherSpareParts
+
+  } // otherSparePartsBlock
+  // -------------------------------------------
+
+} // model

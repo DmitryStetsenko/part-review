@@ -1,0 +1,52 @@
+.ratingCircle {
+  $svgSize: 36px;
+  border-radius: 50%;
+  min-height: $svgSize;
+  min-width: $svgSize;
+  position: relative;
+  height: $svgSize;
+  width: $svgSize;
+  &::before {
+    @include flex(center, center);
+    border-radius: 50%;
+    content: attr(data-value);
+    color: $colorDarkGray;
+    font-size: 13px;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  } // before
+  svg {
+    height: auto;
+    width: 100%;
+    path {
+      fill: transparent;
+      stroke-width:3;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+      stroke-dasharray: 114px;
+      transition: stroke-dashoffset 1s;
+      &.static {
+        stroke: $colorBgLightGray;
+      } // dynamic
+    } // path
+  } // svg
+} // ratingCircle
+
+.starsIcon {
+  $starIconWidth: 17px;
+  $starsIconColor: $colorRatingGreen;
+  display: block;
+  width: $starIconWidth;
+  svg {
+    fill: transparent;
+    stroke-width: 3px;
+    stroke: $starsIconColor;
+    &.fill {
+      fill: $starsIconColor;
+    } // -fill
+  } // svg
+} // startIcon

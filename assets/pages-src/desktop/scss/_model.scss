@@ -1,0 +1,205 @@
+#model {
+
+  // pageHeaderBlock ---------------------------
+  // in _custom.scss
+  // ===========================================
+
+  // rating table block ------------------------
+  // in _custom.scss
+  // ===========================================
+
+  // reviewsBlock ------------------------------
+  .reviewsBlock {
+    @include flex(flex-start, space-between);
+    margin-bottom: $outerBlockMargin;
+    .contentArea {
+      &__reviews {
+        margin-bottom: 30px;
+        &:last-child {
+          margin-bottom: 0;
+        } // last-child
+        .review {
+          margin-bottom: 30px;
+          &:last-child {
+            margin-bottom: 0;
+          } // last-child
+        } // review
+      } // reviews
+      &__pagination {
+        margin-bottom: 30px;
+      } // pagination
+      &__addReview {
+      } // __addReview
+    } // contentArea
+    .widgetsArea {
+      .widget {
+        margin-bottom: 30px;
+        &:last-child {
+          margin-bottom: 0;
+        } // last-child
+      } // widget
+    } // widgetsArea
+
+    // @MEDIA ---------------------------
+    @media screen and ( max-width: 1170px ) {
+      flex-direction: column;
+      .contentArea {
+        margin-bottom: 30px;
+        width: 100%;
+      } // contentArea
+      .widgetsArea {
+        @include flex(flex-start, center);
+        flex-wrap: wrap;
+        width: 100%;
+        .widget {
+          @include widthPercent(50%);
+          margin-right: 15px;
+          width: 100%;
+          &:last-child {
+            margin-right: 0;
+          } // last-child
+          .widgetContent {
+          } // widgetContent
+        } // widget
+      } // widgetArea
+    } // 1170
+    // ==================================
+
+  } // reviewBlock;
+  // ===========================================
+
+  // otherSparePartsBlock ----------------------
+  .otherSparePartsBlock {
+    @include flex(flex-start, flex-start);
+    margin-bottom: $outerBlockMargin;
+    &__contentArea {
+      overflow: hidden;
+      width: 100%;
+    } // &__contentArea
+    .otherSpareParts {
+      $maxHeight: 315px;
+      $blockWidth: 100%;
+      $colNumber: 3;
+      $gutter: 20px;
+      $itemWidth: calc((#{$blockWidth} - #{$gutter} * (#{$colNumber} - 1)) / #{$colNumber});
+      // item param
+      $itemPadding: 5px 0;
+      $iconSize: 30px;
+      background: $colorBgLightGray;
+      border-radius: $mainBorderRadius;
+      padding: 30px 30px 20px 30px;
+      margin-right: $gutterX2;
+      max-width: $blockWidth;
+      .listWrap {
+        height: $maxHeight;
+        margin-bottom: $blockTitleMarginBottom;
+        overflow: hidden;
+        transition: height .3s;
+      } // listWrap
+      &__items {
+        @include flex(flex-start, flex-start);
+        flex-wrap: wrap;
+      } // __items
+      &__item {
+        margin-right: $gutter;
+        overflow: hidden;
+        position: relative;
+        width: $itemWidth;
+        &:nth-child(#{$colNumber}n) {
+          margin-right: 0;
+        } // nth-child()
+        &::after {
+          @include gradientBorderColor($colorBgLightGray, 20px, 100%);
+        } // after
+        a {
+          color: $colorDarkGray;
+          display: inline-block;
+          font-size: 16px;
+          padding: $itemPadding;
+          text-decoration: none;
+          white-space: nowrap;
+          width: 100%;
+          &:hover {
+            .innerText {
+              color: $colorYellow;
+              &::before {
+                width: 100%;
+              } // before
+            } // innerText
+          } // hover
+          figure {
+            @include flex(center, flex-start);
+          } // figure
+          span {
+            display: inline-block;
+          } // span
+        } // a
+        .innerIcon {
+          margin-right: 10px;
+          height: $iconSize;
+          width: $iconSize;
+          min-width: $iconSize;
+          img {
+            @include imgFit(contain, center);
+          } // img
+        } // innerIcon
+        .innerText {
+          position: relative;
+          transition: color .3s;
+          &::before {
+            @include makeUnderlineHeight($colorYellow, 1px, -3px);
+          } // before
+        } // innerText
+        &-bold {
+          a {
+            font-weight: bold;
+          } // a
+        } // -bold
+      } // item
+    } // otherSpareParts
+    .widgetsArea {
+      .widget {
+        margin-top: 58px;
+      } // widget
+    } // widgetsArea
+
+    // @MEDIA ---------------------------
+    @media screen and (max-width: 1170px) {
+      flex-direction: column;
+      &__contentArea {
+        margin-bottom: $blockTitleMarginBottom;
+      } // &__contentArea
+      .otherSpareParts {
+        margin-right: 0;
+      } // otherSpareParts
+      .widgetsArea {
+        @include flex(flex-start, flex-start);
+        width: 100%;
+        .widget {
+          @include widthPercent(50%);
+          margin-top: 0;
+          margin-right: $gutterX2;
+          &:last-child {
+            margin-right: 0;
+          } // last-child
+          .widgetContent {
+            .favoriteManufacture {
+              .favoriteManufactureElements {
+                $maxHeight: 470px;
+                max-height: $maxHeight * 0.8;
+              } // favoriteManufactureElements
+            } // favoriteManufacture
+          } // widgetContent
+          &-favoriteManufacture {
+            $maxHeight: 470px;
+            //height: $maxHeight;
+          } // -favoriteManufacture
+        } // widget
+      } // widgetsArea
+    } // 1170
+    // ==================================
+
+  } // otherSparePartsBlock
+  // -------------------------------------------
+
+} // modelSpareParts

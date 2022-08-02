@@ -1,0 +1,224 @@
+#allRatingsPage {
+
+  // search block ---------------------------
+  .mainContent {
+    .searchBlock {
+      margin-bottom: $blockTitleMarginBottom;
+      &__input {
+        @include flex(center, flex-start);
+        & > input {
+          margin-right: 20px;
+          max-width: 400px;
+        } // input
+      } // __input
+    } // searchBlock
+  } // mainContent
+  // ========================================
+
+  // ratings block --------------------------
+  .ratingsBlock {
+    $sellWidth: 100px;
+    $sellPadding: 20px;
+    $sellNameWidth: 320px;
+    $sellReviewWidth: $sellWidth;
+    $sellManufacturerWidth: $sellWidth;
+    $sellVoteWidth: $sellWidth;
+    $allRatingsHeaderRowHeight: 65px;
+    $allRatingsRowHeight: 65px;
+    $sellBtnWidth: 250px;
+    // icons
+    $iconWidth: 60px;
+    $iconHeight: 45px;
+    margin-bottom: $outerBlockMargin;
+    &__contentScrollBox {
+      margin-bottom: 40px;
+    } // ratingBlock__contentScrollBox
+    &__mainContent {
+      width: 1140px;
+    } // __mainContent
+    .header {
+      @include flex(center, flex-start);
+      &__colTitle {
+        @include flex(center, center);
+
+        color: $colorColName;
+        height: $allRatingsHeaderRowHeight;
+        font-size: 13px;
+        flex-basis: auto;
+        &-name {
+          width: $sellNameWidth + 10px;
+        } // -name
+        &-review {
+          width: $sellReviewWidth;
+        } // -review
+        &-manufacturer {
+          width: $sellManufacturerWidth;
+        } // -manufacturer
+        &-vote {
+          width: $sellVoteWidth;
+        } // -vote
+        &-page {
+           width: $sellBtnWidth;
+        } // page
+        &-addReview {
+          width: $sellBtnWidth;
+        } // page
+      } // __colTitle
+    } // header
+    &__content {
+      .showRatingBlock {
+
+      } // showRatingBlock
+      .ratingList {
+        li {
+          border: 1px solid transparent;
+          height: $allRatingsRowHeight;
+          padding: 10px;
+          transition: border-color .3s;
+          &:nth-child(odd) {
+            background: $colorBgLightGray;
+            .itemSell {
+              &__text {
+                &::after {
+                  @include gradientBorderColor($colorBgLightGray, 30px, 100%);
+                } // after
+              } // __text
+            } // itemSell
+          } // nth-child(odd)
+          &:hover {
+            cursor: pointer;
+            border-color: $colorYellow;
+          } // hover
+        } // li
+        &__item {
+          @include flex(center, flex-start);
+          color: $colorDarkGray;
+          height: 100%;
+          text-decoration: none;
+          .itemSell {
+            @include flex(center, center);
+            border-right: 1px solid $colorLightGray;
+            flex-basis: auto;
+            height: 100%;
+            &:last-child {
+              border-right: none;
+            } // last-child
+            &__icon {
+              border-radius: $mainBorderRadius;
+              margin-right: 15px;
+              width: 60px;
+              img {
+                width: 60px;
+                object-fit: cover;
+                object-position: center;
+              } // img
+            } // __icon
+            &__text {
+              font-size: 16px;
+              position: relative;
+              transition: color .3s;
+              width: 230px;
+              overflow: hidden;
+              &::before {
+                @include makeUnderline($colorYellow, -1px);
+              } // before
+            } // __text
+            &__mainValue {
+              color: $colorDarkGray;
+              font-size: 20px;
+              &::after {
+                content: attr(data-growth);
+                font-size: 16px;
+                margin-left: 5px;
+              } // after
+              &-review {
+                &::after {
+                  color: $colorRatingGreen;
+                } // after
+              } // -review
+              &-manufacturer {
+                &::after {
+                  color: $colorLightGray;
+                } // after
+              } // -manufacturer
+              &-vote {
+                &::after {
+                  color: $colorRatingGreen;
+                } // after
+              } // -vote
+            } // __mainValue
+            &-name {
+              color: $colorDarkGray;
+              justify-content: flex-start;
+              text-decoration: none;
+              min-width: $sellNameWidth;
+              width: $sellNameWidth;
+              &:hover {
+                .itemSell {
+                  &__text {
+                    color: $colorYellow;
+                    &::before {
+                      width: 100%;
+                    } // before
+                  } // __text
+                } // itemSell
+              } // hover
+            } // &-name
+            &-review {
+              min-width: $sellWidth;
+              width: $sellReviewWidth;
+            } // -review
+            &-manufacturer {
+              min-width: $sellWidth;
+              width: $sellManufacturerWidth;
+            } // -manufacturer
+            &-vote {
+              min-width: $sellWidth;
+              width: $sellVoteWidth;
+            } // -vote
+            &-page {
+              padding: 0 $sellPadding;
+              min-width: $sellBtnWidth;
+              width: $sellBtnWidth;
+              a {
+                font-size: 14px;
+                min-width: $sellBtnWidth - 40px;
+                text-decoration: none;
+                width: $sellBtnWidth - 40px;
+                white-space: nowrap;
+              } // a
+            } // -page
+            &-addReview {
+              padding: 0 $sellPadding;
+              min-width: $sellBtnWidth;
+              width: $sellBtnWidth;
+              a {
+                font-size: 14px;
+                min-width: $sellBtnWidth - 40px;
+                text-decoration: none;
+                width: $sellBtnWidth - 40px;
+                white-space: nowrap;
+              } // a
+            } // -addReview
+          } // itemSell
+        } // __item
+      } // ratingList
+    } // __content
+
+    // @MEDIA -----------------------------------
+    @media screen and ( max-width: 1140px ) {
+      &__contentScrollBox {
+        overflow-x: scroll;
+        @include customScroll();
+      } // ratingBlock__contentScrollBox
+      &__mainContent {
+        margin-bottom: 10px;
+      } // __mainContent
+    } // 1140
+    // ==========================================
+
+  } // ratingsBlock
+  // ========================================
+
+
+} // allRatingsPage

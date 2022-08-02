@@ -1,0 +1,67 @@
+.jq-selectbox {
+  // font
+  $fontColor: $colorDarkGray;
+  $fontSize: 13px;
+  // border
+  $borderColor: $colorInputBorder;
+  $borderRadius: 3px;
+  // option
+  $itemColor: $colorDarkGray;
+  $itemFontSize: 13px;
+  $itemBgColor: $colorBgLightGray;
+
+  color: $fontColor;
+  font-size: $fontSize;
+  ul {
+    background-color: white;
+    li {
+      width: 100%;
+      background: white;
+      color: $itemColor;
+      cursor: pointer;
+      display: block;
+      font-size: $itemFontSize;
+      margin: 0;
+      overflow: hidden;
+      padding: 10px 15px;
+      text-decoration: none;
+      text-overflow: ellipsis;
+      &:hover, &.selected:hover {
+        color: $itemColor;
+        background-color: $itemBgColor;
+      } // &:hover, &.selected:hover
+    } // li
+  } // ul
+  &__select {
+    background: white;
+    box-shadow: unset;
+    &:hover {
+      box-shadow: unset;
+      background: white;
+    } // hover
+  } // __select
+  &__trigger {
+    box-shadow: unset;
+    border-left: none;
+    &-arrow {
+
+    } // arrow
+  } // __trigger
+  &.opened {
+    background-color: white;
+  } // opened
+  &.focused {
+    .jq-selectbox {
+      &__select {
+        border-color: #ccc;
+      } // __select
+    } // jq-selectbox
+  } // focused
+
+  // @MEDIA ---------------------------------------
+  // ===============================================
+
+} // mySelecter
+
+
+

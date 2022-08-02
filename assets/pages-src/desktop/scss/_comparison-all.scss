@@ -1,0 +1,248 @@
+#comparisonAll {
+  // pageHeaderBlock ---------------------------
+  // in _custom.scss
+  // ===========================================
+
+
+  // comparisonBlock ---------------------------
+  .comparisonBlock {
+    margin-bottom: 30px;
+    &__mainContent {
+      @include flex(flex-start, flex-start);
+    } // __mainContent
+    &__content {
+      padding: 0;
+      background: white;
+      margin-right: $gutterX2;
+      width: $col8Width;
+    } // __content
+  } // comparisonBlock
+  .comparisonBlockItems {
+    $blockWidth: 100%;
+    @include flex(stretch, flex-start);
+    border-radius: 3px;
+    background: $colorBgLightGray;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    padding: 15px;
+    width: $blockWidth;
+    .comparisonBlockItem {
+      $itemGutter: 7.5px;
+      $itemWidth: calc( #{$blockWidth} / 3 - #{$itemGutter} * 2 );
+      color: $colorDarkGray;
+      max-width: $itemWidth;
+      min-width: $itemWidth;
+      margin: $itemGutter;
+      text-decoration: none;
+      &__brands {
+        background: white;
+        border-radius: 3px;
+        margin-bottom: 15px;
+        overflow: hidden;
+        position: relative;
+        perspective: 1000px;
+        &::before, &::after {
+          content: '';
+          position: absolute;
+          transition: transform .3s ;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: -1;
+        } // before
+        &::before {
+          border-top: 1px solid $colorYellow;
+          border-bottom: 1px solid $colorYellow;
+          transform: scale(0, 1);
+        } // before
+        &::after {
+          border-right: 1px solid $colorYellow;
+          border-left: 1px solid $colorYellow;
+          transform: scale(1, 0);
+        } // before
+        .brandsBlock {
+          $offsetElement: 15px;
+          align-items: center;
+          display: flex;
+          justify-content: center;
+          height: 70px;
+          &__img {
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            height: 30px;
+            width: 120px;
+          } // __img
+          &-top {
+            //border-bottom: 1px solid $colorLightGray;
+            position: relative;
+            &::before, &::after {
+              content: '';
+              display: block;
+              position: absolute;
+              bottom: -1px;
+              left: 0;
+              transition: transform .3s;
+            } // before, after
+            &::before {
+              background: $colorLightGray;
+              height: 1px;
+              width: 100%;
+            } // before
+            &::after {
+              background: $colorYellow;
+              transform: scale(0);
+              height: 1px;
+              width: 100%;
+            } // before
+            & > div {
+              margin-bottom: $offsetElement;
+            } // div
+          } // -top
+          &-bottom {
+            & > div {
+              margin-top: $offsetElement;
+            } // div
+          } // -bottom
+        } // blockTop
+        .blockSeparator {
+          $separCircelSize: 41px;
+          align-items: center;
+          display: flex;
+          justify-content: center;
+          background: $colorYellow;
+          border-radius: 50%;
+          color: white;
+          font-size: 16px;
+          font-weight: bold;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: rotateX(0) translate(-50% , -50%);
+          transform-origin: top;
+          transition: unset;
+          height: $separCircelSize;
+          width: $separCircelSize;
+        } // blockSeparator
+      } // __brands
+      &__description {
+        font-size: 16px;
+        line-height: 18px;
+        transition: color .3s;
+      } // __description
+      &:hover {
+        cursor: pointer;
+        .comparisonBlockItem__brands {
+          &::before, &::after {
+            transform: scale(1, 1);
+          } // before
+          .brandsBlock {
+            &-top {
+              &::before,&::after {
+                transform: scale(.7);
+              } // before
+            } // -top
+          } // brandsBlock
+        } // comparisonBlockItem__brands
+        .comparisonBlockItem__description {
+          color: $colorYellow;
+          text-decoration: underline;
+        } // comparisonBlockItem__description
+        .blockSeparator {
+          transition: transform 1s;
+          transform: rotateX(360deg) translate(-50% , -50%);
+          box-shadow: 2px 2px 5px #00000045;
+        } // blockSeparator
+      } // hover
+    } // comparisonBlockItem
+  } // comparisonBlockItems
+
+  // @MEDIA ---------------------------
+  @media screen and ( max-width: 1170px ) {
+    .widgetsArea {
+      @include flex(flex-start, center);
+      margin-bottom: $outerBlockMargin;
+      width: 100%;
+      .widget {
+        &__header {
+          margin-bottom: auto;
+        } // __header
+        .widgetContent {
+          .comparisonWidget {
+            @include flex(stretch, space-between);
+            &__block {
+              @include flex(flex-start, flex-start);
+              flex-direction: column;
+              @include widthPercent(50%);
+              margin-right: $gutterX2;
+              margin-bottom: 0;
+              &:last-child {
+                margin-right: 0;
+              } // last-child
+            } // block
+            &__content {
+              .mainBtn {
+                &-widgetBtn {
+                  order: -1;
+                } // -widgetBtn
+              } // mainBtn
+            } // content
+            .manufactureSelect {
+              @include flex(center, space-between);
+              margin-bottom: $blockTitleMarginBottom;
+              &__item {
+                @include widthPercent(50%);
+              } // __item
+              &__vs {
+                color: $colorYellow;
+                font-size: 15px;
+                font-weight: bold;
+                margin: 0 8px;
+                transform: translateY(100%);
+              } // vs
+            } // .manufactureSelect
+          } // comparisonWidger
+        } // widgetContent
+      } // widget
+    } // widgetArea
+    .comparisonBlock {
+      margin-bottom: 30px;
+      &__mainContent {
+        flex-direction: column;
+      } // __mainContent
+      &__content {
+        margin-right: 0;
+        margin-bottom: 30px;
+        overflow: hidden;
+        padding: 15px;
+        width: 100%;
+      } // __content
+    } // comparisonBlock
+    .comparisonBlockItems {
+      $blockWidth: 100%;
+      @include flex(stretch, flex-start);
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      width: $blockWidth;
+      .comparisonBlockItem {
+        $itemGutter: 7.5px;
+        $itemWidth: calc( #{$blockWidth} / 3 - #{$itemGutter} * 2 );
+        color: $colorDarkGray;
+        max-width: $itemWidth;
+        min-width: $itemWidth;
+        margin: $itemGutter;
+        text-decoration: none;
+        &__description {
+          font-size: 16px;
+          line-height: 18px;
+          transition: color .3s;
+        } // __description
+      } // comparisonBlockItem
+    } // comparisonBlockItems
+  } // 1170
+  // ==================================
+
+  // ===========================================
+
+} // comparisonAll

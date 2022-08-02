@@ -1,0 +1,270 @@
+#allBrandsSparePartsPage {
+  color: red;
+  // search block ---------------------------
+  &.mainContent {
+    .searchBlock {
+      margin-bottom: $blockTitleMarginBottom;
+      .label {
+        &-searchBlock {
+          margin-bottom: 20px;
+        } // serachBlock
+      } // label
+      &__title {
+        display: block;
+        margin-bottom: 10px;
+      } // __title
+      &__input {
+        @include flex(center, flex-start);
+        & > input {
+          margin-right: 10px;
+          max-width: 400px;
+        } // input
+      } // __input
+      .sparePartsFilter {
+        @include flex(center, center);
+        width: 100%;
+        .filterBtn {
+          flex-basis: auto;
+          width: calc( 100% / 3 );
+        } // filterBtn
+      } // sparePartsFilter
+    } // searchBlock
+  } // mainContent
+  // ========================================
+
+  // ratings block --------------------------
+  .ratingsBlock {
+    $sellWidth: 100%;
+    $sellPadding: 20px;
+    $sellNameWidth: $sellWidth;
+    $sellReviewWidth: $sellWidth;
+    $sellManufacturerWidth: $sellWidth;
+    $sellVoteWidth: $sellWidth;
+    $allRatingsHeaderRowHeight: 65px;
+    $allRatingsRowHeight: initial;
+    $sellBtnWidth: $sellWidth;
+    // icons
+    $iconWidth: 60px;
+    $iconHeight: 45px;
+    font-size: 14px;
+    margin-bottom: $outerBlockMargin;
+    &__content {
+      margin-bottom: 40px;
+      .showRatingBlock {
+
+      } // showRatingBlock
+      .ratingList {
+        li {
+          border: 1px solid transparent;
+          height: $allRatingsRowHeight;
+          padding: 0 10px;
+          transition: border-color .3s;
+          &:nth-child(odd) {
+            background: $colorBgLightGray;
+            .itemSell {
+              &__text {
+                &::after {
+                  @include gradientBorderColor($colorBgLightGray, 30px, 100%);
+                } // after
+              } // __text
+            } // itemSell
+          } // nth-child(odd)
+          &:nth-child(even) {
+            .itemSell {
+              &__text {
+                &::after {
+                  @include gradientBorderColor(white, 30px, 100%);
+                } // after
+              } // __text
+            } // itemSell
+          } // nth-child(even)
+          &:hover {
+            cursor: pointer;
+            border-color: $colorYellow;
+          } // hover
+        } // li
+        &__item {
+          @include flex(center, flex-start);
+          flex-direction: column;
+          color: $colorDarkGray;
+          height: 100%;
+          margin-bottom: $blockTitleMarginBottom;
+          text-decoration: none;
+          .itemSell {
+            @include flex(center, flex-start);
+            border-bottom: 1px solid $colorLightGray;
+            flex-basis: auto;
+            height: 50px;
+            width: 100%;
+            &:last-child {
+              border-right: none;
+            } // last-child
+            &__title {
+              color: $colorColName;
+              min-width: 120px;
+              width: 120px;
+            } // title
+            &__text {
+              font-size: 14px;
+              position: relative;
+              transition: color .3s;
+              width: 230px;
+              overflow: hidden;
+              &::before {
+                @include makeUnderline($colorYellow, -1px);
+              } // before
+            } // __text
+            &__mainValue {
+              color: $colorDarkGray;
+              font-size: 20px;
+              &::after {
+                content: attr(data-growth);
+                font-size: 16px;
+                margin-left: 5px;
+              } // after
+              &-review {
+                &::after {
+                  color: $colorRatingGreen;
+                } // after
+              } // -review
+              &-manufacturer {
+                &::after {
+                  color: $colorLightGray;
+                } // after
+              } // -manufacturer
+              &-vote {
+                &::after {
+                  color: $colorRatingGreen;
+                } // after
+              } // -vote
+            } // __mainValue
+            &-name {
+              color: $colorDarkGray;
+              justify-content: flex-start;
+              text-decoration: none;
+              min-width: $sellNameWidth;
+              width: $sellNameWidth;
+              white-space: nowrap;
+              &:hover {
+                .itemSell {
+                  &__text {
+                    color: $colorYellow;
+                    &::before {
+                      width: 100%;
+                    } // before
+                  } // __text
+                } // itemSell
+              } // hover
+            } // &-name
+            &-review {
+              min-width: $sellWidth;
+              width: $sellReviewWidth;
+            } // -review
+            &-manufacturer {
+              min-width: $sellWidth;
+              width: $sellManufacturerWidth;
+            } // -manufacturer
+            &-rating {
+              height: initial;
+              border-bottom: none;
+              margin: 10px 0;
+              padding: 0 $sellPadding;
+              min-width: $sellBtnWidth;
+              width: $sellBtnWidth;
+              a {
+                font-size: 14px;
+                min-width: $sellBtnWidth;
+                text-decoration: none;
+                width: $sellBtnWidth;
+                white-space: nowrap;
+              } // a
+            } // -page
+            &-addReview {
+              align-items: center;
+              border-bottom: none;
+              padding: 0 $sellPadding;
+              min-width: $sellBtnWidth;
+              width: $sellBtnWidth;
+              a {
+                font-size: 14px;
+                min-width: $sellBtnWidth;
+                text-decoration: none;
+                width: $sellBtnWidth;
+                white-space: nowrap;
+              } // a
+            } // -addReview
+            &-logo {
+              .logoImg {
+                width: 60px;
+              } // logoImg
+            } // logo
+            &-ratingCount {
+              .ratingCount {
+                @include flex(center, flex-start);
+                height: 100%;
+                &:hover {
+                  cursor: pointer;
+                  .ratingCount__text {
+                    color: $colorYellow;
+                    &::before {
+                      width: 100%;
+                    } // before
+                  } // __text
+                } // hover
+                &__text {
+                  border-bottom: 1px solid $colorDarkGray;
+                  color: $colorDarkGray;
+                  position: relative;
+                  text-decoration: none;
+                  transition: color .3s;
+                  &::before {
+                    @include makeUnderlineHeight($colorYellow, 1px, -1px);
+                  } // before
+                } // text
+                .ratingCircleDynamic {
+                  $circleSize: 36px;
+                  font-size: 13px;
+                  font-weight: bold;
+                  height: $circleSize;
+                  margin-right: 10px;
+                  min-width: $circleSize;
+                  order: -1;
+                  position: relative;
+                  text-align: center;
+                  width: $circleSize;
+                  &>.svgWrap {
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    @include absPosCenter();
+                    .svgRatingCircle {
+                      height: auto;
+                      width: 100%;
+                      &>path {
+                        fill: transparent;
+                        stroke-width:3;
+                        stroke-linecap:round;
+                        stroke-linejoin:round;
+                        stroke-dasharray: 114px;
+                        transition: stroke-dashoffset 1s;
+                        &.static {
+                          stroke: #cdcdcd;
+                        } // dynamic
+                      } // path
+                    } // svgRatingCircle
+                  } // svgWrap
+                  & > span {
+                    line-height: $circleSize;
+                  } // span
+                } // ratingCircleDynamic
+              } // ratingCount
+            } // -ratingCount
+          } // itemSell
+        } // __item
+      } // ratingList
+    } // __content
+
+  } // ratingsBlock
+  // ========================================
+
+} // allBrandsSparePartsPage
