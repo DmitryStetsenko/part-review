@@ -17,4 +17,35 @@ body {
   max-width: 1366px;
   margin: 0 auto;
 }
+
+.tabs {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid silver;
+}
+
+.tabs__item {
+  text-align: center;
+  padding: 10px 20px;
+}
+
+.tabs__item span {
+  display: block;
+}
+
+.tabs__item span:first-child {
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+}
 /*# sourceMappingURL=style.css.map */

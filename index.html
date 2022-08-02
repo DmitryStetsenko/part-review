@@ -16,12 +16,26 @@
     </header>
     <main class="main">
         <div class="container">
-            <h2>Десктопные версии страниц <span>max-width: 768px<span></h2>
-            <p>
-                Мобильная версия сайта планировалась загружаться с отдельного поддомена,
-                для просмотра доступны по переключателю 
-            </p>
+            <div class="pages-tab-block">
+                <ul class="tabs">
+                    <li class="tabs__item">
+                        <span>Decktop</span>
+                        <span>min-width: 768</span>
+                    </li>
+                    <li class="tabs__item">
+                        <span>Mobile</span>
+                        <span>max-width: 768</span>
+                    </li>
+                </ul>
+                <div class="content">
+                    <ul class="pages">
+                        <li class="page"></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </main>
+
+    <script src="./assets/js/main.js"></script>
 </body>
 </html>

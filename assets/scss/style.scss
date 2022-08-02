@@ -1,4 +1,6 @@
+@import "vars";
 @import "normailze";
+@import "mixinis";
 
 body {
     font-family: sans-serif;
@@ -14,3 +16,23 @@ body {
 
 // main
 .main {}
+
+.pages-tab-block {}
+.tabs {
+    @include flex;
+    border-bottom: 1px solid silver;
+    &__item {
+        text-align: center;
+        padding: 10px 20px;
+        span {
+            display: block;
+            &:first-child {
+                font-weight: bold;
+                font-size: 18px;
+                text-transform: uppercase;
+            }
+            &:last-child {}
+        }
+        
+    }
+}
