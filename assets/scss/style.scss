@@ -9,6 +9,9 @@
 body {
     font-family: sans-serif;
     padding-bottom: 20px;
+    &.noscroll {
+        overflow: hidden;
+    }
 }
 
 .container {

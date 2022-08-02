@@ -46,7 +46,17 @@ function renderPages(pagesListArr, target) {
             </li>`;
 
         pagesBlock.insertAdjacentHTML('beforeend', page);
+
+        doc.querySelectorAll('.btn--full-screen')
+            .forEach(item => item.onclick = fullScreenBtnHandler);
     });
+}
+
+function fullScreenBtnHandler() {
+    const pageEl = this.closest('.page');
+    pageEl.classList.toggle('page--full-screen');
+    this.classList.toggle('btn--close');
+    doc.body.classList.toggle('noscroll');
 }
 
 function getPages(type) {
@@ -123,4 +133,6 @@ function getPages(type) {
     });
     return pagesFullInfo;
 }
+
+
 

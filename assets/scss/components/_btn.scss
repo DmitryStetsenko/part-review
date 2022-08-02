@@ -32,6 +32,11 @@
             content: "\f065";
         }
     }
+    &--close {
+        &::before {
+            content: "\f00d";
+        }
+    }
     &--up {
         flex: 1 0 $btnSize * 1.2;
         width: $btnSize * 1.2;

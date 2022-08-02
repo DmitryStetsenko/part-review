@@ -23,6 +23,10 @@ body {
   padding-bottom: 20px;
 }
 
+body.noscroll {
+  overflow: hidden;
+}
+
 .container {
   max-width: 1400px;
   margin: 0 auto;
@@ -98,6 +102,10 @@ body {
 
 .btn--full-screen::before {
   content: "\f065";
+}
+
+.btn--close::before {
+  content: "\f00d";
 }
 
 .btn--up {
@@ -342,5 +350,14 @@ body {
 
 .page:last-child {
   margin-bottom: 0;
+}
+
+.page--full-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
 }
 /*# sourceMappingURL=style.css.map */

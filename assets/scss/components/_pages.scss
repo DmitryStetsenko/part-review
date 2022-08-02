@@ -52,4 +52,12 @@
     &:last-child {
         margin-bottom: 0;
     }
+    &--full-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1000;
+    }
 }
