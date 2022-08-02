@@ -8,6 +8,7 @@
 
 body {
     font-family: sans-serif;
+    padding-bottom: 20px;
 }
 
 .container {
@@ -27,7 +28,8 @@ body {
 // tabs
 .pages-tab-block {
     &__content {
-        padding: 0 30px;
+        @include flex;
+        padding: 0 15px;
     }
 }
 

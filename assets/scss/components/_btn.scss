@@ -1,24 +1,26 @@
 .btn {
     @include flex;
-    flex: 1 0 50px;
-    width: 50px;
-    height: 50px;
+    flex: 1 0 $btnSize;
+    width: $btnSize;
+    height: $btnSize;
     border: 1px solid silver;
     margin: 5px;
     border-radius: $borderRadius;
     position: relative;
-    color: $btnTextColor;
-    transition: color 0.3s;
     text-decoration: none;
     cursor: pointer;
     &:hover {
-        color: $btnTextColorHover;
+        &::before {
+            color: $btnTextColorHover;
+        }
     }
     &::before {
         position: absolute;
         font-size: 25px;
         font-family: "Font Awesome 6 Free";
         font-weight: bold;
+        color: $btnTextColor;
+        transition: color 0.3s;
     }
     &--link {
         &::before {
@@ -28,6 +30,24 @@
     &--full-screen {
         &::before {
             content: "\f065";
+        }
+    }
+    &--up {
+        flex: 1 0 $btnSize * 1.2;
+        width: $btnSize * 1.2;
+        height: $btnSize * 1.2;
+        position: fixed;
+        bottom: 15px;
+        right: 15px;
+        background: rgba(silver, .5);
+        color: grey;
+        transition: background .3s;
+        cursor: pointer;
+        &:hover {
+            background: silver;
+        }
+        &::before {
+            content: "\f102";
         }
     }
 }

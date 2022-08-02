@@ -12,8 +12,20 @@
             border: 1px solid silver;
             color: grey;
             transition: color .3s;
+            position: relative;
             &:hover {
                 color: black;
+            }
+            &::before {
+                @include flex;
+                content: attr(data-number);
+                position: absolute;
+                width: 15px;
+                height: 15px;
+                top: 0;
+                right: 0;
+                font-size: 0.6rem;
+                font-weight: bold;
             }
         }
     }

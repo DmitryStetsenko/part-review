@@ -1,30 +1,48 @@
 const doc = document;
 const pagesTabBlockContent = doc.querySelector('.pages-tab-block__content');
-const pagesList = getPages('mobile');
+const tabsHtmlEL = doc.querySelector('.tabs');
+const pagesList = getPages('desktop');
 
+renderMenu(pagesList, tabsHtmlEL);
 renderPages(pagesList, pagesTabBlockContent);
+
+function renderMenu(pagesListArr, target) {
+    const menuBlock = doc.createElement('ul');
+    menuBlock.className = 'page-menu';
+    target.after(menuBlock);
+
+    pagesListArr.forEach((item, index) => {
+        const num = index + 1;
+        const menuItem = `
+            <li class="page-menu__item">
+                <a href="#page${num}" data-number="${num}">${item.name}</a>
+            </li>`;
+
+        menuBlock.insertAdjacentHTML('beforeend', menuItem);
+    });
+}
 
 function renderPages(pagesListArr, target) {
     const pagesBlock = doc.createElement('ul');
     pagesBlock.className = 'pages';
     target.append(pagesBlock);
 
-    pagesListArr.forEach(item => {
+    pagesListArr.forEach((item, index) => {
+        const num = index + 1;
         const page = `
-            <li class="page">
+            <li class="page" data-number="${num}" id="page${num}">
                 <div class="page__info">
                     <div class="page__info-wrapper">
-                        <h3 class="page__name">index.html</h3>
-                        <p class="page__descr">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit officia soluta earum
-                            dignissimos fugit aliquam necessitatibus sapiente explicabo ullam temporibus.
-                        </p>
+                        <h3 class="page__name">
+                            <a href="${item.url}" target="_blank">${item.name}.html</a>
+                        </h3>
+                        <p class="page__descr">${item.descr}</p>
                     </div>
-                    <a href="" target="_blank" class="btn btn--link"></a>
+                    <a href="${item.url}" target="_blank" class="btn btn--link"></a>
                     <button class="btn btn--full-screen"></button>
                 </div>
                 
-                <iframe src="./assets/pages-src/desktop/brands-all.html" frameborder="0"></iframe>
+                <iframe src="${item.url}" frameborder="0"></iframe>
             </li>`;
 
         pagesBlock.insertAdjacentHTML('beforeend', page);
