@@ -85,6 +85,10 @@ function getPages(type) {
     const baseUrl = `./assets/pages-src/${type}/` ;
     const pagesInfoList =[
         {
+            name: 'index',
+            descr: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit officia soluta earum dignissimos fugit aliquam necessitatibus sapiente explicabo ullam temporibus.',
+        },
+        {
             name: 'user',
             descr: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit officia soluta earum dignissimos fugit aliquam necessitatibus sapiente explicabo ullam temporibus.',
         },
@@ -114,10 +118,6 @@ function getPages(type) {
         },
         {
             name: 'comparison-all',
-            descr: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit officia soluta earum dignissimos fugit aliquam necessitatibus sapiente explicabo ullam temporibus.',
-        },
-        {
-            name: 'index',
             descr: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit officia soluta earum dignissimos fugit aliquam necessitatibus sapiente explicabo ullam temporibus.',
         },
         {
