@@ -1415,7 +1415,6 @@ $(function () {
         let rating = averageRatingBlock.find('.starsIconBlock'),
             ratingItem = averageRatingBlock.find('.starsIconBlock__icon');
         let ratingValue = averageRatingBlock.find('.ratingsBlock__item-rating');
-        console.log(ratingValue);
 
         rating.click(function(e){
             let target = e.target;

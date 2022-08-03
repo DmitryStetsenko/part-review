@@ -1,16 +1,30 @@
 const doc = document;
 const pagesTabBlockContent = doc.querySelector('.pages-tab-block__content');
 const tabsHtmlEL = doc.querySelector('.tabs');
-const pagesList = getPages('desktop');
+const tabsItemsEl = doc.querySelectorAll('.tabs__item');
+let tabStatus = 'desktop';
 
-renderMenu(pagesList, tabsHtmlEL);
-renderPages(pagesList, pagesTabBlockContent);
+main(tabStatus);
+
+function main(tabStatus) {
+    console.log(tabStatus);
+    let pagesList = getPages(tabStatus);
+
+    tabsToggleClickEvents();
+    renderMenu(pagesList, tabsHtmlEL);
+    renderPages(pagesList, pagesTabBlockContent);
+}
 
 function renderMenu(pagesListArr, target) {
-    const menuBlock = doc.createElement('ul');
+    let menuBlock = doc.querySelector('.page-menu');
+    if (menuBlock) {
+        menuBlock.remove();
+    }
+
+    menuBlock = doc.createElement('ul');
     menuBlock.className = 'page-menu';
     target.after(menuBlock);
-
+    
     pagesListArr.forEach((item, index) => {
         const num = index + 1;
         const menuItem = `
@@ -23,8 +37,14 @@ function renderMenu(pagesListArr, target) {
 }
 
 function renderPages(pagesListArr, target) {
-    const pagesBlock = doc.createElement('ul');
-    pagesBlock.className = 'pages';
+    let pagesBlock = doc.querySelector('.pages');
+    const pageSrcClassName = tabStatus === 'desktop' ? 'page__src' : 'page__src page__src--mobile';
+    if (pagesBlock) {
+        pagesBlock.remove();
+    }
+
+    pagesBlock = doc.createElement('ul');
+    pagesBlock.className = tabStatus === 'desktop' ? 'pages' : 'pages pages--mobile';
     target.append(pagesBlock);
 
     pagesListArr.forEach((item, index) => {
@@ -38,11 +58,13 @@ function renderPages(pagesListArr, target) {
                         </h3>
                         <p class="page__descr">${item.descr}</p>
                     </div>
-                    <a href="${item.url}" target="_blank" class="btn btn--link"></a>
-                    <button class="btn btn--full-screen"></button>
+                    <div class="page__user-action">
+                        <a href="${item.url}" target="_blank" class="btn btn--link"></a>
+                        <button class="btn btn--full-screen"></button>
+                    </div> 
                 </div>
                 
-                <iframe src="${item.url}" frameborder="0"></iframe>
+                <iframe class="${pageSrcClassName}" src="${item.url}" frameborder="0"></iframe>
             </li>`;
 
         pagesBlock.insertAdjacentHTML('beforeend', page);
@@ -134,5 +156,15 @@ function getPages(type) {
     return pagesFullInfo;
 }
 
+
+function tabsToggleClickEvents() {
+    tabsItemsEl.forEach(item => item.onclick = tabsToggleHandler);
+}
+function tabsToggleHandler() {
+    tabsItemsEl.forEach(item => item.classList.toggle('tabs__item--active'));
+    tabStatus = tabStatus === 'desktop' ? 'mobile' : 'desktop';
+
+    main(tabStatus);
+}
 
 

@@ -1,6 +1,6 @@
 .btn {
     @include flex;
-    flex: 1 0 $btnSize;
+    flex: 0 0 $btnSize;
     width: $btnSize;
     height: $btnSize;
     border: 1px solid silver;
